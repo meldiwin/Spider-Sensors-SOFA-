@@ -1,10 +1,34 @@
-# -*- coding: utf-8 -*-
+9# -*- coding: utf-8 -*-
 
 import Sofa
 
+import SofaRuntime
+SofaRuntime.importPlugin("SofaComponentAll")
+
+# to add elements like Node or objects
+import Sofa.Core
+root = Sofa.Core.Node()
+import math 
+import numpy as np
+from scipy import signal
+
 import os
 
+
 path = os.path.dirname(os.path.abspath(__file__)) + '/mesh/'
+
+
+class SpiderController(Sofa.Core.Controller):
+
+	def __init__(self, *args, **kwargs):
+		Sofa.Core.Controller.__init__(self,*args, **kwargs) #needed
+		self.time = 0.0
+		self.node = kwargs['node']
+		self.pos3 = kwargs['pos3']
+		
+	def onAnimateBeginEvent(self,event):
+		self.time = self.node.time.value
+		self.node.matrix.FF.force.value = [0,400000,0] 
 
 
 def createScene(rootNode):
@@ -47,8 +71,10 @@ def createScene(rootNode):
     rootNode.addObject('BackgroundSetting', color=[0, 0, 0, 0])
     #rootNode.findData('gravity').value = [0, 0, -981.0]
     rootNode.findData('gravity').value = [0, 0, -9.81]
+
+
   
-    rootNode.findData('dt').value = 0.01
+    #rootNode.findData('dt').value = 0.01
     
 
      
@@ -77,9 +103,13 @@ def createScene(rootNode):
     
     matrix.addObject('LinearSolverConstraintCorrection')
     
-    matrix.addObject('ConstantForceField',name='totalForce', indices= "217 218 226 298 469 480 483 516 554 558 565 569 571 607 631 693 721 727 792 834 897 929 930 933 935 1014 1129 1191 1219 1332 1431 1460", force='0 400000 0 0 0 0', showArrowSize = "0.00005")
-      
-     
+    matrix.addObject('ConstantForceField',name='FF', indices= "217 218 226 298 469 480 483 516 554 558 565 569 571 607 631 693 721 727 792 834 897 929 930 933 935 1014 1129 1191 1219 1332 1431 1460", force =[0, 0, 0], showArrowSize = "0.00005")
+    
+    matrix.addObject(SpiderController(node=rootNode, pos3 = rootNode.matrix.tetras.position.value))
+   
+   
+   #matrix.addObject('PositionConstraint', indices= "217 218 226 298 469 480 483 516 554 558 565 569 571 607 631 693 721 727 792 834 897 929 930 933 935 1014 1129 1191 1219 1332 1431 1460",valueType="displacement", value=30, useDirections=[0, 1, 0]) 
+
 
     
     
