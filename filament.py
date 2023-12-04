@@ -5,6 +5,7 @@ import Sofa
 import SofaRuntime
 SofaRuntime.importPlugin("SofaComponentAll")
 
+
 # to add elements like Node or objects
 import Sofa.Core
 root = Sofa.Core.Node()
@@ -27,8 +28,83 @@ class SpiderController(Sofa.Core.Controller):
 		self.pos_matrix = kwargs['pos_matrix']
 		self.pos_filament = kwargs['pos_filament']
 		
+		
+		self.max1 = 0
+		self.posmax1 = 0
+		self.max2 = 0
+		self.posmax2 = 0
+
+		for j in range(0, len(self.pos_matrix)):
+			if self.pos_matrix[j][1] >= self.max1:
+				self.max1 = self.pos_matrix[j][1]
+				self.posmax1 = j
+		print(self.posmax1)
+         
+        #### Maximum #####
+        
+		self.lin = self.node.matrix.l_matrix.position.value[self.posmax1][1]
+	
+
+            	
 	def onAnimateBeginEvent(self,event):
-		self.time = self.node.time.value
+            self.time = self.node.time.value
+            self.pos_matrix= self.node.matrix.l_matrix.position.value
+            self.pos_filament= self.node.matrix.filament.l_filament.position.value
+
+            ramp_time = 5  # Time for each ramp (up and down)
+            forces = np.piecewise(self.time , [self.time  < ramp_time, (ramp_time <= self.time ) & (self.time  <= 2*ramp_time), self.time  > 2*ramp_time],
+                     [lambda t: 80000 * t, lambda t: 700000 - 80000 * (t - ramp_time), 0])
+
+            self.node.matrix.FF.force.value = [0,forces,0]
+            
+            ###### Max position filament################
+            pos_filament_max= self.pos_filament[440][1]
+            print("pos_filament_max is: ", pos_filament_max)
+            
+            #### Lowest position filament ###########
+            pos_filament_low= self.pos_filament[0][1]
+            print("pos_filament_low is: ", pos_filament_low)
+            
+             ##### Delta L for filament at each step ###########
+             
+             ##### 441 is the number of the last point from paraview volumetric mesh "No of points-1"  ###############
+             
+            filament_length_0= math.ceil(-1*(self.pos_filament[440][1]- self.pos_filament[0][1]))
+            print("filament length at zero strain is: ", filament_length_0)
+            
+            
+            
+            ###### Max position matrix################
+            
+            ##### 1472 is the number of the last point from paraview volumetric mesh "No of points-1" ###############
+            
+            
+            pos_matrix_max= self.pos_matrix[1471][1]
+            print("pos_matrix_max is: ", pos_matrix_max)
+            
+            
+            ###### Max position matrix################
+            pos_matrix_low= self.pos_matrix[0][1]
+            print("pos_matrix_low is: ", pos_matrix_low)
+            
+            
+            ###### Delta L for filament at each step ###########
+            matrix_length_0= math.ceil((self.pos_matrix[1471][1]- self.pos_matrix[0][1]))
+            print("matrix length at zero strain is: ", matrix_length_0)
+            
+            
+
+            
+		
+		
+
+		
+        ###self.pos_matrix= self.node.matrix.l_matrix.position.value
+		###print(self.pos_matrix[0][self.posmax1])
+	
+	    
+		
+		
 		
 		#### at "zero" strain, force "0", filament length is "9.3", active matrix length is "37.5" 
 		
@@ -36,23 +112,24 @@ class SpiderController(Sofa.Core.Controller):
 		#self.node.matrix.FF.force.value = [0,0,0]
 		
 		#### at "50%" strain,  force is "110000"
-		self.node.matrix.FF.force.value = [0,400000,0]   
+		#self.node.matrix.FF.force.value = [0,400000,0]   
 		
 		
-		self.pos_filament= self.node.matrix.filament.l_filament.position.value
-		self.pos_matrix= self.node.matrix.l_matrix.position.value
 		
-		self.file_matrix = open(path + 'pos_matrix.txt', 'w')  
-		self.file_filament = open(path + 'position_filament.txt', 'w') 
+		
+		
+		#self.pos_filament= self.node.matrix.filament.l_filament.position.value
+		
+		
+		#self.file_matrix = open(path + 'pos_matrix.txt', 'w')  
+		#self.file_filament = open(path + 'position_filament.txt', 'w') 
 		
         #print(self.pos_matrix, file= self.file_matrix)
         #print(self.pos_matrix, file= self.file_matrix)
         
 
 
-		
-		#print("filament is:", self.pos_filament)
-		print("matrix is:", self.pos_matrix)
+	
 		
 		
 		
@@ -90,6 +167,7 @@ def createScene(rootNode):
                         hideBoundingCollisionModels hideForceFields showInteractionForceFields hideWireframe")
 
     rootNode.addObject('FreeMotionAnimationLoop')
+    rootNode.addObject('RequiredPlugin', name='Sofa.Component.Collision.Geometry')
     rootNode.addObject('DefaultVisualManagerLoop')
 
     rootNode.addObject('GenericConstraintSolver', maxIterations=1000, tolerance=1e-3)
@@ -118,7 +196,7 @@ def createScene(rootNode):
     matrix = rootNode.addChild('matrix')
     matrix.addObject('EulerImplicitSolver', firstOrder=False, rayleighStiffness=0.2, rayleighMass=0.2)
     matrix.addObject('SparseLDLSolver')
-
+    
     matrix.addObject('MeshVTKLoader', name='loader', filename=path + 'matrix.vtk', rotation=[0, 0, 0])
     matrix.addObject('MeshTopology', src='@loader')
 
@@ -126,14 +204,18 @@ def createScene(rootNode):
     matrix.addObject('UniformMass', totalMass=1)
     matrix.addObject('TetrahedronFEMForceField', template='Vec3', name='FEM', method='large', poissonRatio=0.4,
                         youngModulus=0.6e6)
+    
     matrix.addObject('FixedConstraint', indices="465 475 487 590 594 637 638 740 477 675 818 975 1173 508 594 651 657 885 907 948 1149 1383 1446 543 666 920 1041 142 387 542 754 467 470 494 561 562 568 689 710 719 802 837 838 944 965 968 1059 1060 1066 1217 1300 1335 1442 1464")
     
     
     
-    matrix.addObject('ConstantForceField',name='FF', indices= "725 806 974 599 627 911 1125 505 519 832 1003 520 541 662 1039 466 581 644 734 892 951 960 1232 1449 1458 1462 224 296 462 541 154 156 393 540 607 978 1014 1105 554 981 1052 1427 758 1096 1256 1430", force =[0, 0, 0], showArrowSize = "0.00003")
+    matrix.addObject('ConstantForceField',name='FF', indices= "216 217 299 426 219 298 299 1469 218 298", force =[0, 0, 0], showArrowSize = "0.00003")
 
     matrix.addObject('LinearSolverConstraintCorrection')
    
+   
+ 
+
    
    ############################  strain control ########################
    
@@ -153,7 +235,12 @@ def createScene(rootNode):
     matrixVisu.addObject('OglModel', src="@loader",  color=[0.9, 0.9, 0.9, 0.5]) 
 
     # Add a BarycentricMapping to deform the rendering model in a way that follow the ones of the parent mechanical model.
+    matrixVisu.addObject('TriangleCollisionModel')
+    matrixVisu.addObject('LineCollisionModel')
+    matrixVisu.addObject('PointCollisionModel')
+
     matrixVisu.addObject('BarycentricMapping')
+    
 
     ##########################################
     # filament                           #
@@ -185,6 +272,11 @@ def createScene(rootNode):
     filamentVisu = filament.addChild('visu1')
     filamentVisu.addObject('MeshSTLLoader', filename=path + "filament.stl", name="loader")
     filamentVisu.addObject('OglModel', src="@loader", color=[0.1, 0.1, 0.1, 0.9])
+        
+    filamentVisu.addObject('TriangleCollisionModel')
+    filamentVisu.addObject('LineCollisionModel')
+    filamentVisu.addObject('PointCollisionModel')
+
     filamentVisu.addObject('BarycentricMapping')
 
     return rootNode
