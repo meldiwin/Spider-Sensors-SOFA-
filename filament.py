@@ -33,16 +33,26 @@ class SpiderController(Sofa.Core.Controller):
 		#### at "zero" strain, force "0", filament length is "9.3", active matrix length is "37.5" 
 		
 		# "from here "position Constraint below" can be used given the initial length and desired strain"
-		self.node.matrix.FF.force.value = [0,0,0]
+		#self.node.matrix.FF.force.value = [0,0,0]
 		
 		#### at "50%" strain,  force is "110000"
-		#self.node.matrix.FF.force.value = [0,300000,0]   
+		self.node.matrix.FF.force.value = [0,400000,0]   
 		
 		
 		self.pos_filament= self.node.matrix.filament.l_filament.position.value
 		self.pos_matrix= self.node.matrix.l_matrix.position.value
 		
-		print(self.pos_filament)
+		self.file_matrix = open(path + 'pos_matrix.txt', 'w')  
+		self.file_filament = open(path + 'position_filament.txt', 'w') 
+		
+        #print(self.pos_matrix, file= self.file_matrix)
+        #print(self.pos_matrix, file= self.file_matrix)
+        
+
+
+		
+		#print("filament is:", self.pos_filament)
+		print("matrix is:", self.pos_matrix)
 		
 		
 		
@@ -118,12 +128,14 @@ def createScene(rootNode):
                         youngModulus=0.6e6)
     matrix.addObject('FixedConstraint', indices="465 475 487 590 594 637 638 740 477 675 818 975 1173 508 594 651 657 885 907 948 1149 1383 1446 543 666 920 1041 142 387 542 754 467 470 494 561 562 568 689 710 719 802 837 838 944 965 968 1059 1060 1066 1217 1300 1335 1442 1464")
     
-    matrix.addObject('LinearSolverConstraintCorrection')
+    
     
     matrix.addObject('ConstantForceField',name='FF', indices= "725 806 974 599 627 911 1125 505 519 832 1003 520 541 662 1039 466 581 644 734 892 951 960 1232 1449 1458 1462 224 296 462 541 154 156 393 540 607 978 1014 1105 554 981 1052 1427 758 1096 1256 1430", force =[0, 0, 0], showArrowSize = "0.00003")
 
-    
+    matrix.addObject('LinearSolverConstraintCorrection')
    
+   
+   ############################  strain control ########################
    
    #matrix.addObject('PositionConstraint', indices= "725 806 974 599 627 911 1125 505 519 832 1003 520 541 662 1039 466 581 644 734 892 951 960 1232 1449 1458 1462 224 296 462 541 154 156 393 540",valueType="displacement", value=50, useDirections=[0, 1, 0]) 
 
