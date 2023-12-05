@@ -49,11 +49,22 @@ class SpiderController(Sofa.Core.Controller):
           
             
             
+            
+		    
+		
+            
             filament_length = self.pos_filament[0][1] - self.pos_filament[4][1]
+            self.file_filament = open(path + 'position_filament.txt', 'w') 
+            #print(filament_length, file= self.file_filament)
             print("filament length is :", filament_length )
             
+
+            
             matrix_length = self.pos_matrix[1][1] - self.pos_matrix[6][1]
+            self.file_matrix = open(path + 'position_matrix.txt', 'w')  
+            #print(matrix_length, file= self.file_matrix)
             print("matrix length is :", matrix_length )
+            
             
         #print(self.pos_matrix, file= self.file_matrix)
         #print(self.pos_matrix, file= self.file_matrix)
