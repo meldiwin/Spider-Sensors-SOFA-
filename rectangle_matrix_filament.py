@@ -48,11 +48,6 @@ class SpiderController(Sofa.Core.Controller):
           ###########################  length changes #########################
           
             
-            
-            
-		    
-		
-            
             filament_length = self.pos_filament[0][1] - self.pos_filament[4][1]
             self.file_filament = open(path + 'position_filament.txt', 'w') 
             #print(filament_length, file= self.file_filament)
@@ -259,7 +254,7 @@ def createScene(rootNode):
     filament.addObject(SpiderController(node=rootNode, pos_matrix = rootNode.matrix.l_matrix.position.value,  pos_filament = rootNode.matrix.filament.l_filament.position.value))
 
     ##########################################
-    # filament Visualization                          #
+    # filament Visualization                          
     ##########################################
     filamentVisu = filament.addChild('visu1')
     filamentVisu.addObject('MeshSTLLoader', filename=path + "0_0.stl", name="loader")
