@@ -43,24 +43,31 @@ class SpiderController(Sofa.Core.Controller):
 
             self.node.matrix.FF.force.value = [0,forces,0]
             
-            ###############################################################################
-            filament_segment_delta = self.pos_filament[440][1] - self.pos_filament[436][1]
-            print("filament_segment_0 is :", filament_segment_delta )
             
-            ###############################################################################
-            matrix_segment_delta = self.pos_matrix[977][1] - self.pos_matrix[973][1]
-            print("matrix_segment_0 is :", matrix_segment_delta)
+            
+          ###########################  length changes #########################
+          
+            
+            
+            filament_length = self.pos_filament[0][1] - self.pos_filament[4][1]
+            print("filament length is :", filament_length )
+            
+            matrix_length = self.pos_matrix[1][1] - self.pos_matrix[6][1]
+            print("matrix length is :", matrix_length )
+            
+        #print(self.pos_matrix, file= self.file_matrix)
+        #print(self.pos_matrix, file= self.file_matrix)
+            
+            ################################################################################
+            #filament_segment_delta = self.pos_filament[440][1] - self.pos_filament[436][1]
+            #print("filament_segment_0 is :", filament_segment_delta )
+            
+            ################################################################################
+            #matrix_segment_delta = self.pos_matrix[977][1] - self.pos_matrix[973][1]
+            #print("matrix_segment_0 is :", matrix_segment_delta)
            
            
-            ###### Max point filament################
-            pos_filament_i= self.pos_filament[440][1]
-            print("pos_filament_i is: ", pos_filament_i)
-            
-
-            
-            ###### Max point marix ################
-            pos_matrix_i= self.pos_matrix[977][1]
-            print("pos_matrix_i is: ", pos_matrix_i)
+        
             
             
             
