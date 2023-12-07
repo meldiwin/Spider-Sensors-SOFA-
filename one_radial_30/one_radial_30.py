@@ -63,32 +63,45 @@ class SpiderController(Sofa.Core.Controller):
             filament_segment_1 = self.pos_filament[74][1] - self.pos_filament[5][1]
             self.file_filament = open(path + 'position_filament.txt', 'w') 
             #print(filament_length, file= self.file_filament)
-            print("filament_segment_1 is :",filament_segment_1 )
+            #print("filament_segment_1 is :",filament_segment_1 )
+                        
+            epislon_1= (filament_segment_1 -  5.196)/  5.196
+            print("epislon_1 :", epislon_1)
+            
+           
             
             
                         
             filament_segment_2 = self.pos_filament[78][1] - self.pos_filament[74][1]
             self.file_filament = open(path + 'position_filament.txt', 'w') 
             #print(filament_length, file= self.file_filament)
-            print("filament_segment_2 is :",filament_segment_2 )
+            #print("filament_segment_2 is :",filament_segment_2 )
+            epislon_2= (filament_segment_2 -  5.196)/  5.196
+            print("epislon_2 :", epislon_2)
+            
             
                         
             filament_segment_3 = self.pos_filament[82][1] - self.pos_filament[78][1]
             self.file_filament = open(path + 'position_filament.txt', 'w') 
             #print(filament_length, file= self.file_filament)
-            print("filament_segment_3 is :",filament_segment_3 )
-            
+            #print("filament_segment_3 is :",filament_segment_3 )
+            epislon_3= (filament_segment_3 -  5.196)/  5.196
+            print("epislon_3 :", epislon_3)
             
             filament_segment_4 = self.pos_filament[86][1] - self.pos_filament[82][1]
             self.file_filament = open(path + 'position_filament.txt', 'w') 
             #print(filament_length, file= self.file_filament)
-            print("filament_segment_3 is :",filament_segment_4 )
+            #print("filament_segment_3 is :",filament_segment_4 )
+            epislon_4= (filament_segment_4 -  5.196)/  5.196
+            print("epislon_4 :", epislon_4)
             
             
             filament_segment_5 = self.pos_filament[6][1] - self.pos_filament[86][1]
             self.file_filament = open(path + 'position_filament.txt', 'w') 
             #print(filament_length, file= self.file_filament)
-            print("filament_segment_5 is :",filament_segment_5 )
+            #print("filament_segment_5 is :",filament_segment_5 )
+            epislon_5= (filament_segment_5 -  5.196)/  5.196
+            print("epislon_5 :", epislon_5)
             
             
             
