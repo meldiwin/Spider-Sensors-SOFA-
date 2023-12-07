@@ -6,9 +6,9 @@ import SofaRuntime
 SofaRuntime.importPlugin("SofaComponentAll")
 
 ################################ Paramters ##################################
-R_spiral = 7000 # ohm
-spiral_l = 30 # mm
-matrix_l = 100 ## mm
+R_spiral = 1731 # ohm
+spiral length = 19.090530395510015
+
 
 
 
