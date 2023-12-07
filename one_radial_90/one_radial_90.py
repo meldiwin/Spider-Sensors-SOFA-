@@ -6,7 +6,7 @@ import SofaRuntime
 SofaRuntime.importPlugin("SofaComponentAll")
 
 ################################ Paramters ##################################
-R_filament = 7000 # ohm
+R_filament = 1923 # ohm
 filament_l = 30 # mm
 matrix_l = 100 ## mm
 
