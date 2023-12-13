@@ -66,21 +66,41 @@ class SpiderController(Sofa.Core.Controller):
             radial_1_segment_1 = self.pos_radial[254][1] - self.pos_radial[260][1]
             print("radial_1_segment_1 length is :", radial_1_segment_1) 
             
+            epsilon_11 = 100*((radial_1_segment_1 - 9.827201843257797)/9.827201843257797)
+            
+            
+            
             radial_1_segment_2 = self.pos_radial[258][1] - self.pos_radial[254][1]
             print("radial_1_segment_2 length is :", radial_1_segment_2) 
-    
+            
+            epsilon_12 = 100*((radial_1_segment_2 - 9.53919982909764)/ 9.53919982909764)
+            
+           
             radial_1_segment_3 = self.pos_radial[138][1] - self.pos_radial[258][1]
             print("radial_1_segment_3 length is :", radial_1_segment_3) 
+            
+            epsilon_13 = 100*((radial_1_segment_3 - 8.882396698001969)/ 8.882396698001969)
+            
+             
             
             radial_1_segment_4 = self.pos_radial[437][1] - self.pos_radial[206][1]
             print("radial_1_segment_4 length is :", radial_1_segment_4) 
             
+            epsilon_14 = 100*((radial_1_segment_4 - 9.827201843258024)/ 9.827201843258024)
+            
+            
+            
+            
             radial_1_segment_5 = self.pos_radial[128][1] - self.pos_radial[437][1]
             print("radial_1_segment_5 length is :", radial_1_segment_5) 
             
+            epsilon_15 = 100*((radial_1_segment_5 - 9.539199829101392)/9.539199829101392 )
             
             
-   
+            
+            
+        
+            
 #***********************  part2 in radial  ************************#
 
 
@@ -89,27 +109,47 @@ class SpiderController(Sofa.Core.Controller):
             radial_2 = self.pos_radial[214][1] - self.pos_radial[260][1]
             print("radial_2 length is :", radial_2)
             
+            
             #####&&&&  part2  segments &&&& #####
             
             radial_2_segment_1 = self.pos_radial[180][1] - self.pos_radial[80][1]
             print("radial_2_segment_1 length is :", radial_2_segment_1) 
             
+            epsilon_21 = 100*((radial_2_segment_1 - 9.82720184326186)/ 9.82720184326186)
+            
+            
+            
             radial_2_segment_2 = self.pos_radial[184][1] - self.pos_radial[180][1]
             print("radial_2_segment_2 length is :", radial_2_segment_2) 
+            
+            epsilon_22 = 100*((radial_2_segment_2 -9.53919982910179 )/ 9.53919982910179)
+            
+            
+            
             
             radial_2_segment_3 = self.pos_radial[224][1] - self.pos_radial[184][1]
             print("radial_2_segment_3 length is :", radial_2_segment_3) 
             
+            epsilon_23 = 100*((radial_2_segment_3 - 9.01442972818657 )/9.01442972818657 )
+            
+            
+            
             radial_2_segment_4 = self.pos_radial[239][1] - self.pos_radial[120][1]
-            print("radial_2_segment_4 length is :", radial_2_segment_4) 
+            print("radial_2_segment_4 length is :", radial_2_segment_4)
+            
+            epsilon_24 = 100*((radial_2_segment_4 - 9.539199829096844 )/9.539199829096844)
+            
+            
+            
             
             radial_2_segment_5 = self.pos_radial[214][1] - self.pos_radial[239][1]
             print("radial_2_segment_5 length is :", radial_2_segment_5) 
             
+            epsilon_25 = 100*((radial_2_segment_5 - 9.827201843264618 )/9.827201843264618)
             
             
             
-            
+    
             
             
     
@@ -126,17 +166,38 @@ class SpiderController(Sofa.Core.Controller):
             radial_3_segment_1 = self.pos_radial[247][0] - self.pos_radial[111][0]
             print("radial_3_segment_1 length is :", radial_3_segment_1) 
             
+            epsilon_31 = 100*((radial_3_segment_1 - 8.884500503539893 )/8.884500503539893)
+            
+            
+            
             radial_3_segment_2 = self.pos_radial[503][0] - self.pos_radial[247][0]
             print("radial_3_segment_2 length is :", radial_3_segment_2) 
+            
+            epsilon_32 = 100*((radial_3_segment_2 -  8.884500503539854 )/  8.884500503539854)
+           
             
             radial_3_segment_3 = self.pos_radial[295][0] - self.pos_radial[104][0]
             print("radial_3_segment_3 length is :", radial_3_segment_3) 
             
+            epsilon_33 = 100*((radial_3_segment_3 - 8.469873905182467  )/ 8.469873905182467 )
+            
+            
+            
             radial_3_segment_4 = self.pos_radial[201][0] - self.pos_radial[295][0]
             print("radial_3_segment_4 length is :", radial_3_segment_4) 
             
+            epsilon_34 = 100*((radial_3_segment_4 -  8.914124965667632 )/ 8.914124965667632 )
+            
+            
+           
+            
             radial_3_segment_5 = self.pos_radial[63][0] - self.pos_radial[66][0]
             print("radial_3_segment_5 length is :", radial_3_segment_5) 
+            
+            epsilon_35 = 100*((radial_3_segment_5 - 8.91412496566764  )/ 8.91412496566764 )
+            
+            
+            
             
             
             
