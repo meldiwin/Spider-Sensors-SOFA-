@@ -10,7 +10,7 @@ R_0 = 1923 # ohm  r segment =  385 ############################## R/ L = R_seg/ 
 a= 2
 b= 3
  
-filament_l = 30 # mm
+radial_l = 30 # mm
 matrix_l = 100 ## mm
 
 
@@ -35,14 +35,14 @@ class SpiderController(Sofa.Core.Controller):
 		self.time = 0.0
 		self.node = kwargs['node']
 		self.pos_matrix = kwargs['pos_matrix']
-		self.pos_filament = kwargs['pos_filament']
+		self.pos_radial = kwargs['pos_radial']
 		
 
             	
 	def onAnimateBeginEvent(self,event):
             self.time = self.node.time.value
             self.pos_matrix= self.node.matrix.l_matrix.position.value
-            self.pos_filament= self.node.matrix.filament.l_filament.position.value
+            self.pos_radial= self.node.matrix.radial.l_radial.position.value
 
 
 
@@ -53,141 +53,118 @@ class SpiderController(Sofa.Core.Controller):
             self.node.matrix.FF.force.value = [0,forces,0]
             
             
+
+#***********************  part1 in radial  ************************#
             
-          ###########################  length changes #########################
-          
+            ##### full length part1 #####
+        
+            radial_1 = self.pos_radial[128][1] - self.pos_radial[80][1]
+            print("radial_1 length is :", radial_1)
             
-            filament_length = self.pos_filament[3][1] - self.pos_filament[5][1]
-            filament = open(path + 'filament_length.txt', 'a') 
+            #####&&&&  part1  segments &&&& #####
             
-           
-            #print("filament length is :", filament_length )
+            radial_1_segment_1 = self.pos_radial[254][1] - self.pos_radial[260][1]
+            print("radial_1_segment_1 length is :", radial_1_segment_1) 
+            
+            radial_1_segment_2 = self.pos_radial[258][1] - self.pos_radial[254][1]
+            print("radial_1_segment_2 length is :", radial_1_segment_2) 
+    
+            radial_1_segment_3 = self.pos_radial[138][1] - self.pos_radial[258][1]
+            print("radial_1_segment_3 length is :", radial_1_segment_3) 
+            
+            radial_1_segment_4 = self.pos_radial[437][1] - self.pos_radial[206][1]
+            print("radial_1_segment_4 length is :", radial_1_segment_4) 
+            
+            radial_1_segment_5 = self.pos_radial[128][1] - self.pos_radial[437][1]
+            print("radial_1_segment_5 length is :", radial_1_segment_5) 
+            
+            
+            
+   
+#***********************  part2 in radial  ************************#
+
+
+            ##### full length part2 ######
+            
+            radial_2 = self.pos_radial[214][1] - self.pos_radial[260][1]
+            print("radial_2 length is :", radial_2)
+            
+            #####&&&&  part2  segments &&&& #####
+            
+            radial_2_segment_1 = self.pos_radial[180][1] - self.pos_radial[80][1]
+            print("radial_2_segment_1 length is :", radial_2_segment_1) 
+            
+            radial_2_segment_2 = self.pos_radial[184][1] - self.pos_radial[180][1]
+            print("radial_2_segment_2 length is :", radial_2_segment_2) 
+            
+            radial_2_segment_3 = self.pos_radial[224][1] - self.pos_radial[184][1]
+            print("radial_2_segment_3 length is :", radial_2_segment_3) 
+            
+            radial_2_segment_4 = self.pos_radial[239][1] - self.pos_radial[120][1]
+            print("radial_2_segment_4 length is :", radial_2_segment_4) 
+            
+            radial_2_segment_5 = self.pos_radial[214][1] - self.pos_radial[239][1]
+            print("radial_2_segment_5 length is :", radial_2_segment_5) 
+            
+            
+            
+            
+            
+            
+            
+    
+#***********************  part3 in radial  ************************#
+            
+            ##### full length part3 ######
+            
+            radial_3 = self.pos_radial[158][0] - self.pos_radial[250][0]
+            print("radial_3 length is :", radial_3)
+            
+            
+            ######&&&&  part3  segments &&&& #####
+            
+            radial_3_segment_1 = self.pos_radial[247][0] - self.pos_radial[111][0]
+            print("radial_3_segment_1 length is :", radial_3_segment_1) 
+            
+            radial_3_segment_2 = self.pos_radial[503][0] - self.pos_radial[247][0]
+            print("radial_3_segment_2 length is :", radial_3_segment_2) 
+            
+            radial_3_segment_3 = self.pos_radial[295][0] - self.pos_radial[104][0]
+            print("radial_3_segment_3 length is :", radial_3_segment_3) 
+            
+            radial_3_segment_4 = self.pos_radial[201][0] - self.pos_radial[295][0]
+            print("radial_3_segment_4 length is :", radial_3_segment_4) 
+            
+            radial_3_segment_5 = self.pos_radial[63][0] - self.pos_radial[66][0]
+            print("radial_3_segment_5 length is :", radial_3_segment_5) 
+            
+            
             
 
-            
-             ########################### *****************  segment1 *************** #########################
-            
-            filament_segment_1 = self.pos_filament[46][1] - self.pos_filament[5][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_1 is :",filament_segment_1 )
-            
-            ################### *************** epislon 1 *************#########################
-            
-            
-            epislon_1= (filament_segment_1 - 5.999)/ 5.999
-            print("epislon_1 :", epislon_1)
+
+
+
+
+
             
             
             
             ############### *********** r_1*************** #############
             
 
-            r_s = (R_0 * 5.999)/30 ##### *********** "constant"********** and it same for linear #################
+            #r_s = (R_0 * 5.999)/30 ##### *********** "constant"********** and it same for linear #################
             
-            r_1 =  r_s - 647 * epislon_1 + 25.2 * epislon_1 **2 - 0.327 * epislon_1 **3  ### positive srain
+            #r_1 =  r_s - 647 * epislon_1 + 25.2 * epislon_1 **2 - 0.327 * epislon_1 **3  ### positive srain
             
-           # r_1 =  r_s - 12 * epislon_1 - 2.04 * epislon_1 **2 - 0.494 * epislon_1 **3
-            #r_1 =  r_s - 420 * epislon_1 + 189 * epislon_1 **2 + 34.9 * epislon_1 **3 + 3 * epislon_1 **4 + 0.116 * epislon_1 **5 + 1.63e-3 * epislon_1 **6
+           ## r_1 =  r_s - 12 * epislon_1 - 2.04 * epislon_1 **2 - 0.494 * epislon_1 **3
+            ##r_1 =  r_s - 420 * epislon_1 + 189 * epislon_1 **2 + 34.9 * epislon_1 **3 + 3 * epislon_1 **4 + 0.116 * epislon_1 **5 + 1.63e-3 * epislon_1 **6
              
             
-            print("Resistance of segement 1 :", r_1)
+            #print("Resistance of segement 1 :", r_1)
             
             
             
-            
-            ######################*********************  segement 2 *****#####################################
-                        
-            filament_segment_2 = self.pos_filament[42][1] - self.pos_filament[46][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            
-            
-            
-            
-            
-           
-            #print("filament_segment_2 is :",filament_segment_2 )
-            epislon_2= (filament_segment_2 - 5.999)/ 5.999
-            #print("epislon_2 :", epislon_2)
-            
-            #r_2=  (r_s + 420 * epislon_2 + 189 * epislon_2 **2 + 34.9 * epislon_2 **3 + 3 * epislon_2 **4 + 0.116 * epislon_2 **5 + 1.63e-3 * epislon_2 **6)
-            #print("r_2 :", r_2)
-            
-            
-                        
-            filament_segment_3 = self.pos_filament[38][1] - self.pos_filament[42][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_3 is :",filament_segment_3 )
-            epislon_3= (filament_segment_3 - 5.999)/ 5.999
-            #print("epislon_3 :", epislon_3)
-            
-            #r_3 =  (r_s + 420 * epislon_3 + 189 * epislon_3 **2 + 34.9 * epislon_3 **3 + 3 * epislon_3 **4 + 0.116 * epislon_3 **5 + 1.63e-3 * epislon_3 **6)
-            #print("r_3 :", r_3)
-            
-            
-            
-            
-            filament_segment_4 = self.pos_filament[34][1] - self.pos_filament[38][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_3 is :",filament_segment_4 )
-            epislon_4= (filament_segment_4 - 5.999)/ 5.999
-            #print("epislon_4 :", epislon_4)
-            
-            #r_4=  (r_s + 420 * epislon_4 + 189 * epislon_4 **2 + 34.9 * epislon_4 **3 + 3 * epislon_4 **4 + 0.116 * epislon_4 **5 + 1.63e-3 * epislon_4 **6)
-            #print("r_4 :", r_4)
-            
-            
-            
-            filament_segment_5 = self.pos_filament[3][1] - self.pos_filament[34][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_5 is :",filament_segment_5 )
-            epislon_5= (filament_segment_5 - 5.999)/ 5.999
-            #print("epislon_5 :", epislon_5)
-            
-            #r_5 =  (r_s + 420 * epislon_5 + 189 * epislon_5 **2 + 34.9 * epislon_5 **3 + 3 * epislon_5 **4 + 0.116 * epislon_5 **5 + 1.63e-3 * epislon_5 **6)
-            #print("r_5 :", r_5)
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            ##### access five points at each segment length  ########
-            ##### add segments for and 30
-            ### R(epislo) = R_0/L_filament *(1- epislon 
-            ####### Delta filament segment 
-            
-            
-            ############# DMA  find the parameters ########################
-
-            
-            matrix_length = self.pos_matrix[1][1] - self.pos_matrix[6][1]
-            self.file_matrix = open(path + 'position_matrix.txt', 'w')  
-            #print(matrix_length, file= self.file_matrix)
-            #print("matrix length is :", matrix_length )
-            
-            
-        #print(self.pos_matrix, file= self.file_matrix)
-        #print(self.pos_matrix, file= self.file_matrix)
-                
-############***************** Delta L for each "5" sgement of filament************************* ##################
-
-        
-            
-            
-    
-
-
-	
-		
-		
+           	
 		
 
 
@@ -301,41 +278,41 @@ def createScene(rootNode):
     
 
      ##########################################
-    # filament                           #
+    # radial                           #
     ##########################################
     #  This add a new node in the scene. This node is appended to the matrix's node.
-    filament = matrix.addChild('filament')
-    filament.addObject('EulerImplicitSolver', firstOrder=False, rayleighStiffness=0.2, rayleighMass=0.2)
-    filament.addObject('SparseLDLSolver')
+    radial = matrix.addChild('radial')
+    radial.addObject('EulerImplicitSolver', firstOrder=False, rayleighStiffness=0.2, rayleighMass=0.2)
+    radial.addObject('SparseLDLSolver')
     #  This adds a MechanicalObject, a component holding the degree of freedom of our
     # mechanical modelling. In the case of a pneumatic actuation it is a set of positions describing the spider wall.
-    filament.addObject('MeshVTKLoader', name='loader', filename=path + 'radial_rect_0.vtk', rotation=[0, 0, 0])
-    filament.addObject('MeshTopology', src='@loader', name='topo')
-    filament.addObject('MechanicalObject', name='l_filament')
-    filament.addObject('TetrahedronFEMForceField', template='Vec3', name='FEM', method='large', poissonRatio=0.4,
+    radial.addObject('MeshVTKLoader', name='loader', filename=path + 'radial_rect_0.vtk', rotation=[0, 0, 0])
+    radial.addObject('MeshTopology', src='@loader', name='topo')
+    radial.addObject('MechanicalObject', name='l_radial')
+    radial.addObject('TetrahedronFEMForceField', template='Vec3', name='FEM', method='large', poissonRatio=0.4,
                         youngModulus=9e6)
-    filament.addObject('UniformMass', totalMass=0.003)
-    #filament.addObject('LinearSolverConstraintCorrection')
+    radial.addObject('UniformMass', totalMass=0.003)
+    #radial.addObject('LinearSolverConstraintCorrection')
 
 
     # This adds a BarycentricMapping. A BarycentricMapping is a key element as it will add a bi-directional link
     #  between the spider wall (surfacic mesh) and the matrix (volumetric mesh) so that movements of the spider's DoFs will be mapped
     #  to the matrix and vice-versa;
-    filament.addObject('BarycentricMapping', name='mapping', mapForces=False, mapMasses=False)
-    filament.addObject(SpiderController(node=rootNode, pos_matrix = rootNode.matrix.l_matrix.position.value,  pos_filament = rootNode.matrix.filament.l_filament.position.value))
+    radial.addObject('BarycentricMapping', name='mapping', mapForces=False, mapMasses=False)
+    radial.addObject(SpiderController(node=rootNode, pos_matrix = rootNode.matrix.l_matrix.position.value,  pos_radial = rootNode.matrix.radial.l_radial.position.value))
 
     ##########################################
-    # filament Visualization                          
+    # radial Visualization                          
     ##########################################
-    filamentVisu = filament.addChild('visu1')
-    filamentVisu.addObject('MeshSTLLoader', filename=path + "radial_rect_0.stl", name="loader")
-    filamentVisu.addObject('OglModel', src="@loader", color=[0.1, 0.1, 0.1, 0.9])
+    radialVisu = radial.addChild('visu1')
+    radialVisu.addObject('MeshSTLLoader', filename=path + "radial_rect_0.stl", name="loader")
+    radialVisu.addObject('OglModel', src="@loader", color=[0.1, 0.1, 0.1, 0.9])
         
-    filamentVisu.addObject('TriangleCollisionModel')
-    filamentVisu.addObject('LineCollisionModel')
-    filamentVisu.addObject('PointCollisionModel')
+    radialVisu.addObject('TriangleCollisionModel')
+    radialVisu.addObject('LineCollisionModel')
+    radialVisu.addObject('PointCollisionModel')
 
-    filamentVisu.addObject('BarycentricMapping')
+    radialVisu.addObject('BarycentricMapping')
 
 
     return rootNode
