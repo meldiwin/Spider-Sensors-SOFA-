@@ -3,14 +3,17 @@
 import Sofa
 
 import SofaRuntime
+import matplotlib.pyplot as plt
+
 SofaRuntime.importPlugin("SofaComponentAll")
 
 ################################ Paramters ##################################
-R_0 = 1923 # ohm  r segment =  385 ############################## R/ L = R_seg/ L_seg
+R_0 = 3205 # ohm  r segment =  385 ############################## R/ L = R_seg/ L_seg
+r_segment = 641 #ohm
 a= 2
 b= 3
  
-filament_l = 30 # mm
+radial_l = 30 # mm
 matrix_l = 100 ## mm
 
 
@@ -30,19 +33,23 @@ path = os.path.dirname(os.path.abspath(__file__)) + '/mesh/'
 
 class SpiderController(Sofa.Core.Controller):
 
+
+    
 	def __init__(self, *args, **kwargs):
 		Sofa.Core.Controller.__init__(self,*args, **kwargs) #needed
 		self.time = 0.0
 		self.node = kwargs['node']
 		self.pos_matrix = kwargs['pos_matrix']
-		self.pos_filament = kwargs['pos_filament']
-		
+		self.pos_radial = kwargs['pos_radial']
+
+        
+		            
 
             	
 	def onAnimateBeginEvent(self,event):
             self.time = self.node.time.value
             self.pos_matrix= self.node.matrix.l_matrix.position.value
-            self.pos_filament= self.node.matrix.filament.l_filament.position.value
+            self.pos_radial= self.node.matrix.radial.l_radial.position.value
 
 
 
@@ -53,141 +60,254 @@ class SpiderController(Sofa.Core.Controller):
             self.node.matrix.FF.force.value = [0,forces,0]
             
             
-            
-          ###########################  length changes #########################
-          
-            
-            filament_length = self.pos_filament[3][1] - self.pos_filament[5][1]
-            filament = open(path + 'filament_length.txt', 'a') 
-            
-           
-            #print("filament length is :", filament_length )
-            
 
+#***********************  part1 in radial  ************************#
             
-             ########################### *****************  segment1 *************** #########################
-            
-            filament_segment_1 = self.pos_filament[46][1] - self.pos_filament[5][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_1 is :",filament_segment_1 )
-            
-            ################### *************** epislon 1 *************#########################
-            
-            
-            epislon_1= (filament_segment_1 - 5.999)/ 5.999
-            print("epislon_1 :", epislon_1)
-            
-            
-            
-            ############### *********** r_1*************** #############
-            
-
-            r_s = (R_0 * 5.999)/30 ##### *********** "constant"********** and it same for linear #################
-            
-            r_1 =  r_s - 647 * epislon_1 + 25.2 * epislon_1 **2 - 0.327 * epislon_1 **3  ### positive srain
-            
-           # r_1 =  r_s - 12 * epislon_1 - 2.04 * epislon_1 **2 - 0.494 * epislon_1 **3
-            #r_1 =  r_s - 420 * epislon_1 + 189 * epislon_1 **2 + 34.9 * epislon_1 **3 + 3 * epislon_1 **4 + 0.116 * epislon_1 **5 + 1.63e-3 * epislon_1 **6
-             
-            
-            print("Resistance of segement 1 :", r_1)
-            
-            
-            
-            
-            ######################*********************  segement 2 *****#####################################
-                        
-            filament_segment_2 = self.pos_filament[42][1] - self.pos_filament[46][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            
-            
-            
-            
-            
-           
-            #print("filament_segment_2 is :",filament_segment_2 )
-            epislon_2= (filament_segment_2 - 5.999)/ 5.999
-            #print("epislon_2 :", epislon_2)
-            
-            #r_2=  (r_s + 420 * epislon_2 + 189 * epislon_2 **2 + 34.9 * epislon_2 **3 + 3 * epislon_2 **4 + 0.116 * epislon_2 **5 + 1.63e-3 * epislon_2 **6)
-            #print("r_2 :", r_2)
-            
-            
-                        
-            filament_segment_3 = self.pos_filament[38][1] - self.pos_filament[42][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_3 is :",filament_segment_3 )
-            epislon_3= (filament_segment_3 - 5.999)/ 5.999
-            #print("epislon_3 :", epislon_3)
-            
-            #r_3 =  (r_s + 420 * epislon_3 + 189 * epislon_3 **2 + 34.9 * epislon_3 **3 + 3 * epislon_3 **4 + 0.116 * epislon_3 **5 + 1.63e-3 * epislon_3 **6)
-            #print("r_3 :", r_3)
-            
-            
-            
-            
-            filament_segment_4 = self.pos_filament[34][1] - self.pos_filament[38][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_3 is :",filament_segment_4 )
-            epislon_4= (filament_segment_4 - 5.999)/ 5.999
-            #print("epislon_4 :", epislon_4)
-            
-            #r_4=  (r_s + 420 * epislon_4 + 189 * epislon_4 **2 + 34.9 * epislon_4 **3 + 3 * epislon_4 **4 + 0.116 * epislon_4 **5 + 1.63e-3 * epislon_4 **6)
-            #print("r_4 :", r_4)
-            
-            
-            
-            filament_segment_5 = self.pos_filament[3][1] - self.pos_filament[34][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_5 is :",filament_segment_5 )
-            epislon_5= (filament_segment_5 - 5.999)/ 5.999
-            #print("epislon_5 :", epislon_5)
-            
-            #r_5 =  (r_s + 420 * epislon_5 + 189 * epislon_5 **2 + 34.9 * epislon_5 **3 + 3 * epislon_5 **4 + 0.116 * epislon_5 **5 + 1.63e-3 * epislon_5 **6)
-            #print("r_5 :", r_5)
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            ##### access five points at each segment length  ########
-            ##### add segments for and 30
-            ### R(epislo) = R_0/L_filament *(1- epislon 
-            ####### Delta filament segment 
-            
-            
-            ############# DMA  find the parameters ########################
-
-            
-            matrix_length = self.pos_matrix[1][1] - self.pos_matrix[6][1]
-            self.file_matrix = open(path + 'position_matrix.txt', 'w')  
-            #print(matrix_length, file= self.file_matrix)
-            #print("matrix length is :", matrix_length )
-            
-            
-        #print(self.pos_matrix, file= self.file_matrix)
-        #print(self.pos_matrix, file= self.file_matrix)
-                
-############***************** Delta L for each "5" sgement of filament************************* ##################
-
+            ##### full length part1 #####
         
+            radial_1 = self.pos_radial[128][1] - self.pos_radial[80][1]
+            #print("radial_1 length is :", radial_1)
+            
+            #####&&&&  part1  segments &&&& #####
+            
+            radial_1_segment_1 = self.pos_radial[254][1] - self.pos_radial[260][1]
+            #print("radial_1_segment_1 length is :", radial_1_segment_1) 
+            
+            
+            epsilon_11 = ((radial_1_segment_1 - 9.827201843257797)/9.827201843257797)*100
+            
+            #print(" epsilon_11 is :", epsilon_11) 
+            
+  ###---------------------------------------------------------------------------------------------         
+            r_11 = (r_segment/7161) * (7161 - 647 *  epsilon_11 + 25.2 *  epsilon_11**2 - 0.327 *  epsilon_11**3)
+            
+            #print(" r_11 is :", r_11)
+            
+            
+            radial_1_segment_2 = self.pos_radial[258][1] - self.pos_radial[254][1]
+            #print("radial_1_segment_2 length is :", radial_1_segment_2) 
+            
+            epsilon_12 = 100*((radial_1_segment_2 - 9.53919982909764)/ 9.53919982909764)
+            #print(" epsilon_12 is :", epsilon_12) 
+###---------------------------------------------------------------------------------------------         
+            r_12 = (r_segment/7161) * (7161 - 647 *  epsilon_12 + 25.2 *  epsilon_12**2 - 0.327 *  epsilon_12**3)
+            
+            #print(" r_12 is :", r_12)
+            
+           
+            radial_1_segment_3 = self.pos_radial[138][1] - self.pos_radial[258][1]
+            #print("radial_1_segment_3 length is :", radial_1_segment_3) 
+            
+            epsilon_13 = 100*((radial_1_segment_3 - 8.882396698001969)/ 8.882396698001969)
+            #print(" epsilon_13 is :", epsilon_13) 
+###---------------------------------------------------------------------------------------------         
+            r_13 = (r_segment/7161) * (7161 - 647 *  epsilon_13 + 25.2 *  epsilon_13**2 - 0.327 *  epsilon_13**3)
+            
+            #print(" r_13 is :", r_13)
+            
+            
+            
+            radial_1_segment_4 = self.pos_radial[437][1] - self.pos_radial[206][1]
+            #print("radial_1_segment_4 length is :", radial_1_segment_4) 
+            
+            epsilon_14 = 100*((radial_1_segment_4 - 9.827201843258024)/ 9.827201843258024)
+            #print(" epsilon_14 is :", epsilon_14) 
+###---------------------------------------------------------------------------------------------         
+            r_14 = (r_segment/7161) * (7161 - 647 *  epsilon_14 + 25.2 *  epsilon_14**2 - 0.327 *  epsilon_14**3)
+            
+            #print(" r_14 is :", r_14)
+            
+            
+            
+            radial_1_segment_5 = self.pos_radial[128][1] - self.pos_radial[437][1]
+            #print("radial_1_segment_5 length is :", radial_1_segment_5) 
+            
+            epsilon_15 = 100*((radial_1_segment_5 - 9.539199829101392)/9.539199829101392 )
+            #print(" epsilon_15 is :", epsilon_15) 
+                 
+###---------------------------------------------------------------------------------------------         
+            r_15 = (r_segment/7161) * (7161 - 647 *  epsilon_15 + 25.2 *  epsilon_15**2 - 0.327 *  epsilon_15**3)
+            #print(" r_15 is :", r_15)
+            
+            
+            
+            
+            #####&&&&&&&&&&&&  R_ part1_ Summations &&&&&&&&&&&& #####
+            
+            
+            r_1sum = r_11+ r_12 + r_13 + r_14 + r_15
+            #print(r_1sum)
+           
+           
+            
+#***********************  part2 in radial  ************************#
+
+
+            ##### full length part2 ######
+            
+            radial_2 = self.pos_radial[214][1] - self.pos_radial[260][1]
+            #print("radial_2 length is :", radial_2)
+            
+            
+            #####&&&&  part2  segments &&&& #####
+            
+            radial_2_segment_1 = self.pos_radial[180][1] - self.pos_radial[80][1]
+            #print("radial_2_segment_1 length is :", radial_2_segment_1) 
+            
+            epsilon_21 = 100*((radial_2_segment_1 - 9.82720184326186)/ 9.82720184326186)
+            #print(" epsilon_21 is :", epsilon_21) 
+            
+###---------------------------------------------------------------------------------------------         
+            r_21 = (r_segment/7161) * (7161 - 647 *  epsilon_21 + 25.2 *  epsilon_21**2 - 0.327 *  epsilon_21**3)
+            #print(" r_21 is :", r_21)
+            
+
+            
+            
+            radial_2_segment_2 = self.pos_radial[184][1] - self.pos_radial[180][1]
+            #print("radial_2_segment_2 length is :", radial_2_segment_2) 
+            
+            epsilon_22 = 100*((radial_2_segment_2 -9.53919982910179 )/ 9.53919982910179)
+            #print(" epsilon_22 is :", epsilon_22) 
+            
+###---------------------------------------------------------------------------------------------         
+            r_22 = (r_segment/7161) * (7161 - 647 *  epsilon_22 + 25.2 *  epsilon_22**2 - 0.327 *  epsilon_22**3)
+            #print(" r_22 is :", r_22)
+            
+            
+            
+            radial_2_segment_3 = self.pos_radial[224][1] - self.pos_radial[184][1]
+            #print("radial_2_segment_3 length is :", radial_2_segment_3) 
+            
+            epsilon_23 = 100*((radial_2_segment_3 - 9.01442972818657 )/9.01442972818657 )
+            #print(" epsilon_23 is :", epsilon_23) 
+            
+###---------------------------------------------------------------------------------------------         
+            r_23 = (r_segment/7161) * (7161 - 647 *  epsilon_23 + 25.2 *  epsilon_23**2 - 0.327 *  epsilon_23**3)
+            #print(" r_23 is :", r_23)
+            
+            
+            
+            radial_2_segment_4 = self.pos_radial[239][1] - self.pos_radial[120][1]
+            #print("radial_2_segment_4 length is :", radial_2_segment_4)
+            
+            epsilon_24 = 100*((radial_2_segment_4 - 9.539199829096844 )/9.539199829096844)
+            #print(" epsilon_24 is :", epsilon_24) 
+            
+###---------------------------------------------------------------------------------------------         
+            r_24 = (r_segment/7161) * (7161 - 647 *  epsilon_24 + 25.2 *  epsilon_24**2 - 0.327 *  epsilon_24**3)
+            
+            #print(" r_24 is :", r_24)
+            
+            
+            radial_2_segment_5 = self.pos_radial[214][1] - self.pos_radial[239][1]
+            #print("radial_2_segment_5 length is :", radial_2_segment_5) 
+            
+            epsilon_25 = 100*((radial_2_segment_5 - 9.827201843264618 )/9.827201843264618)
+            #print(" epsilon_25 is :", epsilon_25) 
+            
+###---------------------------------------------------------------------------------------------         
+            r_25 = (r_segment/7161) * (7161 - 647 *  epsilon_25 + 25.2 *  epsilon_25**2 - 0.327 *  epsilon_25**3)
+            
+            #print(" r_25 is :", r_25)
+            
+            
+            
+             #####&&&&&&&&&&&&  R_ part2_ Summations &&&&&&&&&&&& #####
+            
+            r_2sum = r_21+ r_22 + r_23 + r_24 + r_25
+            #print(r_2sum)
             
             
     
+#***********************  part3 in radial  ************************#
+            
+            ##### full length part3 ######
+            
+            radial_3 = self.pos_radial[158][0] - self.pos_radial[250][0]
+            #print("radial_3 length is :", radial_3)
+            
+            
+            ######&&&&  part3  segments &&&& #####
+            
+            radial_3_segment_1 = self.pos_radial[247][0] - self.pos_radial[111][0]
+            #print("radial_3_segment_1 length is :", radial_3_segment_1) 
+            
+            epsilon_31 = 100*((radial_3_segment_1 - 8.884500503539893 )/8.884500503539893)
+            #print(" epsilon_31 is :", epsilon_31) 
+
+###---------------------------------------------------------------------------------------------         
+            r_31 = (r_segment/7161) * (7161 - 647 *  epsilon_31 + 25.2 *  epsilon_31**2 - 0.327 *  epsilon_31**3)
+            #print(" r_31 is :", r_31)
+            
+            
+            
+            radial_3_segment_2 = self.pos_radial[503][0] - self.pos_radial[247][0]
+            #print("radial_3_segment_2 length is :", radial_3_segment_2) 
+            epsilon_32 = 100*((radial_3_segment_2 -  8.884500503539854 )/  8.884500503539854)
+            #print(" epsilon_32 is :", epsilon_32) 
+            
+###---------------------------------------------------------------------------------------------         
+            r_32 = (r_segment/7161) * (7161 - 647 *  epsilon_32 + 25.2 *  epsilon_32**2 - 0.327 *  epsilon_32**3)
+            #print(" r_32 is :", r_32)
+            
+           
+            
+            radial_3_segment_3 = self.pos_radial[295][0] - self.pos_radial[104][0]
+            #print("radial_3_segment_3 length is :", radial_3_segment_3) 
+            epsilon_33 = 100*((radial_3_segment_3 - 8.469873905182467  )/ 8.469873905182467 )
+            #print(" epsilon_33 is :", epsilon_33) 
+            
+###---------------------------------------------------------------------------------------------         
+            r_33 = (r_segment/7161) * (7161 - 647 *  epsilon_33 + 25.2 *  epsilon_33**2 - 0.327 *  epsilon_33**3)
+            #print(" r_33 is :", r_33)
+            
+            
+            
+            radial_3_segment_4 = self.pos_radial[201][0] - self.pos_radial[295][0]
+            #print("radial_3_segment_4 length is :", radial_3_segment_4) 
+            epsilon_34 = 100*((radial_3_segment_4 -  8.914124965667632 )/ 8.914124965667632 )
+            #print(" epsilon_34 is :", epsilon_34) 
+
+###---------------------------------------------------------------------------------------------         
+            r_34 = (r_segment/7161) * (7161 - 647 * epsilon_34 + 25.2 * epsilon_34**2 - 0.327 *  epsilon_34**3)
+            #print(" r_34 is :", r_34)
+            
+            
+           
+            
+            radial_3_segment_5 = self.pos_radial[63][0] - self.pos_radial[66][0]
+            #print("radial_3_segment_5 length is :", radial_3_segment_5) 
+            
+            epsilon_35 = 100*((radial_3_segment_5 - 8.91412496566764  )/ 8.91412496566764 )
+            #print(" epsilon_35 is :", epsilon_35)
+
+###---------------------------------------------------------------------------------------------         
+            r_35 = (r_segment/7161) * (7161 - 647 *  epsilon_35 + 25.2 *  epsilon_35**2 - 0.327 *  epsilon_35**3)
+            #print(" r_35 is :", r_35)
+            
+            
+             #####&&&&&&&&&&&&  R_ part3_ Summations &&&&&&&&&&&& #####
+                        
+            r_3sum = r_31+ r_32 + r_33 + r_34 + r_35
+            print(r_3sum)
+            
+    
+            
+    
+######***********************  matrix strain   ************************#
 
 
-	
-		
-		
+            matrix_length = self.pos_matrix[1][1] - self.pos_matrix[6][1]
+            #print(" matrix_length is :",   matrix_length)
+            
+
+            matrix_epsilon = ((matrix_length - 99.999999999997)/99.999999999997) * 100
+            #print(matrix_epsilon)
+            
+
+            
+           	
 		
 
 
@@ -301,41 +421,43 @@ def createScene(rootNode):
     
 
      ##########################################
-    # filament                           #
+    # radial                           #
     ##########################################
     #  This add a new node in the scene. This node is appended to the matrix's node.
-    filament = matrix.addChild('filament')
-    filament.addObject('EulerImplicitSolver', firstOrder=False, rayleighStiffness=0.2, rayleighMass=0.2)
-    filament.addObject('SparseLDLSolver')
+    radial = matrix.addChild('radial')
+    radial.addObject('EulerImplicitSolver', firstOrder=False, rayleighStiffness=0.2, rayleighMass=0.2)
+    radial.addObject('SparseLDLSolver')
     #  This adds a MechanicalObject, a component holding the degree of freedom of our
     # mechanical modelling. In the case of a pneumatic actuation it is a set of positions describing the spider wall.
-    filament.addObject('MeshVTKLoader', name='loader', filename=path + 'radial_rect_0_90.vtk', rotation=[0, 0, 0])
-    filament.addObject('MeshTopology', src='@loader', name='topo')
-    filament.addObject('MechanicalObject', name='l_filament')
-    filament.addObject('TetrahedronFEMForceField', template='Vec3', name='FEM', method='large', poissonRatio=0.4,
+    radial.addObject('MeshVTKLoader', name='loader', filename=path + 'radial_rect_0.vtk', rotation=[0, 0, 0])
+    radial.addObject('MeshTopology', src='@loader', name='topo')
+    radial.addObject('MechanicalObject', name='l_radial')
+    radial.addObject('TetrahedronFEMForceField', template='Vec3', name='FEM', method='large', poissonRatio=0.4,
                         youngModulus=9e6)
-    filament.addObject('UniformMass', totalMass=0.003)
-    #filament.addObject('LinearSolverConstraintCorrection')
+    radial.addObject('UniformMass', totalMass=0.003)
+    #radial.addObject('LinearSolverConstraintCorrection')
 
 
     # This adds a BarycentricMapping. A BarycentricMapping is a key element as it will add a bi-directional link
     #  between the spider wall (surfacic mesh) and the matrix (volumetric mesh) so that movements of the spider's DoFs will be mapped
     #  to the matrix and vice-versa;
-    filament.addObject('BarycentricMapping', name='mapping', mapForces=False, mapMasses=False)
-    filament.addObject(SpiderController(node=rootNode, pos_matrix = rootNode.matrix.l_matrix.position.value,  pos_filament = rootNode.matrix.filament.l_filament.position.value))
+    radial.addObject('BarycentricMapping', name='mapping', mapForces=False, mapMasses=False)
+    radial.addObject(SpiderController(node=rootNode, pos_matrix = rootNode.matrix.l_matrix.position.value,  pos_radial = rootNode.matrix.radial.l_radial.position.value))
 
     ##########################################
-    # filament Visualization                          
+    # radial Visualization                          
     ##########################################
-    filamentVisu = filament.addChild('visu1')
-    filamentVisu.addObject('MeshSTLLoader', filename=path + "radial_rect_0_90.stl", name="loader")
-    filamentVisu.addObject('OglModel', src="@loader", color=[0.1, 0.1, 0.1, 0.9])
+    radialVisu = radial.addChild('visu1')
+    radialVisu.addObject('MeshSTLLoader', filename=path + "radial_rect_0.stl", name="loader")
+    radialVisu.addObject('OglModel', src="@loader", color=[0.1, 0.1, 0.1, 0.9])
         
-    filamentVisu.addObject('TriangleCollisionModel')
-    filamentVisu.addObject('LineCollisionModel')
-    filamentVisu.addObject('PointCollisionModel')
+    radialVisu.addObject('TriangleCollisionModel')
+    radialVisu.addObject('LineCollisionModel')
+    radialVisu.addObject('PointCollisionModel')
 
-    filamentVisu.addObject('BarycentricMapping')
-
-
+    radialVisu.addObject('BarycentricMapping')
+     
+    
+    
     return rootNode
+    
