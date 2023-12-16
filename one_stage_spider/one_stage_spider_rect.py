@@ -435,8 +435,8 @@ class SpiderController(Sofa.Core.Controller):
 
               ##### full length part1 ####
             
-            #one_stage_4 = self.pos_one_stage[207][1] - self.pos_one_stage[245][1]
-            #print("one_stage_4 length is :", one_stage_4)
+            one_stage_5 = self.pos_one_stage[][1] - self.pos_one_stage[][1]
+            print("one_stage_5 length is :", one_stage_5)
             
             
 ########&&&&----------- ------------------------------&&&& #####
