@@ -62,69 +62,69 @@ class SpiderController(Sofa.Core.Controller):
               ##### full length part1 ####
             
             one_stage_1 = self.pos_one_stage[973][0] - self.pos_one_stage[978][0]
-            print("one_stage_1 length is :", one_stage_1)
+            #print("one_stage_1 length is :", one_stage_1)
             
             
 ######&&&&----------------  part1  segments  ---------------------------------&&&& #####
             
             one_stage_1_segment_1 = self.pos_one_stage[395][0] - self.pos_one_stage[978][0]
-            print("one_stage_1_segment_1 length is :", one_stage_1_segment_1) 
+            #print("one_stage_1_segment_1 length is :", one_stage_1_segment_1) 
             
             
             epsilon_11 = ((one_stage_1_segment_1 - 2.9814987182618182)/2.9814987182618182)*100
             
-            print(" epsilon_11 is :", epsilon_11) 
+            #print(" epsilon_11 is :", epsilon_11) 
             
             r_11 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_11 + 25.2 *  epsilon_11**2 - 0.327 *  epsilon_11**3)
             
-            print(" r_11 is :", r_11)
+            #print(" r_11 is :", r_11)
             
             
 ######&&&&----------------  part2  segments  ---------------------------------&&&& #####
             
             one_stage_1_segment_2 = self.pos_one_stage[1904][0] - self.pos_one_stage[395][0]
-            print("one_stage_1_segment_2 length is :", one_stage_1_segment_2) 
+            #print("one_stage_1_segment_2 length is :", one_stage_1_segment_2) 
             
             
             epsilon_12 = ((one_stage_1_segment_2 - 2.736003875732301)/2.736003875732301)*100
             
-            print(" epsilon_11 is :", epsilon_11) 
+            #print(" epsilon_11 is :", epsilon_11) 
             
             r_12 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_12 + 25.2 *  epsilon_12**2 - 0.327 *  epsilon_12**3)
             
-            print(" r_12 is :", r_12)
+            #print(" r_12 is :", r_12)
             
       
       
 ######&&&&----------------  part3  segments  ---------------------------------&&&& #####
             
             one_stage_1_segment_3 = self.pos_one_stage[32][0] - self.pos_one_stage[1904][0]
-            print("one_stage_1_segment_3 length is :", one_stage_1_segment_3) 
+            #print("one_stage_1_segment_3 length is :", one_stage_1_segment_3) 
             
             
             epsilon_13 = ((one_stage_1_segment_3 -  2.7544975280768824)/ 2.7544975280768824)*100
             
-            print(" epsilon_13 is :", epsilon_13) 
+            #print(" epsilon_13 is :", epsilon_13) 
             
             r_13 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_13 + 25.2 *  epsilon_13**2 - 0.327 *  epsilon_13**3)
             
-            print(" r_13 is :", r_13)
+            #print(" r_13 is :", r_13)
             
       
             
 ######&&&&----------------  part4  segments  ---------------------------------&&&& #####
             
             one_stage_1_segment_4 = self.pos_one_stage[388][0] - self.pos_one_stage[32][0]
-            print("one_stage_1_segment_4 length is :", one_stage_1_segment_4) 
+            #print("one_stage_1_segment_4 length is :", one_stage_1_segment_4) 
             
             
             epsilon_14 = ((one_stage_1_segment_4 -  3.0424995422358023)/ 3.0424995422358023)*100
             
-            print(" epsilon_14 is :", epsilon_14) 
+            #print(" epsilon_14 is :", epsilon_14) 
             
             r_14 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_14 + 25.2 *  epsilon_14**2 - 0.327 *  epsilon_14**3)
             
-            print(" r_14 is :", r_14)
+            #print(" r_14 is :", r_14)
             
       
       
@@ -132,16 +132,16 @@ class SpiderController(Sofa.Core.Controller):
 ######&&&&----------------  part5  segments  ---------------------------------&&&& #####
             
             one_stage_1_segment_5 = self.pos_one_stage[973][0] - self.pos_one_stage[388][0]
-            print("one_stage_1_segment_5 length is :", one_stage_1_segment_5) 
+            #print("one_stage_1_segment_5 length is :", one_stage_1_segment_5) 
             
             
             epsilon_15 = ((one_stage_1_segment_5 -  2.9815025329592046)/ 2.9815025329592046)*100
             
-            print(" epsilon_15 is :", epsilon_15) 
+            #print(" epsilon_15 is :", epsilon_15) 
             
             r_15 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_15 + 25.2 *  epsilon_15**2 - 0.327 *  epsilon_15**3)
             
-            print(" r_15 is :", r_15)
+            #print(" r_15 is :", r_15)
                   
                         
    ######&&&&&&&&&&&&  R_ part1_ Summations &&&&&&&&&&&& #####
@@ -160,13 +160,13 @@ class SpiderController(Sofa.Core.Controller):
               ##### full length part1 ####
             
             one_stage_2 = self.pos_one_stage[233][0] - self.pos_one_stage[193][0]
-            print("one_stage_2 length is :", one_stage_2)
+            #print("one_stage_2 length is :", one_stage_2)
             
             
 #######&&&&----------------  part2  segments  ---------------------------------&&&& #####
             
             one_stage_2_segment_1 = self.pos_one_stage[2708][0] - self.pos_one_stage[193][0]
-            print("one_stage_2_segment_1 length is :", one_stage_2_segment_1) 
+            #print("one_stage_2_segment_1 length is :", one_stage_2_segment_1) 
             
             
             epsilon_21 = ((one_stage_2_segment_1 - 5.826808972675728)/5.826808972675728)*100
@@ -175,110 +175,116 @@ class SpiderController(Sofa.Core.Controller):
             
             r_21 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_21 + 25.2 *  epsilon_21**2 - 0.327 *  epsilon_21**3)
             
-            print(" r_21 is :", r_21)
+            #print(" r_21 is :", r_21)
             
       
                   
 #######&&&&--------------------------------------------------------------------
             
             one_stage_2_segment_2 = self.pos_one_stage[1233][0] - self.pos_one_stage[2358][0]
-            print("one_stage_2_segment_2 length is :", one_stage_2_segment_2) 
+            #print("one_stage_2_segment_2 length is :", one_stage_2_segment_2) 
             
             
             epsilon_22 = ((one_stage_2_segment_2 - 6.771688360358702)/6.771688360358702)*100
             
-            print(" epsilon_22 is :", epsilon_22) 
+            #print(" epsilon_22 is :", epsilon_22) 
             
             r_22 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_22 + 25.2 *  epsilon_22**2 - 0.327 *  epsilon_22**3)
             
-            print(" r_22 is :", r_22)
+            #print(" r_22 is :", r_22)
             
             
                               
 #######&&&&--------------------------------------------------------------------
             
             one_stage_2_segment_3 = self.pos_one_stage[1975][0] - self.pos_one_stage[1233][0]
-            print("one_stage_2_segment_3 length is :", one_stage_2_segment_3) 
+            #print("one_stage_2_segment_3 length is :", one_stage_2_segment_3) 
             
             
             epsilon_23 = ((one_stage_2_segment_3 - 5.590626716613642)/5.590626716613642)*100
             
-            print(" epsilon_23 is :", epsilon_23) 
+            #print(" epsilon_23 is :", epsilon_23) 
             
             r_23 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_23 + 25.2 *  epsilon_23**2 - 0.327 *  epsilon_23**3)
             
-            print(" r_23 is :", r_23)
+            #print(" r_23 is :", r_23)
             
       
                                    
 #######&&&&--------------------------------------------------------------------
             
             one_stage_2_segment_4 = self.pos_one_stage[886][0] - self.pos_one_stage[1975][0]
-            print("one_stage_2_segment_4 length is :", one_stage_2_segment_4) 
+            #print("one_stage_2_segment_4 length is :", one_stage_2_segment_4) 
             
             
             epsilon_24 = ((one_stage_2_segment_4 - 6.287375450134128)/6.287375450134128)*100
             
-            print(" epsilon_24 is :", epsilon_24) 
+            #print(" epsilon_24 is :", epsilon_24) 
             
             r_24 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_24 + 25.2 *  epsilon_24**2 - 0.327 *  epsilon_24**3)
             
-            print(" r_24 is :", r_24)
+            #print(" r_24 is :", r_24)
             
             
                                                
 #######&&&&--------------------------------------------------------------------
             
             one_stage_2_segment_5 = self.pos_one_stage[233][0] - self.pos_one_stage[1932][0]
-            print("one_stage_2_segment_5 length is :", one_stage_2_segment_5) 
+            #print("one_stage_2_segment_5 length is :", one_stage_2_segment_5) 
             
             
             epsilon_25 = ((one_stage_2_segment_5 - 6.327729680449302)/6.327729680449302)*100
             
-            print(" epsilon_25 is :", epsilon_25) 
+            #print(" epsilon_25 is :", epsilon_25) 
             
             r_25 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_25 + 25.2 *  epsilon_25**2 - 0.327 *  epsilon_25**3)
             
-            print(" r_25 is :", r_25)
+            #print(" r_25 is :", r_25)
              
+             
+            r_2sum = r_21 + r_22 + r_23 + r_24 + r_25 
+      
+            print(r_2sum)
+      
+      
       
 #***********************  part3 in one stage "Radial- Y axis direction"  ************************#
 
               ##### full length part1 ####
             
             one_stage_3 = self.pos_one_stage[207][1] - self.pos_one_stage[245][1]
-            print("one_stage_3 length is :", one_stage_3)
+            #print("one_stage_3 length is :", one_stage_3)
             
             
 #######&&&&----------------  part3  segments  ------------------------------&&&& #####
             
             one_stage_3_segment_1 = self.pos_one_stage[181][1] - self.pos_one_stage[245][1]
-            print("one_stage_3_segment_1 length is :", one_stage_3_segment_1) 
+            #print("one_stage_3_segment_1 length is :", one_stage_3_segment_1) 
             
             
             epsilon_31 = ((one_stage_3_segment_1 - 6.21900177002)/6.21900177002)*100
             
-            print(" epsilon_31 is :", epsilon_31) 
+            #print(" epsilon_31 is :", epsilon_31) 
             
             r_31 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_31 + 25.2 *  epsilon_31**2 - 0.327 *  epsilon_31**3)
             
-            print(" r_31 is :", r_31)
+            #print(" r_31 is :", r_31)
             
             
             
      #### ------------------------------&&&& #####
             
             one_stage_3_segment_2 = self.pos_one_stage[2455][1] - self.pos_one_stage[2205][1]
-            print("one_stage_3_segment_2 length is :", one_stage_3_segment_2) 
+            #print("one_stage_3_segment_2 length is :", one_stage_3_segment_2) 
             
             
             epsilon_32 = ((one_stage_3_segment_2 - 6.044966940228008)/6.044966940228008)*100
             
-            print(" epsilon_32 is :", epsilon_32) 
+            #print(" epsilon_32 is :", epsilon_32) 
             
             r_32 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_32 + 25.2 *  epsilon_32**2 - 0.327 *  epsilon_32**3)
             
-            print(" r_32 is :", r_32)
+            #print(" r_32 is :", r_32)
             
                    
             
@@ -286,32 +292,32 @@ class SpiderController(Sofa.Core.Controller):
      #### ------------------------------&&&& #####
             
             one_stage_3_segment_3 = self.pos_one_stage[560][1] - self.pos_one_stage[2455][1]
-            print("one_stage_3_segment_3 length is :", one_stage_3_segment_3) 
+            #print("one_stage_3_segment_3 length is :", one_stage_3_segment_3) 
             
             
             epsilon_33 = ((one_stage_3_segment_3 - 6.0535844167047514)/6.0535844167047514)*100
             
-            print(" epsilon_33 is :", epsilon_33) 
+            #print(" epsilon_33 is :", epsilon_33) 
             
             r_33 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_33 + 25.2 *  epsilon_33**2 - 0.327 *  epsilon_33**3)
             
-            print(" r_33 is :", r_33)    
+            #print(" r_33 is :", r_33)    
             
             
             
     #### ------------------------------&&&& #####
             
             one_stage_3_segment_4 = self.pos_one_stage[593][1] - self.pos_one_stage[560][1]
-            print("one_stage_3_segment_4 length is :", one_stage_3_segment_4) 
+            #print("one_stage_3_segment_4 length is :", one_stage_3_segment_4) 
             
             
             epsilon_34 = ((one_stage_3_segment_4 - 6.067082722979379)/6.067082722979379)*100
             
-            print(" epsilon_34 is :", epsilon_34) 
+            #print(" epsilon_34 is :", epsilon_34) 
             
             r_34 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_34 + 25.2 *  epsilon_34**2 - 0.327 *  epsilon_34**3)
             
-            print(" r_34 is :", r_34)    
+            #print(" r_34 is :", r_34)    
             
             
             
@@ -319,22 +325,24 @@ class SpiderController(Sofa.Core.Controller):
     #### ------------------------------&&&& #####
             
             one_stage_3_segment_5 = self.pos_one_stage[207][1] - self.pos_one_stage[593][1]
-            print("one_stage_3_segment_5 length is :", one_stage_3_segment_5) 
+            #print("one_stage_3_segment_5 length is :", one_stage_3_segment_5) 
             
             
             epsilon_35 = ((one_stage_3_segment_5 - 5.7672500610404995)/5.7672500610404995)*100
             
-            print(" epsilon_35 is :", epsilon_35) 
+            #print(" epsilon_35 is :", epsilon_35) 
             
             r_35 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_35 + 25.2 *  epsilon_35**2 - 0.327 *  epsilon_35**3)
             
-            print(" r_35 is :", r_35)  
+            #print(" r_35 is :", r_35)  
             
             
+            r_3sum = r_31 + r_32 + r_33 + r_34 + r_35 
+      
+            print(r_3sum)
             
             
-            
-            
+                                    
             
             
                   
@@ -343,22 +351,22 @@ class SpiderController(Sofa.Core.Controller):
               ##### full length part1 ####
             
             one_stage_4 = self.pos_one_stage[207][1] - self.pos_one_stage[245][1]
-            print("one_stage_4 length is :", one_stage_4)
+            #print("one_stage_4 length is :", one_stage_4)
             
             
 #######&&&&----------- ------------------------------&&&& #####
             
             one_stage_4_segment_1 = self.pos_one_stage[2205][1] - self.pos_one_stage[245][1]
-            print("one_stage_4_segment_1 length is :", one_stage_4_segment_1) 
+            #print("one_stage_4_segment_1 length is :", one_stage_4_segment_1) 
             
             
             epsilon_41 = ((one_stage_4_segment_1 - 5.735115126623356)/5.735115126623356)*100
             
-            print(" epsilon_41 is :", epsilon_41) 
+            #print(" epsilon_41 is :", epsilon_41) 
             
             r_41 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_41 + 25.2 *  epsilon_41**2 - 0.327 *  epsilon_41**3)
             
-            print(" r_41 is :", r_41)
+            #print(" r_41 is :", r_41)
             
             
             
@@ -366,16 +374,16 @@ class SpiderController(Sofa.Core.Controller):
 #######&&&&----------- ------------------------------&&&& #####
             
             one_stage_4_segment_2 = self.pos_one_stage[2446][1] - self.pos_one_stage[2205][1]
-            print("one_stage_4_segment_2 length is :", one_stage_4_segment_2) 
+            #print("one_stage_4_segment_2 length is :", one_stage_4_segment_2) 
             
             
             epsilon_42 = ((one_stage_4_segment_2 - 6.044966940228605)/ 6.044966940228605)*100
             
-            print(" epsilon_42 is :", epsilon_42) 
+            #print(" epsilon_42 is :", epsilon_42) 
             
             r_42 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_42 + 25.2 *  epsilon_42**2 - 0.327 *  epsilon_42**3)
             
-            print(" r_41 is :", r_41)
+            #print(" r_41 is :", r_41)
             
             
             
@@ -383,23 +391,23 @@ class SpiderController(Sofa.Core.Controller):
 #######&&&&----------- ------------------------------&&&& #####
             
             one_stage_4_segment_3 = self.pos_one_stage[925][1] - self.pos_one_stage[2446][1]
-            print("one_stage_4_segment_3 length is :", one_stage_4_segment_3) 
+            #print("one_stage_4_segment_3 length is :", one_stage_4_segment_3) 
             
             
             epsilon_43 = ((one_stage_4_segment_3 -  6.053584416703842)/ 6.053584416703842)*100
             
-            print(" epsilon_43 is :", epsilon_43) 
+            #print(" epsilon_43 is :", epsilon_43) 
             
             r_43 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_43 + 25.2 *  epsilon_43**2 - 0.327 *  epsilon_43**3)
             
-            print(" r_43 is :", r_43)
+            #print(" r_43 is :", r_43)
     
     
                                         
 #######&&&&----------- ------------------------------&&&& #####
             
             one_stage_4_segment_4 = self.pos_one_stage[629][1] - self.pos_one_stage[925][1]
-            print("one_stage_4_segment_4 length is :", one_stage_4_segment_4) 
+            #print("one_stage_4_segment_4 length is :", one_stage_4_segment_4) 
             
             
             epsilon_44 = ((one_stage_4_segment_4 - 6.0670827229797055)/ 6.0670827229797055)*100
@@ -408,13 +416,13 @@ class SpiderController(Sofa.Core.Controller):
             
             r_44 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_44 + 25.2 *  epsilon_44**2 - 0.327 *  epsilon_44**3)
             
-            print(" r_44 is :", r_44)
+            #print(" r_44 is :", r_44)
           
           
           #######&&&&----------- ------------------------------&&&& #####
             
             one_stage_4_segment_5 = self.pos_one_stage[207][1] - self.pos_one_stage[629][1]
-            print("one_stage_4_segment_5 length is :", one_stage_4_segment_5) 
+            #print("one_stage_4_segment_5 length is :", one_stage_4_segment_5) 
             
             
             epsilon_45 = ((one_stage_4_segment_5 -  5.767250061040485)/ 5.767250061040485)*100
@@ -423,11 +431,15 @@ class SpiderController(Sofa.Core.Controller):
             
             r_45 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_45 + 25.2 *  epsilon_45**2 - 0.327 *  epsilon_45**3)
             
-            print(" r_45 is :", r_45)
+            #print(" r_45 is :", r_45)
           
+                      
           
-          
-          
+            r_4sum = r_41 + r_42 + r_43 + r_44 + r_45 
+      
+            print(r_4sum)
+            
+            
           
                     
                   
@@ -435,26 +447,280 @@ class SpiderController(Sofa.Core.Controller):
 
               ##### full length part1 ####
             
-            one_stage_5 = self.pos_one_stage[][1] - self.pos_one_stage[][1]
-            print("one_stage_5 length is :", one_stage_5)
+            one_stage_5 = self.pos_one_stage[853][1] - self.pos_one_stage[825][1]
+            #print("one_stage_5 length is :", one_stage_5)
             
             
 ########&&&&----------- ------------------------------&&&& #####
             
-            #one_stage_4_segment_1 = self.pos_one_stage[2205][1] - self.pos_one_stage[245][1]
-            #print("one_stage_4_segment_1 length is :", one_stage_4_segment_1) 
+            one_stage_5_segment_1 = self.pos_one_stage[1052][1] - self.pos_one_stage[825][1]
+            #print("one_stage_5_segment_1 length is :", one_stage_5_segment_1) 
             
             
-            #epsilon_41 = ((one_stage_4_segment_1 - 5.735115126623356)/5.735115126623356)*100
+            epsilon_51 = ((one_stage_5_segment_1 -  2.9339981079105257)/ 2.9339981079105257)*100
             
-            #print(" epsilon_41 is :", epsilon_41) 
+            #print(" epsilon_51 is :", epsilon_51) 
             
-            #r_41 = (r_radial_segment/7161) * (7161 - 647 *  epsilon_41 + 25.2 *  epsilon_41**2 - 0.327 *  epsilon_41**3)
+            r_51 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_51 + 25.2 *  epsilon_51**2 - 0.327 *  epsilon_51**3)
             
-            #print(" r_41 is :", r_41)
+            #print(" r_51 is :", r_51)
+            
+            
+            ########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_5_segment_2 = self.pos_one_stage[2879][1] - self.pos_one_stage[1052][1]
+            #print("one_stage_5_segment_2 length is :", one_stage_5_segment_2) 
+            
+            
+            epsilon_52 = ((one_stage_5_segment_2 -  2.858749389648196)/ 2.858749389648196)*100
+            
+            #print(" epsilon_52 is :", epsilon_52) 
+            
+            r_52 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_52 + 25.2 *  epsilon_52**2 - 0.327 *  epsilon_52**3)
+            
+            #print(" r_52 is :", r_52)
+            
+            
+    ########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_5_segment_3 = self.pos_one_stage[1057][1] - self.pos_one_stage[2879][1]
+            #print("one_stage_5_segment_3 length is :", one_stage_5_segment_3) 
+            
+            
+            epsilon_53 = ((one_stage_5_segment_3 -  2.7167510986327983)/ 2.7167510986327983)*100
+            
+            ##print(" epsilon_53 is :", epsilon_53) 
+            
+            r_53 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_53 + 25.2 *  epsilon_53**2 - 0.327 *  epsilon_53**3)
+            
+            #print(" r_53 is :", r_53)
+            
+            
+                        
+    ########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_5_segment_4 = self.pos_one_stage[2057][1] - self.pos_one_stage[1057][1]
+            #print("one_stage_5_segment_4 length is :", one_stage_5_segment_4) 
+            
+            
+            epsilon_54 = ((one_stage_5_segment_4 -  3.0007495880124537)/  3.0007495880124537)*100
+            
+            ###print(" epsilon_54 is :", epsilon_54) 
+            
+            r_54 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_54 + 25.2 *  epsilon_54**2 - 0.327 *  epsilon_54**3)
+            
+            #print(" r_54 is :", r_54)
             
             
             
+    ########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_5_segment_5 = self.pos_one_stage[853][1] - self.pos_one_stage[2057][1]
+            #print("one_stage_5_segment_5 length is :", one_stage_5_segment_5) 
+            
+            
+            epsilon_55 = ((one_stage_5_segment_5 - 2.8257503509520348)/  2.8257503509520348)*100
+            
+            ####print(" epsilon_55 is :", epsilon_55) 
+            
+            r_55 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_55 + 25.2 *  epsilon_55**2 - 0.327 *  epsilon_55**3)
+            
+            #print(" r_55 is :", r_55)
+            
+            
+                      
+            r_5sum = r_51 + r_52 + r_53 + r_54 + r_55 
+      
+            print(r_5sum)
+            
+            
+            
+                    
+                  
+#***********************  part6 in one stage "Spiral - Y axis direction"  ************************#
+
+              ##### full length part1 ####
+            
+            one_stage_6 = self.pos_one_stage[824][0] - self.pos_one_stage[806][0]
+            #print("one_stage_6 length is :", one_stage_6)
+            
+            
+########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_6_segment_1 = self.pos_one_stage[1609][0] - self.pos_one_stage[806][0]
+            #print("one_stage_6_segment_1 length is :", one_stage_6_segment_1) 
+            
+            
+            epsilon_61 = ((one_stage_6_segment_1 -  2.981498718261996)/ 2.981498718261996)*100
+            
+            #print(" epsilon_61 is :", epsilon_61) 
+            
+            r_61 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_61 + 25.2 *  epsilon_61**2 - 0.327 *  epsilon_61**3)
+            
+            #print(" r_61 is :", r_61)
+            
+                        
+########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_6_segment_2 = self.pos_one_stage[1601][0] - self.pos_one_stage[1609][0]
+            #print("one_stage_6_segment_2 length is :", one_stage_6_segment_2) 
+            
+            
+            epsilon_62 = ((one_stage_6_segment_2 -  2.736003875732493)/ 2.736003875732493)*100
+            
+            ##print(" epsilon_62 is :", epsilon_62) 
+            
+            r_62 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_62 + 25.2 *  epsilon_62**2 - 0.327 *  epsilon_62**3)
+            
+            #print(" r_62 is :", r_62)
+            
+            
+                              
+########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_6_segment_3 = self.pos_one_stage[1559][0] - self.pos_one_stage[1601][0]
+            #print("one_stage_6_segment_3 length is :", one_stage_6_segment_3) 
+            
+            
+            epsilon_63 = ((one_stage_6_segment_3 - 3.060247421265032)/ 3.060247421265032)*100
+            
+            ##print(" epsilon_63 is :", epsilon_63) 
+            
+            r_63 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_63 + 25.2 *  epsilon_63**2 - 0.327 *  epsilon_63**3)
+            
+            #print(" r_63 is :", r_63)
+            
+                  
+                                          
+########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_6_segment_4 = self.pos_one_stage[698][0] - self.pos_one_stage[1559][0]
+            #print("one_stage_6_segment_4 length is :", one_stage_6_segment_4) 
+            
+            
+            epsilon_64 = ((one_stage_6_segment_4 - 2.736749649047468)/2.736749649047468)*100
+            
+            ###print(" epsilon_64 is :", epsilon_64) 
+            
+            r_64 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_64 + 25.2 *  epsilon_64**2 - 0.327 *  epsilon_64**3)
+            
+            #print(" r_64 is :", r_64)
+            
+                  
+                                                      
+########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_6_segment_5 = self.pos_one_stage[824][0] - self.pos_one_stage[698][0]
+            #print("one_stage_6_segment_5 length is :", one_stage_6_segment_5) 
+            
+            
+            epsilon_65 = ((one_stage_6_segment_5 - 2.9815025329590057)/2.9815025329590057)*100
+            
+            ####print(" epsilon_65 is :", epsilon_65) 
+            
+            r_65 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_65 + 25.2 *  epsilon_65**2 - 0.327 *  epsilon_65**3)
+            
+            #print(" r_65 is :", r_65)
+            
+            
+            r_6sum = r_61 + r_62 + r_63 + r_64 + r_65 
+      
+            print(r_6sum)
+            
+            
+            
+            
+                              
+#***********************  part7 in one stage "Spiral - Y axis direction"  ************************#
+
+              ##### full length part1 ####
+            
+            one_stage_7 = self.pos_one_stage[842][1] - self.pos_one_stage[841][1]
+            #print("one_stage_7 length is :", one_stage_7)
+            
+            
+########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_7_segment_1 = self.pos_one_stage[1479][1] - self.pos_one_stage[841][1]
+            #print("one_stage_7_segment_1 length is :", one_stage_7_segment_1) 
+            
+            
+            epsilon_71 = ((one_stage_7_segment_1 -  2.933998107910483)/ 2.933998107910483)*100
+            
+            ##print(" epsilon_71 is :", epsilon_71) 
+            
+            r_71 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_71 + 25.2 *  epsilon_71**2 - 0.327 *  epsilon_71**3)
+            
+            #print(" r_71 is :", r_71)
+            
+            
+            ########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_7_segment_2 = self.pos_one_stage[2882][1] - self.pos_one_stage[1479][1]
+            #print("one_stage_7_segment_2 length is :", one_stage_7_segment_2) 
+            
+            
+            epsilon_72 = ((one_stage_7_segment_2 - 2.858749389648125)/ 2.858749389648125)*100
+            
+            ###print(" epsilon_72 is :", epsilon_72) 
+            
+            r_72 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_72 + 25.2 *  epsilon_72**2 - 0.327 *  epsilon_72**3)
+            
+            #print(" r_72 is :", r_72)
+            
+            
+########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_7_segment_3 = self.pos_one_stage[463][1] - self.pos_one_stage[2882][1]
+            #print("one_stage_7_segment_3 length is :", one_stage_7_segment_3) 
+            
+            
+            epsilon_73 = ((one_stage_7_segment_3 - 2.8337516784668964)/ 2.8337516784668964)*100
+            
+            ####print(" epsilon_73 is :", epsilon_73) 
+            
+            r_73 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_73 + 25.2 *  epsilon_73**2 - 0.327 *  epsilon_73**3)
+            
+            #print(" r_73 is :", r_73)
+            
+            
+            
+                        
+########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_7_segment_4 = self.pos_one_stage[2403][1] - self.pos_one_stage[463][1]
+            #print("one_stage_7_segment_4 length is :", one_stage_7_segment_4) 
+            
+            
+            epsilon_74 = ((one_stage_7_segment_4 - 2.883749008178455)/ 2.883749008178455)*100
+            
+            #####print(" epsilon_74 is :", epsilon_74) 
+            
+            r_74 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_74 + 25.2 *  epsilon_74**2 - 0.327 *  epsilon_74**3)
+            
+            #print(" r_74 is :", r_74)
+            
+            
+            
+                                    
+########&&&&----------- ------------------------------&&&& #####
+            
+            one_stage_7_segment_5 = self.pos_one_stage[842][1] - self.pos_one_stage[2403][1]
+            #print("one_stage_7_segment_5 length is :", one_stage_7_segment_5) 
+            
+            
+            epsilon_75 = ((one_stage_7_segment_5 - 2.8257503509520348)/ 2.8257503509520348)*100
+            
+            ######print(" epsilon_75 is :", epsilon_75) 
+            
+            r_75 = (r_spiral_segment/7161) * (7161 - 647 *  epsilon_75 + 25.2 *  epsilon_75**2 - 0.327 *  epsilon_75**3)
+            
+            #print(" r_75 is :", r_75)
+            
+            
+            r_7sum = r_71 + r_72 + r_73 + r_74 + r_75 
+      
+            print(r_7sum)
             
             
       ######***********************  matrix strain   ************************#
