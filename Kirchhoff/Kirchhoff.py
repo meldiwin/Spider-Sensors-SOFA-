@@ -242,7 +242,7 @@ class SpiderController(Sofa.Core.Controller):
             
             
                         
-            ######### thirty_5=6 ###########
+            ######### thirty_6 ###########
             thirty_6 = self.pos_three_stage[170][1] - self.pos_three_stage[169][1]
             print(" thirty_6 is :",  thirty_6) 
 #######&&&&----------------  part1  segments  ---------------------------------&&&& #####
