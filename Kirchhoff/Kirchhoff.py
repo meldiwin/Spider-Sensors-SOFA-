@@ -409,7 +409,7 @@ class SpiderController(Sofa.Core.Controller):
             r36 = 395.06946171/2711.890962292 *( 40.9786262984012 * epsilon_36 + 2711.890962292 )
             
             
-            ######************ Kirchoff equtions ****########
+            ######************ Kirchoff equations ****########
             
             
 ############# Zeros the matrices of A.I = C ##############
