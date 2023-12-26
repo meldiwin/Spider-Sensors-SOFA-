@@ -569,8 +569,50 @@ class SpiderController(Sofa.Core.Controller):
             #print(" matrix_length is :",   matrix_length)
             
 
-            matrix_epsilon = ((matrix_length - 99.999999999997)/99.999999999997) * 100
-            print("matrix_length is", matrix_epsilon)
+ #######***********************  part1  segments   ************************#
+            matrix_1 = self.pos_matrix[267][1] - self.pos_matrix[4][1]
+            
+            #print("matrix_1", matrix_1 )
+            
+            matrix_epsilon_1 = ((matrix_1 - 20.104896677387785)/20.104896677387785) * 100
+            #print("matrix_epsilon_1", matrix_epsilon_1)
+            
+
+            #######***********************  part2  segments   ************************#
+            matrix_2 = self.pos_matrix[215][1] - self.pos_matrix[267][1]
+            
+            #print("matrix_2", matrix_2 )
+            
+            matrix_epsilon_2 = ((matrix_2 - 20.441054740343915 )/20.441054740343915) * 100
+            
+            #print("matrix_epsilon_2", matrix_epsilon_2)
+            
+            #######***********************  part3  segments   ************************#
+            matrix_3 = self.pos_matrix[147][1] - self.pos_matrix[215][1]
+            
+            #print("matrix_3", matrix_3 )
+            
+            matrix_epsilon_3 = ((matrix_3 - 20.56515969337761 )/20.56515969337761) * 100
+            #print("matrix_epsilon_3", matrix_epsilon_3)
+            
+            #######***********************  part4  segments   ************************#
+            matrix_4 = self.pos_matrix[221][1] - self.pos_matrix[147][1]
+            
+            #print("matrix_4", matrix_4)
+            
+            matrix_epsilon_4 = ((matrix_4 - 20.901317756333697 )/20.901317756333697) * 100
+            #print("matrix_epsilon_4", matrix_epsilon_4)
+            
+            #######***********************  part5  segments   ************************#
+            matrix_5 = self.pos_matrix[0][1] - self.pos_matrix[286][1]
+
+            #print("matrix_5", matrix_5 )
+            
+            matrix_epsilon_5 = ((matrix_5 - 20.104896677387785 )/20.104896677387785) * 100
+            #print("matrix_epsilon_5", matrix_epsilon_5)
+            matrix_ep = matrix_epsilon_1 + matrix_epsilon_2 + matrix_epsilon_3 + matrix_epsilon_4 + matrix_epsilon_5
+            #print(matrix_ep)
+
             
 
                 
