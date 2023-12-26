@@ -144,7 +144,7 @@ class SpiderController(Sofa.Core.Controller):
             r_1sum = r11 + r12 + r13 + r14 + r15 
             epsilon_1sum = epsilon_11 + epsilon_12 + epsilon_13 + epsilon_14 + epsilon_15
       
-            print(epsilon_1sum)
+            #print(r_1sum )
             
             
                              
@@ -224,7 +224,7 @@ class SpiderController(Sofa.Core.Controller):
             r_2sum = r21 + r22 + r23 + r24 + r25 
             epsilon_2sum = epsilon_21 + epsilon_22 + epsilon_23 + epsilon_24 + epsilon_25
       
-            #print(r_2sum)
+            print(r_2sum)
                         
                         
             
@@ -307,7 +307,7 @@ class SpiderController(Sofa.Core.Controller):
             
             r_3sum = r31 + r32 + r33 + r34 + r35 
             epsilon_3sum = epsilon_11 + epsilon_12 + epsilon_13 + epsilon_14 + epsilon_15
-      
+            #print(epsilon_3sum)
             
             #print(r_3sum)
                         
@@ -386,8 +386,7 @@ class SpiderController(Sofa.Core.Controller):
             
             r_4sum = r41 + r42 + r43 + r44 + r45 
             epsilon_4sum = epsilon_41 + epsilon_42 + epsilon_43 + epsilon_44 + epsilon_45
-      
-                        
+            #print(r_4sum)    
                         
                         
                         
@@ -471,7 +470,7 @@ class SpiderController(Sofa.Core.Controller):
             r_5sum = r51 + r52 + r53 + r54 + r55 
             epsilon_5sum = epsilon_51 + epsilon_52 + epsilon_53 + epsilon_54 + epsilon_55
       
-            
+            #print(r_5sum)  
                     
                     
                     
@@ -552,7 +551,7 @@ class SpiderController(Sofa.Core.Controller):
                       
             r_6sum = r61 + r62 + r63 + r64 + r65 
             epsilon_6sum = epsilon_61 + epsilon_62 + epsilon_63 + epsilon_64 + epsilon_65
-      
+            #print(r_6sum) 
             
                                
                                    
@@ -632,7 +631,7 @@ class SpiderController(Sofa.Core.Controller):
             r_7sum = r71 + r72 + r73 + r74 + r75 
             epsilon_7sum = epsilon_71 + epsilon_72 + epsilon_73 + epsilon_74 + epsilon_75
       
-            
+            #print(r_7sum) 
             
                                              
 #***********************  part8 in one stage "Spiral parallel 2 force "  ************************#
@@ -706,7 +705,7 @@ class SpiderController(Sofa.Core.Controller):
                       
             r_8sum = r81 + r82 + r83 + r84 + r85 
             epsilon_8sum = epsilon_81 + epsilon_82 + epsilon_83 + epsilon_84 + epsilon_85
-      
+            #print(r_8sum)
             
             
         
@@ -781,7 +780,7 @@ class SpiderController(Sofa.Core.Controller):
                                   
             r_9sum = r91 + r92 + r93 + r94 + r95 
             epsilon_9sum = epsilon_91 + epsilon_92 + epsilon_93 + epsilon_94 + epsilon_95
-      
+            #print(r_9sum)
             
             
             
@@ -859,7 +858,7 @@ class SpiderController(Sofa.Core.Controller):
             r_10sum = r101 + r102 + r103 + r104 + r105 
             epsilon_10sum = epsilon_101 + epsilon_102 + epsilon_103 + epsilon_104 + epsilon_105
       
-            
+            #print(r_10sum)
             
             
       #######***********************  matrix length   ************************#
@@ -870,33 +869,48 @@ class SpiderController(Sofa.Core.Controller):
             
             
             #######***********************  part1  segments   ************************#
-            matrix_1 = self.pos_matrix[1][1] - self.pos_matrix[6][1]
+            matrix_1 = self.pos_matrix[267][1] - self.pos_matrix[4][1]
             
-            #print(" matrix_length is :",   matrix_length)
+            #print("matrix_1", matrix_1 )
             
-            #matrix_epsilon_1 = ((matrix_length - 99.999999999997)/99.999999999997) * 100
-            ##print(matrix_epsilon)
+            matrix_epsilon_1 = ((matrix_1 - 20.104896677387785)/20.104896677387785) * 100
+            #print("matrix_epsilon_1", matrix_epsilon_1)
             
 
             #######***********************  part2  segments   ************************#
-            matrix_2 = self.pos_matrix[1][1] - self.pos_matrix[6][1]
-
+            matrix_2 = self.pos_matrix[215][1] - self.pos_matrix[267][1]
+            
+            #print("matrix_2", matrix_2 )
+            
+            matrix_epsilon_2 = ((matrix_2 - 20.441054740343915 )/20.441054740343915) * 100
+            
+            #print("matrix_epsilon_2", matrix_epsilon_2)
             
             #######***********************  part3  segments   ************************#
-            matrix_3 = self.pos_matrix[1][1] - self.pos_matrix[6][1]
+            matrix_3 = self.pos_matrix[147][1] - self.pos_matrix[215][1]
             
+            #print("matrix_3", matrix_3 )
+            
+            matrix_epsilon_3 = ((matrix_3 - 20.56515969337761 )/20.56515969337761) * 100
+            #print("matrix_epsilon_3", matrix_epsilon_3)
+            
+            #######***********************  part4  segments   ************************#
+            matrix_4 = self.pos_matrix[221][1] - self.pos_matrix[147][1]
+            
+            #print("matrix_4", matrix_4)
+            
+            matrix_epsilon_4 = ((matrix_4 - 20.901317756333697 )/20.901317756333697) * 100
+            #print("matrix_epsilon_4", matrix_epsilon_4)
             
             #######***********************  part5  segments   ************************#
-            matrix_4 = self.pos_matrix[1][1] - self.pos_matrix[6][1]
+            matrix_5 = self.pos_matrix[0][1] - self.pos_matrix[286][1]
+
+            #print("matrix_5", matrix_5 )
             
-            
-            #######***********************  part5  segments   ************************#
-            matrix_5 = self.pos_matrix[1][1] - self.pos_matrix[6][1]
-
-
-
-		
-		
+            matrix_epsilon_5 = ((matrix_5 - 20.104896677387785 )/20.104896677387785) * 100
+            #print("matrix_epsilon_5", matrix_epsilon_5)
+            matrix_ep = matrix_epsilon_1 + matrix_epsilon_2 + matrix_epsilon_3 + matrix_epsilon_4 + matrix_epsilon_5
+            ####print(matrix_ep)
 
 
 def createScene(rootNode):
