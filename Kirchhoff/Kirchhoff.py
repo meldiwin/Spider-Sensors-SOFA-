@@ -541,7 +541,7 @@ class SpiderController(Sofa.Core.Controller):
 
 # Solve the matrix equation
             I = solve(A, C)
-            print(I[0])
+            print(I[2])
 
 ##### Access the solution######
 ####  I[7] is I_6 ########
