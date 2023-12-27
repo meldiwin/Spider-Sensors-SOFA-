@@ -573,7 +573,7 @@ class SpiderController(Sofa.Core.Controller):
             v_c = summation of outer spirals elements  (negative sign)   
             R_t12 = V/I[0];
             #print(V, I[0], R_t)
-
+             #### the perpendicular radial to force ############### check again the outer spirals and radials 
 ##current = I[10]
 #print(current)
 
