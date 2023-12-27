@@ -530,7 +530,7 @@ class SpiderController(Sofa.Core.Controller):
             A[35][35] = r18 ; A[35][36] = r3  ; A[35][41] = -r33 ; 						
 
 
-########## Boundary Conditions ############## 
+########## Boundary Conditions 1 and 4 ############## 
             A[36][0] = 1 ; C[36][0] = 1 ;		
             A[37][1] = 1 ; C[37][0] = 0 ;		
             A[38][2] = 1 ; C[38][0] = 0 ;		
@@ -541,13 +541,37 @@ class SpiderController(Sofa.Core.Controller):
 
 # Solve the matrix equation
             I = solve(A, C)
-            print(I[2])
+            #print(I[2])
 
 ##### Access the solution######
 ####  I[7] is I_6 ########
 
             V = r13 * I[6] + r19* I[7] +r22 * I[8];
-            R_t = V/I[0];
+####### check current is the same 
+            v_c = summation of radial elements   
+            R_t14 = V/I[0];
+            #print(V, I[0], R_t)
+
+########## Boundary Conditions 1 and 2 ############## 
+            A[36][0] = 1 ; C[36][0] = 1 ;		
+            A[37][1] = 1 ; C[37][0] = -1 ;		
+            A[38][2] = 1 ; C[38][0] = 0 ;		
+            A[39][3] = 1 ; C[39][0] = 0 ;		
+            A[40][4] = 1 ; C[40][0] = 0 ;		
+            A[41][5] = 1 ; C[41][0] = 0 ;
+
+
+# Solve the matrix equation
+            I = solve(A, C);
+            
+
+##### Access the solution######
+####  I[7] is I_6 ########
+
+            V = r13 * I[6] ;
+####### check current is the same 
+            v_c = summation of outer spirals elements  (negative sign)   
+            R_t12 = V/I[0];
             #print(V, I[0], R_t)
 
 ##current = I[10]
