@@ -470,7 +470,7 @@ class SpiderController(Sofa.Core.Controller):
             A = np.zeros((42,42))
             I = np.zeros((42,1))
             C = np.zeros((42,1))
-
+            I[0] = 1;
 
 #print('The values are:', R[6], R[7], R[8])
 #print(R)
