@@ -909,8 +909,14 @@ class SpiderController(Sofa.Core.Controller):
             
             matrix_epsilon_5 = ((matrix_5 - 20.104896677387785 )/20.104896677387785) * 100
             #print("matrix_epsilon_5", matrix_epsilon_5)
-            matrix_ep = matrix_epsilon_1 + matrix_epsilon_2 + matrix_epsilon_3 + matrix_epsilon_4 + matrix_epsilon_5
-            ####print(matrix_ep)
+            matrix_ep = ((matrix_1 - 20.104896677387785) + (matrix_2 - 20.441054740343915 ) + (matrix_3 - 20.56515969337761 ) + (matrix_4 - 20.901317756333697 ) + (matrix_5 - 20.104896677387785 ))/ (20.104896677387785 + 20.441054740343915 + 20.56515969337761 + 20.901317756333697 + 20.104896677387785)   
+            #print(matrix_ep)
+
+            
+
+                
+
+	
 
 
 def createScene(rootNode):
