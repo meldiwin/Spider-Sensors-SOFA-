@@ -267,11 +267,8 @@ class SpiderController(Sofa.Core.Controller):
             epsilon_13_5 = ((thirteen_5 - 2.958999633783975 )/ 2.958999633783975)*100
             r13_5 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_13_5 + 2711.890962292 )
             
-            r_13 = r13_1 + r13_2 + r13_3 + r13_4 + r13_5 
+            r13 = r13_1 + r13_2 + r13_3 + r13_4 + r13_5 
             
-            
-      
-
             
                 ######### fourteen ###########
             fourteen = self.pos_three_stage[119][1] - self.pos_three_stage[104][1]
@@ -1085,11 +1082,7 @@ class SpiderController(Sofa.Core.Controller):
             
             r32 = 432.56855176/2711.890962292 *( 40.9786262984012 * epsilon_32 + 2711.890962292 )
             #print(r32) 
-           
-        
-            
-            ######### thirtythree ###########
-             = self.pos_three_stage[363][1] - self.pos_three_stage[362][1]
+    
             
             ######### thirty3 ###########
             thirtythree = self.pos_three_stage[363][1] - self.pos_three_stage[362][1]
@@ -1136,7 +1129,7 @@ class SpiderController(Sofa.Core.Controller):
             A = np.zeros((42,42))
             I = np.zeros((42,1))
             C = np.zeros((42,1))
-            I[0] = 1;
+         
 
 #print('The values are:', R[6], R[7], R[8])
 #print(R)
@@ -1213,9 +1206,17 @@ class SpiderController(Sofa.Core.Controller):
 ####  I[7] is I_6 ########
 
             V = r13 * I[6] + r19* I[7] +r22 * I[8];
-####### check current is the same 
-            v_c = summation of radial elements   
-            R_t14 = V/I[0];
+####### check current is the same  I25 = I24 acual order 
+
+            v_c = r1 * I[12] +  r2 * I[24] +  r3 * I[36] + r4 * I[39] + r5 * I[27] +  r6 * I[15] 
+            
+            #### parallel ####
+            
+            #v_cp = ((I[6] + I[18] + I[30]) * ((r13 * r14 * r15)/(r13 + r14 + r15))) + ((I[7] + I[19] + I[31]) * ((r19 * r20 * r21)/(r19 + r20 + r21))) + ((I[8] + I[20] + I[32]) * ((r22 * r23 * r24)/(r22 + r23 + r24))) - ((I[11] + I[23] + I[35]) * ((r16 * r17 * r18)/(r16 + r17 + r18))) - ((I[10] + I[22] + I[34]) * ((r28 * r29 * r30)/(r28 + r29 + r30))) - ((I[9] + I[21] + I[33]) * ((r25 * r26 * r27)/(r25 + r26 + r27)))
+            
+            
+            R_t14 = V /I[0];
+            print(R_t14)
             #print(V, I[0], R_t)
 
 ########## Boundary Conditions 1 and 2 first spiral ############## 
@@ -1229,14 +1230,14 @@ class SpiderController(Sofa.Core.Controller):
 
 # Solve the matrix equation
             I = solve(A, C);
-            
+            #I[0] # injec current
 
 ##### Access the solution######
 ####  I[7] is I_6 ########
 
             V = r13 * I[6] ;
 ####### check current is the same 
-            v_c = summation of outer spirals elements  (negative sign)   
+            v_c = r16  * I[12] + r28 * I[11] + r25  * I[10] + r22 *  I[9] + r19 * I[8] + r13 * I[8]  
             R_t12 = V/I[0];
             #print(V, I[0], R_t)
              #### the perpendicular radial to force ############### check again the outer spirals and radials 
@@ -1246,11 +1247,6 @@ class SpiderController(Sofa.Core.Controller):
 
 ################# Check whether the solution is correct ################
             #print(np.allclose(np.dot(A,I),C))
-            
-          
-   
-
-
 
    
       #######***********************  matrix strain   ************************#
@@ -1302,8 +1298,8 @@ class SpiderController(Sofa.Core.Controller):
             matrix_epsilon_5 = ((matrix_5 - 20.104896677387785 )/20.104896677387785) * 100
             #print("matrix_epsilon_5", matrix_epsilon_5)
             
-            matrix_ep = ((matrix_1 - 20.104896677387785) + (matrix_2 - 20.441054740343915 ) + (matrix_3 - 20.56515969337761 ) + (matrix_4 - 20.901317756333697 ) + (matrix_5 - 20.104896677387785 ))/ (20.104896677387785 + 20.441054740343915 + 20.56515969337761 + 20.901317756333697 + 20.104896677387785)
-            ####print(matrix_ep)
+            matrix_ep = (((matrix_1 - 20.104896677387785) + (matrix_2 - 20.441054740343915 ) + (matrix_3 - 20.56515969337761 ) + (matrix_4 - 20.901317756333697 ) + (matrix_5 - 20.104896677387785 ))/ (20.104896677387785 + 20.441054740343915 + 20.56515969337761 + 20.901317756333697 + 20.104896677387785)) * 100
+            #print(matrix_ep)
             
 
                 
