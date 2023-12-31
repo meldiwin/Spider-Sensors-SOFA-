@@ -1129,8 +1129,8 @@ class SpiderController(Sofa.Core.Controller):
             A = np.zeros((42,42))
             I = np.zeros((42,1))
             C = np.zeros((42,1))
-         
-
+        ##### inpu current
+            I[0] = 1
 #print('The values are:', R[6], R[7], R[8])
 #print(R)
 
@@ -1189,7 +1189,7 @@ class SpiderController(Sofa.Core.Controller):
             A[35][35] = r18 ; A[35][36] = r3  ; A[35][41] = -r33 ; 						
 
 
-########## Boundary Conditions 1 and 4 main radial ############## 
+########### Boundary Conditions 1 and 4 main radial ############## 
             A[36][0] = 1 ; C[36][0] = 1 ;		
             A[37][1] = 1 ; C[37][0] = 0 ;		
             A[38][2] = 1 ; C[38][0] = 0 ;		
@@ -1198,26 +1198,26 @@ class SpiderController(Sofa.Core.Controller):
             A[41][5] = 1 ; C[41][0] = 0 ;
 
 
-# Solve the matrix equation
+## Solve the matrix equation
             I = solve(A, C)
-            #print(I[2])
+            
 
-##### Access the solution######
-####  I[7] is I_6 ########
+###### Access the solution######
+#####  I[7] is I_6 ########
 
             V = r13 * I[6] + r19* I[7] +r22 * I[8];
-####### check current is the same  I25 = I24 acual order 
+######## check current is the same  I25 = I24 acual order 
 
             v_c = r1 * I[12] +  r2 * I[24] +  r3 * I[36] + r4 * I[39] + r5 * I[27] +  r6 * I[15] 
             
-            #### parallel ####
+            ##### parallel ####
             
-            #v_cp = ((I[6] + I[18] + I[30]) * ((r13 * r14 * r15)/(r13 + r14 + r15))) + ((I[7] + I[19] + I[31]) * ((r19 * r20 * r21)/(r19 + r20 + r21))) + ((I[8] + I[20] + I[32]) * ((r22 * r23 * r24)/(r22 + r23 + r24))) - ((I[11] + I[23] + I[35]) * ((r16 * r17 * r18)/(r16 + r17 + r18))) - ((I[10] + I[22] + I[34]) * ((r28 * r29 * r30)/(r28 + r29 + r30))) - ((I[9] + I[21] + I[33]) * ((r25 * r26 * r27)/(r25 + r26 + r27)))
+            ##v_cp = ((I[6] + I[18] + I[30]) * ((r13 * r14 * r15)/(r13 + r14 + r15))) + ((I[7] + I[19] + I[31]) * ((r19 * r20 * r21)/(r19 + r20 + r21))) + ((I[8] + I[20] + I[32]) * ((r22 * r23 * r24)/(r22 + r23 + r24))) - ((I[11] + I[23] + I[35]) * ((r16 * r17 * r18)/(r16 + r17 + r18))) - ((I[10] + I[22] + I[34]) * ((r28 * r29 * r30)/(r28 + r29 + r30))) - ((I[9] + I[21] + I[33]) * ((r25 * r26 * r27)/(r25 + r26 + r27)))
             
             
-            R_t14 = V /I[0];
-            print(R_t14)
-            #print(V, I[0], R_t)
+            R_t14 = V;
+            #print(R_t14)
+            ##print(V, I[0], R_t)
 
 ########## Boundary Conditions 1 and 2 first spiral ############## 
             A[36][0] = 1 ; C[36][0] = 1 ;		
@@ -1237,14 +1237,96 @@ class SpiderController(Sofa.Core.Controller):
 
             V = r13 * I[6] ;
 ####### check current is the same 
-            v_c = r16  * I[12] + r28 * I[11] + r25  * I[10] + r22 *  I[9] + r19 * I[8] + r13 * I[8]  
-            R_t12 = V/I[0];
-            #print(V, I[0], R_t)
+            v_c = r16  * I[11] + r28 * I[10] + r25  * I[9] + r22 *  I[8] + r19 * I[7] 
+            R_t12 = -1 * v_c 
+            #print(R_t12)
              #### the perpendicular radial to force ############### check again the outer spirals and radials 
 ##current = I[10]
 #print(current)
 
 
+########## Boundary Conditions 2 and 5  ############## 
+            A[36][0] = 1 ; C[36][0] = 0 ;		
+            A[37][1] = 1 ; C[37][0] = 1 ;		
+            A[38][2] = 1 ; C[38][0] = 0 ;		
+            A[39][3] = 1 ; C[39][0] = 0 ;		
+            A[40][4] = 1 ; C[40][0] = -1 ;		
+            A[41][5] = 1 ; C[41][0] = 0 ;
+
+
+# Solve the matrix equation
+            I = solve(A, C);
+            #I[0] # injec current
+
+            V = r13 * I[6] + r16 * I[11] + r28 * I[10]
+            R_t25 = -1 * V
+            #print(R_t25)
+            
+            
+            ########## Boundary Conditions 3 and 6  ############## 
+            A[36][0] = 1 ; C[36][0] = 0 ;		
+            A[37][1] = 1 ; C[37][0] = 0 ;		
+            A[38][2] = 1 ; C[38][0] = 1 ;		
+            A[39][3] = 1 ; C[39][0] = 0 ;		
+            A[40][4] = 1 ; C[40][0] = 0 ;		
+            A[41][5] = 1 ; C[41][0] = -1 ;
+
+
+# Solve the matrix equation
+            I = solve(A, C);
+            #I[0] # injec current
+
+            V = r28 * I[10] + r25 * I[9] + r22 * I[8]
+            v_c = r16 * I[11] + r13 * I[6] + r19 * I[7]
+            
+            #R_t36 =  -1 * v_c
+            R_t36 = V
+            
+            #print(R_t36)
+            
+        
+            ########## Boundary Conditions 3 and 4  ############## 
+            A[36][0] = 1 ; C[36][0] = 0 ;		
+            A[37][1] = 1 ; C[37][0] = 0;		
+            A[38][2] = 1 ; C[38][0] = 1 ;		
+            A[39][3] = 1 ; C[39][0] = -1 ;		
+            A[40][4] = 1 ; C[40][0] = 0 ;		
+            A[41][5] = 1 ; C[41][0] = 0 ;
+
+
+# Solve the matrix equation
+            I = solve(A, C);
+            #I[0] # injec current
+
+            V = r22 * I[8]
+            v_c =  r25 * I[9] + r28 * I[10] + r16 * I[11] +  r13 * I[6] +  r19 * I[7]
+            
+            #R_t34 =  -1 * v_c
+            R_t34 =  V
+            
+            
+                    
+            ########## Boundary Conditions 2 and 3  ############## 
+            A[36][0] = 1 ; C[36][0] = 0 ;		
+            A[37][1] = 1 ; C[37][0] = 1 ;		
+            A[38][2] = 1 ; C[38][0] = -1;		
+            A[39][3] = 1 ; C[39][0] = 0 ;		
+            A[40][4] = 1 ; C[40][0] = 0 ;		
+            A[41][5] = 1 ; C[41][0] = 0 ;
+
+
+# Solve the matrix equation
+            I = solve(A, C);
+            #I[0] # injec current
+
+            V = r19 * I[7]
+            v_c =  r13 * I[6] + r16 * I[11] + r28 * I[10] +  r25 * I[9] +  r22 * I[8]
+            
+            R_t23 =  -1 * v_c
+            #R_t23 =  V
+        
+            print(R_t23)
+            
 ################# Check whether the solution is correct ################
             #print(np.allclose(np.dot(A,I),C))
 
