@@ -416,9 +416,7 @@ class SpiderController(Sofa.Core.Controller):
             #print(r36)
           
            ######************ Kirchoff equations ****########
-            
-
-############# Zeros the matrices of A.I = C ##############
+        ############# Zeros the matrices of A.I = C ##############
 #### Where A are the coefficients, I is the current, C are the constants, and R are the resistances 
             A = np.zeros((42,42))
             I = np.zeros((42,1))
@@ -453,9 +451,7 @@ class SpiderController(Sofa.Core.Controller):
             A[16][28] = 1 ; A[16][34] = -1 ; A[16][40] = -1 ; A[16][33] = 1 ; 						
             A[17][29] = 1 ; A[17][35] = -1 ; A[17][41] = -1 ; A[17][34] = 1 ; 						
 
-
-
-########## Loop First Stage ##############	
+        ########## Loop First Stage ##############	
 # defining the resistances#   the index +1  R[6] is R_7  ########
             A[18][6] = r13 ; A[18][13] = r7 ; A[18][18] = -r14 ; A[18][12] = -r1 ; 								
             A[19][7] = r19 ; A[19][14] = r36 ; A[19][19] = -r20 ; A[19][13] = -r7 ; 								
@@ -464,8 +460,7 @@ class SpiderController(Sofa.Core.Controller):
             A[22][10] = r28 ; A[22][17] = r31 ; A[22][22] = -r29 ; A[22][16] = -r12 ; 								
             A[23][11] = r16 ; A[23][12] = r1 ; A[23][23] = -r17 ; A[23][17] = -r31 ; 								
 
-	
-########## Loop Second Stage ##############		
+	########## Loop Second Stage ##############		
             A[24][18] = r14 ; A[24][25] = r8 ; A[24][30] = -r15 ; A[24][24] = -r2 ; 												
             A[25][19] = r20 ; A[25][26] = r35 ; A[25][31] = -r21 ; A[25][25] = -r8 ; 							
             A[26][20] = r23 ; A[26][27] = r5 ; A[26][32] = -r24 ; A[26][26] = -r35 ; 							
@@ -494,9 +489,9 @@ class SpiderController(Sofa.Core.Controller):
 
 ## Solve the matrix equation
             I = solve(A, C)
-            
+            #print(R_t23)
 
-###### Access the solution######
+            ###### Access the solution######
 #####  I[7] is I_6 ########
 
             V = r13 * I[6] + r19* I[7] +r22 * I[8];
@@ -538,7 +533,6 @@ class SpiderController(Sofa.Core.Controller):
 ##current = I[10]
 #print(current)
 
-
 ########## Boundary Conditions 2 and 5  ############## 
             A[36][0] = 1 ; C[36][0] = 0 ;		
             A[37][1] = 1 ; C[37][0] = 1 ;		
@@ -547,7 +541,6 @@ class SpiderController(Sofa.Core.Controller):
             A[40][4] = 1 ; C[40][0] = -1 ;		
             A[41][5] = 1 ; C[41][0] = 0 ;
 
-
 # Solve the matrix equation
             I = solve(A, C);
             #I[0] # injec current
@@ -555,8 +548,7 @@ class SpiderController(Sofa.Core.Controller):
             V = r13 * I[6] + r16 * I[11] + r28 * I[10]
             R_t25 = -1 * V
             #print(R_t25)
-            
-            
+
             ########## Boundary Conditions 3 and 6  ############## 
             A[36][0] = 1 ; C[36][0] = 0 ;		
             A[37][1] = 1 ; C[37][0] = 0 ;		
@@ -576,17 +568,15 @@ class SpiderController(Sofa.Core.Controller):
             #R_t36 =  -1 * v_c
             R_t36 = V
             
-            print(R_t36)
-            
-        
-            ########## Boundary Conditions 3 and 4  ############## 
+            #print(R_t36)
+
+                   ########## Boundary Conditions 3 and 4  ############## 
             A[36][0] = 1 ; C[36][0] = 0 ;		
             A[37][1] = 1 ; C[37][0] = 0;		
             A[38][2] = 1 ; C[38][0] = 1 ;		
             A[39][3] = 1 ; C[39][0] = -1 ;		
             A[40][4] = 1 ; C[40][0] = 0 ;		
             A[41][5] = 1 ; C[41][0] = 0 ;
-
 
 # Solve the matrix equation
             I = solve(A, C);
@@ -596,7 +586,8 @@ class SpiderController(Sofa.Core.Controller):
             v_c =  r25 * I[9] + r28 * I[10] + r16 * I[11] +  r13 * I[6] +  r19 * I[7]
             
             #R_t34 =  -1 * v_c
-            R_t34 =  V
+
+             R_t34 =  V
             
             
                     
@@ -619,7 +610,10 @@ class SpiderController(Sofa.Core.Controller):
             R_t23 =  -1 * v_c
             #R_t23 =  V
         
-            #print(R_t23)
+            print(R_t23)
+
+            ################# Check whether the solution is correct ################
+            #print(np.allclose(np.dot(A,I),C))
             
 ################# Check whether the solution is correct ################
             #print(np.allclose(np.dot(A,I),C))
