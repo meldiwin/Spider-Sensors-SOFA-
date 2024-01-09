@@ -1327,6 +1327,74 @@ class SpiderController(Sofa.Core.Controller):
         
             print(R_t23)
             
+            
+                        
+                    
+            ########## Boundary Conditions 1 and 6  ############## 
+            A[36][0] = 1 ; C[36][0] = 1 ;		
+            A[37][1] = 1 ; C[37][0] = 0 ;		
+            A[38][2] = 1 ; C[38][0] = 0;		
+            A[39][3] = 1 ; C[39][0] = 0 ;		
+            A[40][4] = 1 ; C[40][0] = 0 ;		
+            A[41][5] = 1 ; C[41][0] = -1 ;
+
+
+# Solve the matrix equation
+            I = solve(A, C);
+            #I[0] # injec current
+
+            V = r16 * I[11]
+            v_c =  r28 * I[10] + r25 * I[9] + r22 * I[8] +  r19 * I[7] +  r13 * I[6]
+            
+            #R_t16 =  -1 * v_c
+            #R_t23 =  V
+        
+            print(R_t16)
+            
+            
+                                
+            ########## Boundary Conditions 5 and 6  ############## 
+            A[36][0] = 1 ; C[36][0] = 0 ;		
+            A[37][1] = 1 ; C[37][0] = 0 ;		
+            A[38][2] = 1 ; C[38][0] = 0;		
+            A[39][3] = 1 ; C[39][0] = 0 ;		
+            A[40][4] = 1 ; C[40][0] = 1 ;		
+            A[41][5] = 1 ; C[41][0] = -1 ;
+
+
+# Solve the matrix equation
+            I = solve(A, C);
+            #I[0] # injec current
+
+            V = r28 * I[10]
+            v_c =  r16 * I[11] + r13 * I[6] + r19 * I[7] +  r22 * I[8] +  r25 * I[9]
+            
+            R_t56 =  -1 * v_c
+            #R_t23 =  V
+        
+            print(R_t56)
+            
+            
+        ########## Boundary Conditions 4 and 5  ############## 
+            A[36][0] = 1 ; C[36][0] = 0 ;		
+            A[37][1] = 1 ; C[37][0] = 0 ;		
+            A[38][2] = 1 ; C[38][0] = 0;		
+            A[39][3] = 1 ; C[39][0] = 1 ;		
+            A[40][4] = 1 ; C[40][0] = -1 ;		
+            A[41][5] = 1 ; C[41][0] = 0 ;
+
+
+# Solve the matrix equation
+            I = solve(A, C);
+            #I[0] # injec current
+
+            V = r25 * I[9]
+            v_c =  r22 * I[8] + r19 * I[7] + r13 * I[6] +  r16 * I[11] +  r28 * I[10]
+            
+            R_t54 =  -1 * v_c
+            #R_t23 =  V
+        
+            
 ################# Check whether the solution is correct ################
             #print(np.allclose(np.dot(A,I),C))
 
