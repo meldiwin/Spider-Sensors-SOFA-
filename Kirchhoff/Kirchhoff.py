@@ -15,16 +15,6 @@ R_spiral_1  = 1731  # one
 R_spiral_2  = 1124  # one 
 R_spiral_3  = 560.49 # one 
 
-### Q1
-2.7463E+03
--5.2908E+01
-1.0512E+01
-### S1
-6.9175E+03
--5.7424E+02
-2.0642E+01
--2.4400E-01
-
 
 
 # to add elements like Node or objects
@@ -74,7 +64,7 @@ class SpiderController(Sofa.Core.Controller):
             #print("one is :", one)
             
             epsilon_1 = ((one - 4.411502838134496)/4.411502838134496)*100
-            #print(epsilon_1)
+            #print(epsilon_1 * 100)
             
             ###print(" epsilon_11 is :", epsilon_11) 
             r1= 471.295558183/2711.890962292 *( 40.9786262984012 * epsilon_1 + 2711.890962292 )
@@ -89,7 +79,7 @@ class SpiderController(Sofa.Core.Controller):
             
             epsilon_2 = ((two - 4.049495697021499)/4.049495697021499)*100
             
-            #print(epsilon_2)
+            #print(epsilon_2 * 100)
             
             r2= 432.621127927/2711.890962292 *( 40.9786262984012 * epsilon_2 + 2711.890962292 )
             #print(r2)
@@ -392,10 +382,8 @@ class SpiderController(Sofa.Core.Controller):
             #print("sixteen_3 is :", sixteen_3)
             
             epsilon_16_3 = ((sixteen_3 - 2.995748519897049 )/2.995748519897049)*100
-           # r16_3 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_16_3 + 2711.890962292 )
-            F1= Q_1 + Q_2 *  epsilon_16_3 + Q_3 *  epsilon_16_3 **2 
-	    F2= S_1 + S_2 *  epsilon_16_3 + S_3 *  epsilon_16_3 **2  + S_4 *  epsilon_16_3 **3
-            r16_3 = R_spiral_1/Q1 * (1/(F1 **20) + 1/(F2 **20)) **(-0.05)
+            r16_3 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_16_3 + 2711.890962292 )
+
             
             
             ########### segment 4 #####################
@@ -1315,6 +1303,7 @@ class SpiderController(Sofa.Core.Controller):
             
             #R_t34 =  -1 * v_c
             R_t34 =  V
+            #print(R_t34)
             
             
                     
@@ -1337,7 +1326,7 @@ class SpiderController(Sofa.Core.Controller):
             R_t23 =  -1 * v_c
             #R_t23 =  V
         
-            print(R_t23)
+            #print(R_t23)
             
             
                         
@@ -1358,10 +1347,10 @@ class SpiderController(Sofa.Core.Controller):
             V = r16 * I[11]
             v_c =  r28 * I[10] + r25 * I[9] + r22 * I[8] +  r19 * I[7] +  r13 * I[6]
             
-            #R_t16 =  -1 * v_c
-            #R_t23 =  V
+            R_t16 =   v_c
+            #R_t16 =  V
         
-            print(R_t16)
+            #print(R_t16)
             
             
                                 
@@ -1382,9 +1371,9 @@ class SpiderController(Sofa.Core.Controller):
             v_c =  r16 * I[11] + r13 * I[6] + r19 * I[7] +  r22 * I[8] +  r25 * I[9]
             
             R_t56 =  -1 * v_c
-            #R_t23 =  V
+            #R_t56 =  V
         
-            print(R_t56)
+            #print(R_t56)
             
             
         ########## Boundary Conditions 4 and 5  ############## 
@@ -1404,7 +1393,8 @@ class SpiderController(Sofa.Core.Controller):
             v_c =  r22 * I[8] + r19 * I[7] + r13 * I[6] +  r16 * I[11] +  r28 * I[10]
             
             R_t54 =  -1 * v_c
-            #R_t23 =  V
+            #R_t54 =  V
+            #print(R_t54)
         
             
 ################# Check whether the solution is correct ################
@@ -1461,7 +1451,7 @@ class SpiderController(Sofa.Core.Controller):
             #print("matrix_epsilon_5", matrix_epsilon_5)
             
             matrix_ep = (((matrix_1 - 20.104896677387785) + (matrix_2 - 20.441054740343915 ) + (matrix_3 - 20.56515969337761 ) + (matrix_4 - 20.901317756333697 ) + (matrix_5 - 20.104896677387785 ))/ (20.104896677387785 + 20.441054740343915 + 20.56515969337761 + 20.901317756333697 + 20.104896677387785)) * 100
-            #print(matrix_ep)
+            print(matrix_ep)
             
 
                 
