@@ -15,6 +15,16 @@ R_spiral_1  = 1731  # one
 R_spiral_2  = 1124  # one 
 R_spiral_3  = 560.49 # one 
 
+### Q1
+2.7463E+03
+-5.2908E+01
+1.0512E+01
+### S1
+6.9175E+03
+-5.7424E+02
+2.0642E+01
+-2.4400E-01
+
 
 
 # to add elements like Node or objects
@@ -382,8 +392,10 @@ class SpiderController(Sofa.Core.Controller):
             #print("sixteen_3 is :", sixteen_3)
             
             epsilon_16_3 = ((sixteen_3 - 2.995748519897049 )/2.995748519897049)*100
-            r16_3 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_16_3 + 2711.890962292 )
-
+           # r16_3 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_16_3 + 2711.890962292 )
+            F1= Q_1 + Q_2 *  epsilon_16_3 + Q_3 *  epsilon_16_3 **2 
+	    F2= S_1 + S_2 *  epsilon_16_3 + S_3 *  epsilon_16_3 **2  + S_4 *  epsilon_16_3 **3
+            r16_3 = R_spiral_1/Q1 * (1/(F1 **20) + 1/(F2 **20)) **(-0.05)
             
             
             ########### segment 4 #####################
