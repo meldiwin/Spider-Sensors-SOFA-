@@ -1566,7 +1566,7 @@ class SpiderController(Sofa.Core.Controller):
 ####### check current is the same 
             v_c = r16  * I[11] + r28 * I[10] + r25  * I[9] + r22 *  I[8] + r19 * I[7] 
             R_t12 = -1 * v_c 
-            #print(R_t12)
+            ##print(R_t12)
              #### the perpendicular radial to force ############### check again the outer spirals and radials 
 ##current = I[10]
 #print(current)
@@ -1653,7 +1653,7 @@ class SpiderController(Sofa.Core.Controller):
             R_t23 =  -1 * v_c
             #R_t23 =  V
         
-            #print(R_t23)
+            ##print(R_t23)
             
             
                         
@@ -1778,7 +1778,7 @@ class SpiderController(Sofa.Core.Controller):
             #print("matrix_epsilon_5", matrix_epsilon_5)
             
             matrix_ep = (((matrix_1 - 20.104896677387785) + (matrix_2 - 20.441054740343915 ) + (matrix_3 - 20.56515969337761 ) + (matrix_4 - 20.901317756333697 ) + (matrix_5 - 20.104896677387785 ))/ (20.104896677387785 + 20.441054740343915 + 20.56515969337761 + 20.901317756333697 + 20.104896677387785)) * 100
-            #print(matrix_ep)
+            print(matrix_ep)
             
 
                 
