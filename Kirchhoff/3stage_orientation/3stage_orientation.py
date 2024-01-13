@@ -1212,10 +1212,10 @@ class SpiderController(Sofa.Core.Controller):
 ###### Access the solution######
 #####  I[7] is I_6 ########
 
-            V = r13 * I[6] + r19* I[7] +r22 * I[8];
+            V = r7 * I[6] + r8 * I[7] +r9 * I[8];
 ######## check current is the same  I25 = I24 acual order 
 
-            v_c = r1 * I[12] +  r2 * I[24] +  r3 * I[36] + r4 * I[39] + r5 * I[27] +  r6 * I[15] 
+            v_c = r13 * I[12] +  r25 * I[24] +  r37 * I[36] + r40 * I[39] + r28 * I[27] +  r16 * I[15] 
             
             ##### parallel ####
             
@@ -1242,9 +1242,9 @@ class SpiderController(Sofa.Core.Controller):
 ##### Access the solution######
 ####  I[7] is I_6 ########
 
-            V = r13 * I[6] ;
+            V = r7 * I[6] ;
 ####### check current is the same 
-            v_c = r16  * I[11] + r28 * I[10] + r25  * I[9] + r22 *  I[8] + r19 * I[7] 
+            v_c = r12  * I[11] + r11 * I[10] + r10  * I[9] + r9 *  I[8] + r8 * I[7] 
             R_t12 = -1 * v_c 
             #print(R_t12)
              #### the perpendicular radial to force ############### check again the outer spirals and radials 
@@ -1283,8 +1283,8 @@ class SpiderController(Sofa.Core.Controller):
             I = solve(A, C);
             #I[0] # injec current
 
-            V = r28 * I[10] + r25 * I[9] + r22 * I[8]
-            v_c = r16 * I[11] + r13 * I[6] + r19 * I[7]
+            V = r11 * I[10] + r10 * I[9] + r9 * I[8]
+            v_c = r12 * I[11] + r7 * I[6] + r8 * I[7]
             
             #R_t36 =  -1 * v_c
             R_t36 = V
@@ -1305,8 +1305,8 @@ class SpiderController(Sofa.Core.Controller):
             I = solve(A, C);
             #I[0] # injec current
 
-            V = r22 * I[8]
-            v_c =  r25 * I[9] + r28 * I[10] + r16 * I[11] +  r13 * I[6] +  r19 * I[7]
+            V = r9 * I[8]
+            v_c =  r10 * I[9] + r11 * I[10] + r12 * I[11] +  r7 * I[6] +  r8 * I[7]
             
             #R_t34 =  -1 * v_c
             R_t34 =  V
@@ -1327,8 +1327,8 @@ class SpiderController(Sofa.Core.Controller):
             I = solve(A, C);
             #I[0] # injec current
 
-            V = r19 * I[7]
-            v_c =  r13 * I[6] + r16 * I[11] + r28 * I[10] +  r25 * I[9] +  r22 * I[8]
+            V = r8 * I[7]
+            v_c =  r7 * I[6] + r12 * I[11] + r11 * I[10] +  r10 * I[9] +  r9 * I[8]
             
             R_t23 =  -1 * v_c
             #R_t23 =  V
@@ -1351,8 +1351,8 @@ class SpiderController(Sofa.Core.Controller):
             I = solve(A, C);
             #I[0] # injec current
 
-            V = r16 * I[11]
-            v_c =  r28 * I[10] + r25 * I[9] + r22 * I[8] +  r19 * I[7] +  r13 * I[6]
+            V = r12 * I[11]
+            v_c =  r11 * I[10] + r10 * I[9] + r9 * I[8] +  r8 * I[7] +  r7 * I[6]
             
             R_t16 =   v_c
             #R_t16 =  V
@@ -1374,8 +1374,8 @@ class SpiderController(Sofa.Core.Controller):
             I = solve(A, C);
             #I[0] # injec current
 
-            V = r28 * I[10]
-            v_c =  r16 * I[11] + r13 * I[6] + r19 * I[7] +  r22 * I[8] +  r25 * I[9]
+            V = r11 * I[10]
+            v_c =  r12 * I[11] + r7 * I[6] + r8 * I[7] +  r9 * I[8] +  r10 * I[9]
             
             R_t56 =  -1 * v_c
             #R_t56 =  V
@@ -1396,8 +1396,8 @@ class SpiderController(Sofa.Core.Controller):
             I = solve(A, C);
             #I[0] # injec current
 
-            V = r25 * I[9]
-            v_c =  r22 * I[8] + r19 * I[7] + r13 * I[6] +  r16 * I[11] +  r28 * I[10]
+            V = r10 * I[9]
+            v_c =  r9 * I[8] + r8 * I[7] + r7 * I[6] +  r12 * I[11] +  r11 * I[10]
             
             R_t54 =  -1 * v_c
             #R_t54 =  V
