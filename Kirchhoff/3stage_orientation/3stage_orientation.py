@@ -57,508 +57,518 @@ class SpiderController(Sofa.Core.Controller):
            
            ################# Radials ######################
            
-           
-            ######### twentyfour ###########
-            twentyfour = self.pos_three_stage[182][0] - self.pos_three_stage[86][0]
-            #print("twentyfour is :", twentyfour)
+            ###### seventeen ####
             
-            ########### segment 1 #####################
-            twentyfour_1 = self.pos_three_stage[1012][0] - self.pos_three_stage[86][0]
-            #print("twentyfour_1 is :", twentyfour_1)
-                 
-            epsilon_17 = ((twentyfour_1 -2.04049873358996 )/ 2.04049873358996)*100
-            r17_1 = 399.342889501/2711.890962292 *( 40.9786262984012 * epsilon_7 + 2711.890962292 )
+            seventeen = self.pos_three_stage[2146][1] - self.pos_three_stage[2312][1]
+            #print("seventeen is :", seventeen)
             
+            epsilon_17 = ((seventeen - 3.7380464009115997 )/ 3.7380464009115997)*100
+            #print(epsilon_12)
+            
+            
+            r17 =  ((3.7380464009115997 * 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_17 + 2711.890962292 )
+            
+            #print(r17)
             
             ###### 29 ####
             
-            twentyone = self.pos_three_stage[2590][0] - self.pos_three_stage[2354][0]
-            #print("eight is :", eight)
+            twentynine = self.pos_three_stage[2379][1] - self.pos_three_stage[2570][1]
+            #print("twentynine is :", twentynine)
             
-            epsilon_29 = ((twentyone - 4.694999694824986)/4.694999694824986)*100
-            r29 = 501.582467715/2711.890962292 *( 40.9786262984012 * epsilon_8 + 2711.890962292 )
+            epsilon_29 = ((twentynine - 4.694805145265008)/4.694805145265008)*100
+            r29 = ((4.694805145265008 * 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_29 + 2711.890962292 )
             
-            #print(r8)
+            #print(r29)
         
             
                ###### 41 ####
             
-            fourtyone = self.pos_three_stage[2659][0] - self.pos_three_stage[2596][0]
-            #print("nine is :", nine)
+            fourtyone = self.pos_three_stage[2573][1] - self.pos_three_stage[2659][1]
+            #print("fourtyone is :", fourtyone)
             
-            epsilon_41 = ((fourtyone - 4.01600265503)/4.01600265503)*100
+            epsilon_41 = ((fourtyone - 4.015838623050001)/4.015838623050001)*100
             
             #print(epsilon_41)
             
-            r41 = 429.042950599/2711.890962292 *( 40.9786262984012 * epsilon_41 + 2711.890962292 )
-            #print(r9)
+            r41 = ((4.015838623050001 * 3205)/30)/2711.890962292  *( 40.9786262984012 * epsilon_41 + 2711.890962292 )
+            #print(r41)
             
         
             ###### 38 ####
             
             
-            thirtyeight = self.pos_three_stage[2563][0] - self.pos_three_stage[2661][0]
-            #print("ten is :", ten)
+            thirtyeight = self.pos_three_stage[2661][1] - self.pos_three_stage[2533][1]
+            #print("thirtyeight is :", thirtyeight)
             
-            epsilon_38 = ((thirtyeight - 4.07999938963998)/4.07999938963998)*100
+            epsilon_38 = ((thirtyeight - 4.013835906977505)/4.013835906977505)*100
             
             #print(epsilon_10)
             
-            r38 = 428.828993778/2711.890962292 *( 40.9786262984012 * epsilon_41 + 2711.890962292 )
-            #print(r10)
+            r38 = ((4.013835906977505 * 3205)/30)/2711.890962292  *( 40.9786262984012 * epsilon_41 + 2711.890962292 )
+            #print(r38)
             
             
             ###### 26 ####
             
                     
-            twentysix = self.pos_three_stage[2396][0] - self.pos_three_stage[2530][0]
-            #print("eleven is :", eleven)
+            twentysix = self.pos_three_stage[2528][1] - self.pos_three_stage[2423][1]
+            #print("twentysix is :", twentysix)
             
             
-            epsilon_26 = ((twentysix  - 4.093997955322003)/4.093997955322003)*100
+            epsilon_26 = ((twentysix  -  4.093830108642479)/ 4.093830108642479)*100
             #print(epsilon_11)
             
-            r26 = 437.375448495 /2711.890962292 *( 40.9786262984012 * epsilon_26 + 2711.890962292 )
+            r26 = ((4.013835906977505 * 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_26 + 2711.890962292 )
             
-            #print(r11)
+            #print(r26)
             
             
             
             ###### 14 ####
             
-            nineteen = self.pos_three_stage[2232][0] - self.pos_three_stage[2392][0]
-            #print("twelve is :", twelve)
+            fourteen = self.pos_three_stage[2393][1] - self.pos_three_stage[2233][1]
+            #print("fourteen  is :", fourteen )
             
-            epsilon_14 = ((twelve - 4.4599990844730115 )/ 4.4599990844730115)*100
+            epsilon_14 = ((fourteen - 4.459815979004006)/ 4.459815979004006)*100
             #print(epsilon_12)
             
             
-            r14 = 476.476568876/2711.890962292 *( 40.9786262984012 * epsilon_14 + 2711.890962292 )
+            r14 = ((4.459815979004006 * 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_14 + 2711.890962292 )
             
-            #print(r12)
-            
-            
-            
-            ###### 18 ####
-            
-                             
+            #print(r14)
+                
             ######### 18 ###########
-            eighteen = self.pos_three_stage[209][1] - self.pos_three_stage[208][1]
-            epsilon_18 = ((thirtyone - 4.41894934079999)/ 4.41894934079999)*100
+            eighteen = self.pos_three_stage[2293][0] - self.pos_three_stage[2346][0]
+            #print("eighteen  is :", eighteen )
+            
+            epsilon_18 = ((eighteen - 4.391105651855504)/ 4.391105651855504)*100
             #print(epsilon_31)
             
-            r18 = 471.348126605/2711.890962292 *( 40.9786262984012 * epsilon_18 + 2711.890962292 )
-            
+            r18 =((4.391105651855504 * 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_18 + 2711.890962292 )
+            #print(r18)
                
             ######### thirty ###########
-            thirty  = self.pos_three_stage[322][1] - self.pos_three_stage[321][1]
-            epsilon_30 = ((thirty - 4.049003601069984 )/4.049003601069984 )*100
+            thirty  = self.pos_three_stage[2349][0] - self.pos_three_stage[2601][0]
+            #print("thirty   is :", thirty  )
+            
+            epsilon_30 = ((thirty - 4.030788421631016 )/4.030788421631016 )*100
             #print(epsilon_30)
             
-            r30 = 432.56855176/2711.890962292 *( 40.9786262984012 * epsilon_30 + 2711.890962292 )
-            #print(r32) 
+            r30 = ((4.030788421631016 * 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_30 + 2711.890962292 )
+            #print(r30) 
             
               ######### 42 ###########
-            fourtytwo = self.pos_three_stage[363][1] - self.pos_three_stage[362][1]
-            epsilon_42 = ((fourtytwo - 3.970001220709989)/3.970001220709989)*100
+            fourtytwo = self.pos_three_stage[2604][0] - self.pos_three_stage[2650][0]
+            
+            #print("fourtytwo  is :", fourtytwo  )
+            
+            epsilon_42 = ((fourtytwo - 3.9511375427250144)/3.9511375427250144)*100
             #print(epsilon_33)
             
-            r42 = 424.128464463/2711.890962292 *( 40.9786262984012 * epsilon_42 + 2711.890962292 )
-            #print(r33) 
+            r42 = (( 3.9511375427250144 * 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_42 + 2711.890962292 )
+            #print(r42) 
             
                ######### 39 ###########
-            thirtynine = self.pos_three_stage[395][1] - self.pos_three_stage[394][1]
-            epsilon_39 = ((thirtynine - 3.968994140620012)/3.968994140620012)*100
+            thirtynine = self.pos_three_stage[2643][0] - self.pos_three_stage[2550][0]
+            
+            #print("thirtynine  is :", thirtynine )
+            
+            epsilon_39 = ((thirtynine - 3.9511451721190056)/3.9511451721190056)*100
             #print(epsilon_34)
             
-            r39 = 424.02087442/2711.890962292 *( 40.9786262984012 * epsilon_39 + 2711.890962292 )
-            #print(r34)
+            r39 = ((3.9511451721190056 * 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_39 + 2711.890962292 )
+            #print(r39)
           
                     
             ######### 27 ###########
-            twentyseven = self.pos_three_stage[254][1] - self.pos_three_stage[273][1]
-            #print(" thirty_5 is :",  thirty_5) 
-            epsilon_27 = ((twentyseven - 4.642997741699006)/4.642997741699006)*100
+            twentyseven = self.pos_three_stage[2548][0] - self.pos_three_stage[2430][0]
+            #print(" twentyseven is :",  twentyseven) 
+            
+            epsilon_27 = ((twentyseven - 4.62103652954049)/4.62103652954049)*100
             #print(epsilon_35)
             
-            r27 = 496.026925995/2711.890962292 *( 40.9786262984012 * epsilon_27 + 2711.890962292 )
-            #print(r35)
+            r27 = ((4.62103652954049 * 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_27 + 2711.890962292 )
+            #print(r27)
     
               ######### 15 ###########
-            fifteen = self.pos_three_stage[170][1] - self.pos_three_stage[169][1]
-            #print(" thirty_6 is :",  thirty_6) 
-            epsilon_15 = ((fifteen - 3.697998046874986)/3.697998046874986)*100
+            fifteen = self.pos_three_stage[2424][0] - self.pos_three_stage[2206][0]
+            
+            #print("fifteen is :",  fifteen) 
+            
+            epsilon_15 = ((fifteen - 3.681396484374993)/3.681396484374993)*100
             #print(epsilon_36)
             
-            r15 = 395.06946171/2711.890962292 *( 40.9786262984012 * epsilon_15 + 2711.890962292 )
-            #print(r36)
+            r15 = ((3.681396484374993 * 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_15 + 2711.890962292 )
+            #print(r15)
             
             
             
-            ###### seven ####
+            ###### thirteen ####
             
-            seven= self.pos_three_stage[2345][1] - self.pos_three_stage[2172][1]
-            #print("one is :", one)
+            thirteen = self.pos_three_stage[2259][0] - self.pos_three_stage[2385][0]
+            #print("thirteen is :", thirteen)
             
-            epsilon_7 = ((seven - 4.41150283874496)/4.41150283874496)*100
+            epsilon_13 = ((thirteen - 3.7158012390135085)/3.7158012390135085)*100
             #print(epsilon_1 * 100)
             
             ###print(" epsilon_11 is :", epsilon_11) 
-            r7= 471.295558183/2711.890962292 *( 40.9786262984012 * epsilon_7 + 2711.890962292 )
+            r13 = ((3.7158012390135085 * 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_13 + 2711.890962292 )
             #print(r1)
             
                  
              ###### ten ####
             
-            ten = self.pos_three_stage[267][1] - self.pos_three_stage[2347][1]
-            #print("two is :", two)
+            twentyfive = self.pos_three_stage[2388][0] - self.pos_three_stage[2520][0]
+            #print("twentyfive is :", twentyfive)
             
-            epsilon_25 = ((ten - 4.049495697021499)/4.049495697021499)*100
+            epsilon_25 = ((twentyfive - 4.663585662841996)/4.663585662841996)*100
             
-            #print(epsilon_2 * 100)
-            
-            r25  = 432.621127927/2711.890962292 *( 40.9786262984012 * epsilon_25 + 2711.890962292 )
-            #print(r2)
+            r25  = ((4.663585662841996 * 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_25 + 2711.890962292 )
+            #print(r25)
             
             
                  ###### thirtyseven ####
             
-            thirtyseven = self.pos_three_stage[2643][1] - self.pos_three_stage[2615][1]
-            #print("three is :", three)
+            thirtyseven = self.pos_three_stage[2524][0] - self.pos_three_stage[2649][0]
+            #print("thirtyseven is :", thirtyseven)
             
-            epsilon_37 = ((thirtyseven - 3.969497680661007)/3.969497680661007)*100
+            epsilon_37 = ((thirtyseven - 3.987529754638487)/3.987529754638487)*100
             
             #print(epsilon_3)
             
-            r37 = 424.074670186/2711.890962292 *( 40.9786262984012 * epsilon_37 + 2711.890962292 )
-            #print(r3)
+            r37 =  ((3.987529754638487* 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_37 + 2711.890962292 )
+            #print(r37)
             
             
              ###### fourty ####
             
-            fourty = self.pos_three_stage[2524][1] - self.pos_three_stage[2649][1]
-            #print("four is :", four)
-            epsilon_40 = ((fourty - 3.969501495365023)/3.969501495365023)*100
+            fourty = self.pos_three_stage[2642][0] - self.pos_three_stage[2593][0]
+            #print("fourty is :", fourty)
+            
+            epsilon_40 = ((fourty - 3.9875373840330113)/3.9875373840330113)*100
             #print(epsilon_4)
             
-            r40 = 424.075077471/2711.890962292 *( 40.9786262984012 * epsilon_40 + 2711.890962292 )
-            #print(r4)
+            r40 = ((3.9875373840330113* 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_40 + 2711.890962292 )
+            #print(r40)
             
             
                                                  
              ###### 28 ####
             
-            twentyeight = self.pos_three_stage[2388][1] - self.pos_three_stage[2521][1]
-            #print("five is :", five)
-            epsilon_28 = ((five - 4.6425056457500204)/4.6425056457500204)*100
+            twentyeight = self.pos_three_stage[2590][0] - self.pos_three_stage[2306][0]
+            #print("twentyeight is :", twentyeight)
+            
+            epsilon_28 = ((twentyeight - 4.067878723144503)/4.067878723144503)*100
             #print(epsilon_5)
             
-            r28 = 495.974355487/2711.890962292 *( 40.9786262984012 * epsilon_28 + 2711.890962292 )
-            #print(r5)
+            r28 = ((4.067878723144503 * 3205)/30)/2711.890962292  *( 40.9786262984012 * epsilon_28 + 2711.890962292 )
+            #print(r28)
                           
                           
                ###### sixteen ####
             
-            sixteen = self.pos_three_stage[2259][1] - self.pos_three_stage[2385][1]
-            #print("six is :", six)
+            sixteen = self.pos_three_stage[2303][0] - self.pos_three_stage[2172][0]
+            #print("sixteen is :", sixteen)
             
-            epsilon_16 = ((sixteen - 3.699007122550494)/3.699007122550494)*100
+            epsilon_16 = ((sixteen - 4.431533813476506)/4.431533813476506)*100
             #print(epsilon_6)
             
-            r16 = 395.17664769/2711.890962292 *( 40.9786262984012 * epsilon_16 + 2711.890962292 )
+            r16 = ((4.431533813476506 * 3205)/30)/2711.890962292 *( 40.9786262984012 * epsilon_16 + 2711.890962292 )
             
-            #print(r6) 
+            #print(r16) 
                    
                    
                    
         ############### Spirals 1 ##################################
         
          ######### eleven ###########
-            eleven = self.pos_three_stage[83][1] - self.pos_three_stage[97][1]
-            #print("twenty_8 is :", twenty_8)
+            eleven = self.pos_three_stage[73][0] - self.pos_three_stage[7][0]
+            #print("eleven is :", eleven)
             
             ########### segment1 ################### 
             
-            eleven_1 = self.pos_three_stage[2210][1] - self.pos_three_stage[34][1]
-            #print("twentyeight_1 is :", twentyeight_1)
+            eleven_1 = self.pos_three_stage[73][0] - self.pos_three_stage[2296][0]
+            #print("eleven_1 is :", eleven_1)
             
-            epsilon_11_1 = ((eleven_1 - 2.934501647948494)/2.934501647948494)*100
-            r11_1 = R_spiral_1 /2711.890962292 *( 40.9786262984012 * epsilon_11_1 + 2711.890962292 )
-            
+            epsilon_11_1 = ((eleven_1 - 2.9390258789060084)/2.9390258789060084)*100
+            r11_1 = ((R_spiral_1* 2.9390258789060084)/14.401115417479993) /2711.890962292 *( 40.9786262984012 * epsilon_11_1 + 2711.890962292 )
+            #print (r11_1)
                         
             ########### segment2 ################### 
             
-            eleven_2 = self.pos_three_stage[165][1] - self.pos_three_stage[2210][1]
-            #print("twentyeight_2 is :", twentyeight_2)
+            eleven_2 = self.pos_three_stage[2296][0] - self.pos_three_stage[5935][0] #1333 #
+            #print("eleven_2 is :", eleven_2)
             
-            epsilon_11_2 = ((eleven_2 - 2.738502502441534)/2.738502502441534)*100
-            r11_2 = R_spiral_1 /2711.890962292 *( 40.9786262984012 * epsilon_11_2 + 2711.890962292 )
-            
+            epsilon_11_2 = ((eleven_2 - 2.867624282836772)/2.867624282836772)*100
+            r11_2 = ((R_spiral_1* 2.867624282836772)/14.401115417479993) /2711.890962292 *( 40.9786262984012 * epsilon_11_2 + 2711.890962292 )
+            #print (r11_2)
             
             ########### segment3 ################### 
             
-            eleven_3 = self.pos_three_stage[974][1] - self.pos_three_stage[165][1]
-            #print("twentyeight_3 is :", twentyeight_3)
+            eleven_3 = self.pos_three_stage[5935][0] - self.pos_three_stage[4525][0]  
+            #print("eleven_3 is :", eleven_3)
             
-            epsilon_11_3 = ((eleven_3 - 2.953498840332145)/ 2.953498840332145)*100
-            r11_3 = R_spiral_1 /2711.890962292 *( 40.9786262984012 * eleven_3 + 2711.890962292 )
-            
+            epsilon_11_3 = ((eleven_3 - 2.8876609802255047)/ 2.8876609802255047)*100
+            r11_3 =  ((R_spiral_1* 2.8876609802255047)/14.401115417479993)/2711.890962292 *( 40.9786262984012 * eleven_3 + 2711.890962292 )
+            #print (r11_3)
             ########### segment 4 ################### 
             
-            eleven_4 = self.pos_three_stage[160][1] - self.pos_three_stage[974][1]
-            #print("twentyeight_4 is :", twentyeight_4)
+            eleven_4 = self.pos_three_stage[4525][0] - self.pos_three_stage[5467][0]
+            #print("eleven_4 is :", eleven_4)
             
-            epsilon_11_4 = ((eleven_4 - 2.7504959106448297)/ 2.7504959106448297)*100
-            r11_4 = R_spiral_1 /2711.890962292 *( 40.9786262984012 * epsilon_11_4 + 2711.890962292 )
-            
+            epsilon_11_4 = ((eleven_4 - 2.9143238067610184)/ 2.9143238067610184)*100
+            r11_4 = ((R_spiral_1 * 2.9143238067610184 )/14.401115417479993)/2711.890962292 *( 40.9786262984012 * epsilon_11_4 + 2711.890962292 )
+            #print (r11_4)
              ########### segment 5 ################### 
             
-            eleven_5 = self.pos_three_stage[46][1] - self.pos_three_stage[160][1]
-            #print("twentyeight_5 is :", twentyeight_5)
+            eleven_5 = self.pos_three_stage[5467][0] - self.pos_three_stage[7][0]
+            #print("eleven_5 is :", eleven_5)
             
-            epsilon_11_5 = ((eleven_5 - 2.9589996337839892)/ 2.9589996337839892)*100
-            r11_5 = R_spiral_1 /2711.890962292 *( 40.9786262984012 * epsilon_11_5 + 2711.890962292 )
+            epsilon_11_5 = ((eleven_5 - 2.7924804687506892)/ 2.7924804687506892)*100
+            r11_5 = ((R_spiral_1 * 2.7924804687506892)/14.401115417479993)/2711.890962292 *( 40.9786262984012 * epsilon_11_5 + 2711.890962292 )
+            #print (r11_5)
             
             r11 = r11_1 + r11_2 + r11_3 + r11_4 + r11_5
+            #print (r11)
             
             
              ######### 12 ###########
-            twelve = self.pos_three_stage[33][0] - self.pos_three_stage[21][0]
-            #print("sixteen is :", sixteen)
+            twelve = self.pos_three_stage[72][1] - self.pos_three_stage[60][1]
+            #print("twelve is :", twelve)
             
             ########### segment 1 #####################
-            twelve_1 = self.pos_three_stage[827][0] - self.pos_three_stage[21][0]
-            #print("sixteen_1 is :", sixteen_1)
+            twelve_1 = self.pos_three_stage[72][1] - self.pos_three_stage[873][1]
+            #print("twelve_1_1 is :", twelve_1)
             
-            epsilon_12_1 = ((twelve_1 - 2.9815025329589915 )/2.9815025329589915)*100
-            r12_1 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_12_1 + 2711.890962292 )
+            epsilon_12_1 = ((twelve_1 - 2.9884757995599927 )/2.9884757995599927)*100
+            r12_1 =((R_spiral_1 * 2.9884757995599927)/14.495407104489004)/2711.890962292 *( 40.9786262984012 * epsilon_12_1 + 2711.890962292 )
 
             
             ########### segment 2 #####################
-            twelve_2 = self.pos_three_stage[3568][0] - self.pos_three_stage[827][0]
-            #print("sixteen_2 is :", sixteen_2)
+            twelve_2 = self.pos_three_stage[873][1] - self.pos_three_stage[5417][1]
+            #print("twelve_2 is :", twelve_2)
             
-            epsilon_12_2 = ((twelve_2 - 2.801248550415501 )/ 2.801248550415501)*100
-            r12_2 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_12_2 + 2711.890962292 )
+            epsilon_12_2 = ((twelve_2 - 2.7815170288074995 )/ 2.7815170288074995)*100
+            r12_2 = ((R_spiral_1 * 2.7815170288074995)/14.495407104489004)/2711.890962292 *( 40.9786262984012 * epsilon_12_2 + 2711.890962292 )
 
 
             ########### segment 3 #####################
-            twelve_3 = self.pos_three_stage[3367][0] - self.pos_three_stage[3568][0]
-            #print("sixteen_3 is :", sixteen_3)
+            twelve_3 = self.pos_three_stage[5417][1] - self.pos_three_stage[65][1]
+            #print("twelve_3  is :", twelve_3 )
             
-            epsilon_12_3 = ((twelve_3 - 2.99574858897049 )/2.99574858897049)*100
-            r12_3 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_12_3 + 2711.890962292 )
+            epsilon_12_3 = ((twelve_3 - 2.7132759094224923 )/2.7132759094224923)*100
+            r12_3 = ((R_spiral_1 * 2.7132759094224923)/14.495407104489004)/2711.890962292 *( 40.9786262984012 * epsilon_12_3 + 2711.890962292 )
 
             
             
             ########### segment 4 #####################
-            twelve_4 = self.pos_three_stage[6046][0] - self.pos_three_stage[3367][0]
-            #print("sixteen_4 is :", sixteen_4)
-            
-                        
-            epsilon_12_4 = ((twelve_4 - 2.9347515106204582 )/ 2.9347515106204582)*100
-            r12_4 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_12_4 + 2711.890962292 )
+            twelve_4 = self.pos_three_stage[65][1] - self.pos_three_stage[1006][1]
+            #print("twelve_4 is :", twelve_4)
+        
+            epsilon_12_4 = ((twelve_4 - 2.862171173095973 )/ 2.862171173095973)*100
+            r12_4 = ((R_spiral_1 * 2.862171173095973)/14.495407104489004)/2711.890962292 *( 40.9786262984012 * epsilon_12_4 + 2711.890962292 )
 
             
             ########### segment 4 #####################
-            twelve_5 = self.pos_three_stage[33][0] - self.pos_three_stage[6046][0]
-            #print("sixteen_5 is :", sixteen_5)
+            twelve_5 = self.pos_three_stage[1006][1] - self.pos_three_stage[60][1]
+            #print("twelve_5 is :", twelve_5)
             
                         
-            epsilon_12_5 = ((twelve_5 - 2.7827510833740092)/ 2.7827510833740092)*100
-            r16_5 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_12_5 + 2711.890962292 )
+            epsilon_12_5 = ((twelve_5 - 3.1499671936030182)/ 3.1499671936030182)*100
+            r12_5 =((R_spiral_1 * 3.1499671936030182)/14.495407104489004)/2711.890962292 *( 40.9786262984012 * epsilon_12_5 + 2711.890962292 )
             
             r12 =  r12_1 +  r12_2 +  r12_3 +  r12_4 +  r12_5
-            
+            #print(r12)
             
             
              
                ######### seven ###########
-            seven = self.pos_three_stage[8][1] - self.pos_three_stage[20][1]
+            seven = self.pos_three_stage[59][0] - self.pos_three_stage[47][0]
             #print("seven is :", seven)
             
             ########### segment 1 #####################
             
-            seven_1 = self.pos_three_stage[2164][1] - self.pos_three_stage[20][1]
+            seven_1 = self.pos_three_stage[59][0] - self.pos_three_stage[2251][0]
             
             #print("seven_1 is :", seven_1)
             
-            epsilon_7_1 = ((seven_1 - 2.934501647948508 )/ 2.934501647948508)*100
+            epsilon_7_1 = ((seven_1 - 2.9297447204589915 )/ 2.9297447204589915)*100
     
-            r7_1 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_7_1 + 2711.890962292 )
+            r7_1 =((R_spiral_1 * 2.9297447204589915)/14.26972961425799)/2711.890962292 *( 40.9786262984012 * epsilon_7_1 + 2711.890962292 )
             
             
             ########### segment 2 #####################
-            seven_2 = self.pos_three_stage[110][1] - self.pos_three_stage[2164][1]
+            seven_2 = self.pos_three_stage[2251][0] - self.pos_three_stage[136][0]
             
             #print("seven_2 is :", seven_2)
             
-            epsilon_7_2 = ((seven_2 - 2.7385025024414773 )/ 2.7385025024414773)*100
-            r7_2 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_7_2 + 2711.890962292 )
+            epsilon_7_2 = ((seven_2 - 2.7320976257320027)/ 2.7320976257320027)*100
+            r7_2 = ((R_spiral_1 * 2.7320976257320027)/14.26972961425799)/2711.890962292 *( 40.9786262984012 * epsilon_7_2 + 2711.890962292 )
             
             
             ########### segment 3 #####################
             
-            seven_3 = self.pos_three_stage[920][1] - self.pos_three_stage[110][1]
+            seven_3 = self.pos_three_stage[136][0] - self.pos_three_stage[2243][0]
             
             #print("seven_3 is :", seven_3)
             
-            epsilon_7_3 = ((seven_3 - 2.953498840332145)/ 2.953498840332145)*100
-            r7_3 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_7_3 + 2711.890962292 )
+            epsilon_7_3 = ((seven_3 - 2.8218154907225)/ 2.8218154907225)*100
+            r7_3 = ((R_spiral_1 * 2.8218154907225)/14.26972961425799)/2711.890962292 *( 40.9786262984012 * epsilon_7_3 + 2711.890962292 )
             
             
             ########### segment 4 #####################
             
-            seven_4 = self.pos_three_stage[115][1] - self.pos_three_stage[920][1]
+            seven_4 = self.pos_three_stage[2243][0] - self.pos_three_stage[141][0]
             
             #print("seven_4 is :", seven_4)
             
-            epsilon_7_4 = ((seven_4 - 2.750495910644858 )/ 2.750495910644858)*100
+            epsilon_7_4 = ((seven_4 - 2.854316711426513 )/ 2.854316711426513)*100
             
-            r7_4 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_7_4 + 2711.890962292 )
+            r7_4 = ((R_spiral_1 * 2.854316711426513)/14.26972961425799)/2711.890962292 *( 40.9786262984012 * epsilon_7_4 + 2711.890962292 )
             
             
             ########### segment 5 #####################
             
-            seven_5 = self.pos_three_stage[8][1] - self.pos_three_stage[115][1]
+            seven_5 = self.pos_three_stage[141][0] - self.pos_three_stage[47][0]
             
             #print("seven_5 is :", seven_5)
             
-            epsilon_7_5 = ((seven_5 - 2.958999633783975 )/ 2.958999633783975)*100
-            r7_5 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_7_5 + 2711.890962292 )
+            epsilon_7_5 = ((seven_5 - 2.931755065917983)/ 2.931755065917983)*100
+            r7_5 = ((R_spiral_1 * 2.931755065917983)/14.26972961425799)/2711.890962292 *( 40.9786262984012 * epsilon_7_5 + 2711.890962292 )
             
             r7 = r7_1 + r7_2 + r7_3 + r7_4 + r7_5 
-            
+            #print(r7)
             
             
             ######### eight ###########
-            eight = self.pos_three_stage[73][1] - self.pos_three_stage[7][1]
+            eight = self.pos_three_stage[46][0] - self.pos_three_stage[34][0]
             #print("eight is :", eight)
+            
             ########### segment 1 #####################
-            eight_1 = self.pos_three_stage[5498][1] - self.pos_three_stage[7][1]
+            eight_1 = self.pos_three_stage[46][0] - self.pos_three_stage[3863][0]
             #print("eight_1 is :", eight_1) 
                                     
-            epsilon_8_1 = (( eight_1  - 2.500249862675105)/ 2.500249862675105)*100
-            r8_1 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_8_1 + 2711.890962292 )
+            epsilon_8_1 = (( eight_1  - 2.8462944030763495)/ 2.8462944030763495)*100
+            r8_1 = ((R_spiral_1 * 2.8462944030763495 )/14.401100158691996)/2711.890962292 *( 40.9786262984012 * epsilon_8_1 + 2711.890962292 )
          
             ########### segment 2 #####################
-            eight_2 = self.pos_three_stage[2][1] - self.pos_three_stage[5498][1]
+            eight_2 = self.pos_three_stage[3863][0] - self.pos_three_stage[3859][0]
             #print("eight_2 is :", eight_2) 
                                     
-            epsilon_8_2 = (( eight_2  - 2.8717517852748955)/ 2.8717517852748955)*100
-            r8_2 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_8_2 + 2711.890962292 )
+            epsilon_8_2 = (( eight_2  - 2.860502243041644)/ 2.860502243041644)*100
+            r8_2 =  ((R_spiral_1 * 2.860502243041644 )/14.401100158691996)/2711.890962292 *( 40.9786262984012 * epsilon_8_2 + 2711.890962292 )
         
             ########### segment 3 #####################
-            eight_3 = self.pos_three_stage[5973][1] - self.pos_three_stage[908][1]
+            eight_3 = self.pos_three_stage[3859][0] - self.pos_three_stage[5936][0]
             #print("eight_3 is :", eight_3) 
             
-            epsilon_8_3 = (( eight_3  -  2.8335018157919336)/  2.8335018157919336)*100
-            r8_3 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_8_3 + 2711.890962292 )
+            epsilon_8_3 = (( eight_3  -  2.8876552581790023)/ 2.8876552581790023)*100
+            r8_3 = ((R_spiral_1 * 2.8876552581790023 )/14.401100158691996)/2711.890962292 *( 40.9786262984012 * epsilon_8_3 + 2711.890962292 )
          
             ########### segment 4 #####################
-            eight_4 = self.pos_three_stage[2297][1] - self.pos_three_stage[5973][1]
+            eight_4 = self.pos_three_stage[5936][0] - self.pos_three_stage[2210][0]
             #print("eight_4 is :", eight_4) 
             
-            epsilon_8_4 = (( eight_4  - 2.8584995269770843)/  2.8584995269770843)*100
-            r8_4 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_8_4 + 2711.890962292 )
+            epsilon_8_4 = (( eight_4  - 2.867626190185497)/  2.867626190185497)*100
+            r8_4 = ((R_spiral_1 * 2.867626190185497 )/14.401100158691996)/2711.890962292 *( 40.9786262984012 * epsilon_8_4 + 2711.890962292 )
          
             ########### segment 4 #####################
-            eight_5 = self.pos_three_stage[73][1] - self.pos_three_stage[2297][1]
+            eight_5 = self.pos_three_stage[2210][0] - self.pos_three_stage[34][0]
             #print("eight_5 is :", eight_5) 
             
-            epsilon_8_5 = (( eight_5  - 2.9345054626449922 )/ 2.9345054626449922)*100
-            r8_5 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_8_5 + 2711.890962292 )
+            epsilon_8_5 = (( eight_5  - 2.939022064209503)/ 2.939022064209503)*100
+            r8_5 = ((R_spiral_1 * 2.939022064209503 )/14.401100158691996)/2711.890962292 *( 40.9786262984012 * epsilon_8_5 + 2711.890962292 )
          
             r8 = r8_1 + r8_2 + r8_3 + r8_4 + r8_5
-            
+            #print(r8)
             
             ######### nine ###########
-            nine = self.pos_three_stage[60][0] - self.pos_three_stage[72][0]
-            #print("twenty_2 is :", twenty_2)
+            nine = self.pos_three_stage[21][1] - self.pos_three_stage[33][1]
+            #print("nine is :", nine)
            
             ########### segment1 #################### 
-            nine_1 = self.pos_three_stage[873][0] - self.pos_three_stage[72][0]
+            nine_1 = self.pos_three_stage[21][1] - self.pos_three_stage[827][1]
             #print("nine_1  is :", nine_1 ) 
             
-            epsilon_9_1 = (( nine_1   - 2.981502532958295)/ 2.981502532958295)*100
-            r9_1 = R_spiral_1/2711.890962292 *( 40.9786262984012 *  epsilon_9_1 + 2711.890962292 )
+            epsilon_9_1 = (( nine_1   - 2.9742851257298923)/ 2.9742851257298923)*100
+            r9_1 = ((R_spiral_1 *  2.9742851257298923)/14.495407104483007)/2711.890962292 *( 40.9786262984012 *  epsilon_9_1 + 2711.890962292 )
             
             ########### segment2 #################### 
-            nine_2 = self.pos_three_stage[4374][0] - self.pos_three_stage[873][0]
+            nine_2 = self.pos_three_stage[827][1] - self.pos_three_stage[3385][1]
             #print("nine_2  is :", nine_2 ) 
             
-            epsilon_9_2 = (( nine_2   - 2.801248550415778)/ 2.801248550415778)*100
-            r9_2 = R_spiral_1/2711.890962292 *( 40.9786262984012 *  epsilon_9_2 + 2711.890962292 )
+            epsilon_9_2 = (( nine_2   - 2.733352661127711)/ 2.733352661127711)*100
+            r9_2 = ((R_spiral_1 *  2.733352661127711)/14.495407104483007)/2711.890962292 *( 40.9786262984012 *  epsilon_9_2 + 2711.890962292 )
             
                       
             ########### segment3 #################### 
-            nine_3 = self.pos_three_stage[4755][0] - self.pos_three_stage[4374][0]
+            nine_3 = self.pos_three_stage[3385][1] - self.pos_three_stage[3367][1]
             #print("nine_3  is :", nine_3 ) 
             
-            epsilon_9_3 = (( nine_3   - 2.9957485198969636)/ 2.9957485198969636)*100
-            r9_3 = R_spiral_1/2711.890962292 *( 40.9786262984012 *  epsilon_9_3 + 2711.890962292 )
+            epsilon_9_3 = (( nine_3   - 3.060123443602137)/ 3.060123443602137)*100
+            r9_3 = ((R_spiral_1 *  3.060123443602137)/14.495407104483007)/2711.890962292 *( 40.9786262984012 *  epsilon_9_3 + 2711.890962292 )
             
             ########### segment4 #################### 
-            nine_4 = self.pos_three_stage[866][0] - self.pos_three_stage[4755][0]
+            nine_4 = self.pos_three_stage[3367][1] - self.pos_three_stage[834][1]
             #print("nine_4  is :", nine_4) 
             
-            epsilon_9_4 = (( nine_4   - 2.736000061035277)/2.736000061035277)*100
-            r9_4 = R_spiral_1/2711.890962292 *( 40.9786262984012 *  epsilon_9_4 + 2711.890962292 )  
+            epsilon_9_4 = (( nine_4   - 2.73917388915973)/2.73917388915973)*100
+            r9_4 = ((R_spiral_1 *  2.73917388915973 )/14.495407104483007)/2711.890962292 *( 40.9786262984012 *  epsilon_9_4 + 2711.890962292 )  
             
                         
             ########### segment5 #################### 
-            nine_5 = self.pos_three_stage[60][0] - self.pos_three_stage[866][0]
+            nine_5 = self.pos_three_stage[834][1] - self.pos_three_stage[33][1]
             #print("nine_5  is :", nine_5) 
             
-            epsilon_9_5 = (( nine_5   - 2.9815025329596807)/ 2.9815025329596807)*100
-            r9_5 = R_spiral_1/2711.890962292 *( 40.9786262984012 *  epsilon_9_5 + 2711.890962292 )                        
+            epsilon_9_5 = (( nine_5   - 2.988471984863537)/ 2.988471984863537)*100
+            r9_5 = ((R_spiral_1 *  2.988471984863537 )/14.495407104483007)/2711.890962292 *( 40.9786262984012 *  epsilon_9_5 + 2711.890962292 )                        
             
             r9 = r9_1 + r9_2 + r9_3 + r9_4 + r9_5
-            
+            #print(r9)
             
             
              ######### ten ###########
-            ten = self.pos_three_stage[118][1] - self.pos_three_stage[106][1]
-            #print("twenty_5 is :", twenty_5)
+            ten = self.pos_three_stage[8][0] - self.pos_three_stage[20][0]
+            #print("ten is :", ten)
             
             ########### segment1 ################### 
-            ten_1 = self.pos_three_stage[5005][1] - self.pos_three_stage[47][1]
+            ten_1 = self.pos_three_stage[8][0] - self.pos_three_stage[3414][0]
             #print("ten_1 is :", ten_1) 
             
-            epsilon_10_1 = (( ten_1  - 2.8257503509586854)/ 2.8257503509586854)*100
-            r10_1 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_10_1 + 2711.890962292 )
+            epsilon_10_1 = (( ten_1  - 2.804950714111861)/ 2.804950714111861)*100
+            r10_1 = ((R_spiral_1 * 2.804950714111861)/14.269714355468999)/2711.890962292 *( 40.9786262984012 * epsilon_10_1 + 2711.890962292 )
             
             ########### segment2 ################### 
-            ten_2 = self.pos_three_stage[946][1] - self.pos_three_stage[5005][1]
+            ten_2 = self.pos_three_stage[3414][0] - self.pos_three_stage[3430][0]
             #print("ten_2 is :", ten_2) 
             
-            epsilon_10_2 = (( ten_2  - 2.8837490081753003)/ 2.8837490081753003)*100
-            r10_2 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_10_2 + 2711.890962292 )
+            epsilon_10_2 = (( ten_2  - 2.828275680542049)/ 2.828275680542049)*100
+            r10_2 = ((R_spiral_1 * 2.828275680542049)/14.269714355468999)/2711.890962292 *( 40.9786262984012 * epsilon_10_2 + 2711.890962292 )
             
             ########### segment3 ################### 
-            ten_3 = self.pos_three_stage[5972][1] - self.pos_three_stage[946][1]
+            ten_3 = self.pos_three_stage[3430][0] - self.pos_three_stage[84][0]
             #print("ten_3 is :", ten_3) 
             
-            epsilon_10_3 = (( ten_3  - 2.833501815793909)/ 2.833501815793909)*100
-            r10_3 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_10_3 + 2711.890962292 )
+            epsilon_10_3 = (( ten_3  - 2.9746456146230855)/ 2.9746456146230855)*100
+            r10_3 = ((R_spiral_1 * 2.9746456146230855)/14.269714355468999)/2711.890962292 *( 40.9786262984012 * epsilon_10_3 + 2711.890962292 )
             
             ########### segment4 ################### 
-            ten_4 = self.pos_three_stage[2251][1] - self.pos_three_stage[5972][1]
+            ten_4 = self.pos_three_stage[84][0] - self.pos_three_stage[460][0]
             #print("ten_4 is :", ten_4)
             
-            epsilon_10_4 = (( ten_4  - 2.8584995269771127)/ 2.8584995269771127)*100
-            r10_4 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_10_4 + 2711.890962292 )
+            epsilon_10_4 = (( ten_4  - 2.9821395874030046)/ 2.9821395874030046)*100
+            r10_4 = ((R_spiral_1 * 2.9821395874030046)/14.269714355468999)/2711.890962292 *( 40.9786262984012 * epsilon_10_4 + 2711.890962292 )
             
                         
             ########### segment5 ################### 
-            ten_5 = self.pos_three_stage[59][1] - self.pos_three_stage[2251][1]
+            ten_5 = self.pos_three_stage[460][0] - self.pos_three_stage[20][0]
             #print("ten_5 is :", ten_5) 
             
-            epsilon_10_5 = (( ten_5  - 2.934505462644978)/ 2.934505462644978)*100
-            r10_5 = R_spiral_1/2711.890962292 *( 40.9786262984012 * epsilon_10_5 + 2711.890962292 )
+            epsilon_10_5 = (( ten_5  - 2.6797027587889986)/ 2.6797027587889986)*100
+            r10_5 = ((R_spiral_1 * 2.6797027587889986)/14.269714355468999)/2711.890962292 *( 40.9786262984012 * epsilon_10_5 + 2711.890962292 )
             
             r10 = r10_1 + r10_2 + r10_3 + r10_4 + r10_5
-            
+            #print(r10)
         
             
             
@@ -567,48 +577,48 @@ class SpiderController(Sofa.Core.Controller):
             
             
              ######### twentyone ###########
-            twentythree = self.pos_three_stage[275][1] - self.pos_three_stage[283][1]
-           
+            twentythree = self.pos_three_stage[110][0] - self.pos_three_stage[122][0]
+            print(twentythree)
             
                         
             ######### segment 1 ###########
-            twentythree_1 = self.pos_three_stage[1089][1] - self.pos_three_stage[170][1]
+            twentythree_1 = self.pos_three_stage[110][0] - self.pos_three_stage[510][0]
             #print("twentythree_1 is :", twentythree_1)
             
-            epsilon_23_1 = ((twentythree_1 - 2.0315017700190197)/ 2.0315017700190197)*100
-            r23_1 = R_spiral_2 /2711.890962292 *( 40.9786262984012 * epsilon_23_1 + 2711.890962292 )
+            epsilon_23_1 = ((twentythree_1 - 1.8007431030269956)/ 1.8007431030269956)*100
+            r23_1 = ((R_spiral_2 * 1.8007431030269956)/9.364852905274013) /2711.890962292 *( 40.9786262984012 * epsilon_23_1 + 2711.890962292 )
             
                              
             ######### segment 2 ###########
-            twentythree_2 = self.pos_three_stage[3984][1] - self.pos_three_stage[1089][1]
+            twentythree_2 = self.pos_three_stage[510][0] - self.pos_three_stage[4568][0]
             #print("twentythree_2 is :", twentythree_2)
             
-            epsilon_23_2 = ((twentythree_2 - 2.075000762939368)/ 2.075000762939368)*100
-            r23_2 = R_spiral_2 /2711.890962292 *( 40.9786262984012 * epsilon_23_2 + 2711.890962292 )
+            epsilon_23_2 = ((twentythree_2 - 1.9358749389654548)/ 1.9358749389654548)*100
+            r23_2 = ((R_spiral_2 * 1.9358749389654548)/9.364852905274013) /2711.890962292 *( 40.9786262984012 * epsilon_23_2 + 2711.890962292 )
             
             ######### segment 3 ###########
-            twentythree_3 = self.pos_three_stage[3966][1] - self.pos_three_stage[3984][1]
-            #print("twentyone_3 is :", twentyone_3)
+            twentythree_3 = self.pos_three_stage[4568][0] - self.pos_three_stage[4561][0]
+            #print("twentythree_3 is :", twentythree_3)
             
-            epsilon_23_3 = ((twentythree_3 - 1.9287509918219854)/ 1.9287509918219854)*100
-            r23_3 = R_spiral_2 /2711.890962292 *( 40.9786262984012 * epsilon_23_3 + 2711.890962292 )
+            epsilon_23_3 = ((twentythree_3 - 2.0144252777116662)/2.0144252777116662)*100
+            r23_3 = ((R_spiral_2 * 2.0144252777116662)/9.364852905274013) /2711.890962292 *( 40.9786262984012 * epsilon_23_3 + 2711.890962292 )
             
             ######### segment 4 ###########
-            twentythree_4 = self.pos_three_stage[3955][1] - self.pos_three_stage[3966][1]
-            #print("twentythree_4 is :", twentyone_4)
+            twentythree_4 = self.pos_three_stage[4561][0] - self.pos_three_stage[2942][0]
+            #print("twentythree_4 is :", twentythree_4 )
             
-            epsilon_29_4 = ((twentythree_4 - 2.000497817992283)/ 2.000497817992283)*100
-            r23_4 = R_spiral_2 /2711.890962292 *( 40.9786262984012 * epsilon_23_4 + 2711.890962292 )
+            epsilon_23_4 = ((twentythree_4 - 1.7116985321023819)/ 1.7116985321023819)*100
+            r23_4 = ((R_spiral_2 * 1.7116985321023819)/9.364852905274013) /2711.890962292 *( 40.9786262984012 * epsilon_23_4 + 2711.890962292 )
             
             ######### segment 5 ###########
-            twentythree_5 = self.pos_three_stage[156][1] - self.pos_three_stage[3955][1]
+            twentythree_5 = self.pos_three_stage[2942][0] - self.pos_three_stage[122][0]
             #print("twentythree_5 is :", twentythree_5)
             
-            epsilon_23_5 = ((twentythree_5 - 1.9932479858353531)/1.9932479858353531)*100
-            r23_5 = R_spiral_2 /2711.890962292 *( 40.9786262984012 * epsilon_23_5 + 2711.890962292 )
+            epsilon_23_5 = ((twentythree_5 - 1.9021110534675145)/1.9021110534675145)*100
+            r23_5 =  ((R_spiral_2 * 1.9021110534675145)/9.364852905274013) /2711.890962292 *( 40.9786262984012 * epsilon_23_5 + 2711.890962292 )
             
             r23 = r23_1 + r23_2 + r23_3 + r23_4 + r23_5
-            
+            #print(r23)
             
               ######### twentyfour ###########
             twentyfour = self.pos_three_stage[182][0] - self.pos_three_stage[196][0]
@@ -948,7 +958,7 @@ class SpiderController(Sofa.Core.Controller):
             
             
              ######### thirtyone ###########
-             thirtyone = self.pos_three_stage[295][1] - self.pos_three_stage[301][1]
+            thirtyone = self.pos_three_stage[295][1] - self.pos_three_stage[301][1]
             #print("fiveteen is :", fiveteen)
             
              ########### segment 1 #####################
@@ -1103,9 +1113,9 @@ class SpiderController(Sofa.Core.Controller):
            
             ########### segment3 ################### 
             thirtyfour_3 = self.pos_three_stage[379][1] - self.pos_three_stage[381][1]
-            #print("twentyseven_3 is :", twentyseven_3)
+            #print("thirtyfour_3 is :", thirtyfour_3)
         
-            epsilon_34_3 = (( twentyseven_3 - 2.0304985046348776)/ 2.0304985046348776)*100
+            epsilon_34_3 = (( thirtyfour_3 - 2.0304985046348776)/ 2.0304985046348776)*100
             r34_3 = R_spiral_3 /2711.890962292 *( 40.9786262984012 * epsilon_34_3 + 2711.890962292 )
             
             
@@ -1458,7 +1468,7 @@ class SpiderController(Sofa.Core.Controller):
             #print("matrix_epsilon_5", matrix_epsilon_5)
             
             matrix_ep = (((matrix_1 - 20.104896677387785) + (matrix_2 - 20.441054740343915 ) + (matrix_3 - 20.56515969337761 ) + (matrix_4 - 20.901317756333697 ) + (matrix_5 - 20.104896677387785 ))/ (20.104896677387785 + 20.441054740343915 + 20.56515969337761 + 20.901317756333697 + 20.104896677387785)) * 100
-            print(matrix_ep)
+            #print(matrix_ep)
             
 
                 
@@ -1586,7 +1596,7 @@ def createScene(rootNode):
     three_stage.addObject('SparseLDLSolver')
     #  This adds a MechanicalObject, a component holding the degree of freedom of our
     # mechanical modelling. In the case of a pneumatic actuation it is a set of positions describing the spider wall.
-    three_stage.addObject('MeshVTKLoader', name='loader', filename=path + '.vtk', rotation=[0, 0, 0])
+    three_stage.addObject('MeshVTKLoader', name='loader', filename=path + '3_stage_90.vtk', rotation=[0, 0, 0])
     three_stage.addObject('MeshTopology', src='@loader', name='topo')
     three_stage.addObject('MechanicalObject', name='l_three_stage')
     three_stage.addObject('TetrahedronFEMForceField', template='Vec3', name='FEM', method='large', poissonRatio=0.4,
