@@ -1409,7 +1409,7 @@ class SpiderController(Sofa.Core.Controller):
             v_c =  r9 * I[8] + r8 * I[7] + r7 * I[6] +  r12 * I[11] +  r11 * I[10]
             
             R_t54 =  -1 * v_c
-            #R_t54 =  V
+            R_t54 =  V
             #print(R_t54)
         
             
@@ -1467,7 +1467,7 @@ class SpiderController(Sofa.Core.Controller):
             #print("matrix_epsilon_5", matrix_epsilon_5)
             
             matrix_ep = (((matrix_1 - 20.104896677387785) + (matrix_2 - 20.441054740343915 ) + (matrix_3 - 20.56515969337761 ) + (matrix_4 - 20.901317756333697 ) + (matrix_5 - 20.104896677387785 ))/ (20.104896677387785 + 20.441054740343915 + 20.56515969337761 + 20.901317756333697 + 20.104896677387785)) * 100
-            #print(matrix_ep)
+            print(matrix_ep)
             
 
                 
