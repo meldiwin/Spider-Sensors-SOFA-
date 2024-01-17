@@ -227,7 +227,7 @@ class SpiderController(Sofa.Core.Controller):
             print(R_t14)
 #
 ################# Check whether the solution is correct ################
-            print(np.allclose(np.dot(A,I),C))
+            #print(np.allclose(np.dot(A,I),C))
 
    
       #######***********************  matrix strain   ************************#
