@@ -5,11 +5,7 @@ import Sofa
 import SofaRuntime
 SofaRuntime.importPlugin("SofaComponentAll")
 
-################################ Paramters ##################################
-R_filament = 1665.318 # ohm
-filament_l = 25.980766296382015 # mm
-matrix_l = 100 ## mm
-
+R_radial = 3205
 
 
 # to add elements like Node or objects
@@ -51,75 +47,217 @@ class SpiderController(Sofa.Core.Controller):
             
             
             
-          ###########################  length changes #########################
+   
+#***********************  hex5  ************************#
+            
+   
+        
+            lattice_9 = self.pos_filament[21][1] - self.pos_filament[204][1]
+            #print("lattice_9 is :", lattice_9)
+
+            epsilon_9 = ((lattice_9 - 14.999999999996987)/14.999999999996987)*100
+            
+            r_9 = (R_radial*14.999999999996987/30) /2711.890962292 *( 40.9786262984012 * epsilon_9 + 2711.890962292 )
+            
+            #print(r_5)
+            
+   
+#***********************  hex5  ************************#
+            
+
+            lattice_10 = self.pos_filament[204][1] - self.pos_filament[22][1]
+            print("lattice_10 is :", lattice_10)
+
+            epsilon_10 = ((lattice_10 - 14.99999999999703)/14.99999999999703)*100
+            
+            r_10 = (R_radial*14.99999999999703/30) /2711.890962292 *( 40.9786262984012 * epsilon_10 + 2711.890962292 )
+            
+            #print(r_5) 
+   
+   #***********************  hex5  ************************#
+            
+
+            lattice_11 = self.pos_filament[22][0] - self.pos_filament[234][0]
+            #print("lattice_11 is :", lattice_11)
+
+            epsilon_11 = ((lattice_11 - 15.00000190734854)/15.00000190734854)*100
+            
+            r_11 = (R_radial*15.00000190734854/30) /2711.890962292 *( 40.9786262984012 * epsilon_11 + 2711.890962292 )
+            
+            #print(r_5) 
+            
+    #***********************  hex5  ************************#
+            
+
+            lattice_12 = self.pos_filament[234][0] - self.pos_filament[23][0]
+            #print("lattice_12 is :", lattice_12)
+
+            epsilon_12 = ((lattice_12 - 15.000001907348462)/15.000001907348462)*100
+            
+            r_12 = (R_radial*15.000001907348462/30) /2711.890962292 *( 40.9786262984012 * epsilon_12 + 2711.890962292 )
+            
+            #print(r_5) 
+            
+            
+                #***********************  hex5  ************************#
+            
+
+            lattice_13 = self.pos_filament[219][1] - self.pos_filament[23][1]
+            #print("lattice_13 is :", lattice_13)
+
+            epsilon_13 = ((lattice_13 - 14.999999999996987)/14.999999999996987)*100
+            
+            r_13 = (R_radial*14.999999999996987/30) /2711.890962292 *( 40.9786262984012 * epsilon_13 + 2711.890962292 )
+            
+            #print(r_5) 
+            
+            
+                           #***********************  hex5  ************************#
+            
+
+            lattice_14 = self.pos_filament[20][1] - self.pos_filament[219][1]
+            #print("lattice_14 is :", lattice_14)
+
+            epsilon_14 = ((lattice_14 - 14.99999999999703)/14.99999999999703)*100
+            
+            r_14 = (R_radial*14.99999999999703/30) /2711.890962292 *( 40.9786262984012 * epsilon_14 + 2711.890962292 )
+            
+            #print(r_5) 
+            
+            
+            
+                           #***********************  hex5  ************************#
+                           
+            lattice_15 = self.pos_filament[188][0] - self.pos_filament[20][0]
+            #print("lattice_15 is :", lattice_15)
+
+            epsilon_15 = ((lattice_15 - 15.000001907348455)/15.000001907348455)*100
+            
+            r_15 = (R_radial*15.000001907348455/30) /2711.890962292 *( 40.9786262984012 * epsilon_15 + 2711.890962292 )
+            
+            #print(r_5) 
+            
+            
+                        
+        #***********************  hex5  ************************#
+                           
+            lattice_16 = self.pos_filament[21][0] - self.pos_filament[188][0]
+            #print("lattice_16 is :", lattice_16)
+
+            epsilon_16 = ((lattice_16 - 15.00000190734854)/15.00000190734854)*100
+            
+            r_16 = (R_radial*15.00000190734854/30) /2711.890962292 *( 40.9786262984012 * epsilon_16 + 2711.890962292 )
+            
+            #print(r_5) 
+            
+                                    
+        #***********************  hex5  ************************#
+                           
+            lattice_17 = self.pos_filament[188][1] - self.pos_filament[540][1]
+            #print("lattice_17 is :", lattice_17)
+
+            epsilon_17 = ((lattice_17 - 14.959693908689985)/14.959693908689985)*100
+            
+            r_17 = (R_radial*14.959693908689985/30) /2711.890962292 *( 40.9786262984012 * epsilon_17 + 2711.890962292 )
+            
+            #print(r_5) 
+            
+            
+        #***********************  hex5  ************************#
+                           
+            lattice_18 = self.pos_filament[540][1] - self.pos_filament[234][1]
+            #print("lattice_18 is :", lattice_18)
+
+            epsilon_18 = ((lattice_18 - 15.040306091304032)/15.040306091304032)*100
+            
+            r_18 = (R_radial*15.040306091304032/30) /2711.890962292 *( 40.9786262984012 * epsilon_18 + 2711.890962292 )
+            
+            #print(r_5) 
+            
+            
+                        
+        #***********************  hex5  ************************#
+                           
+            lattice_19 = self.pos_filament[204][0] - self.pos_filament[540][0] 
+            #print("lattice_19 is :", lattice_19)
+
+            epsilon_19 = ((lattice_19 - 15.121814727783004)/15.121814727783004)*100
+            
+            r_19 = (R_radial*15.121814727783004/30) /2711.890962292 *( 40.9786262984012 * epsilon_19 + 2711.890962292 )
+            
+            #print(r_5) 
+            
+            
+                                   
+        #***********************  hex5  ************************#
+                           
+            lattice_20 = self.pos_filament[540][0] - self.pos_filament[219][0]
+            #print("lattice_20 is :", lattice_20)
+
+            epsilon_20 = ((lattice_20 - 14.878189086913999)/14.878189086913999)*100
+            
+            r_20 = (R_radial*14.878189086913999/30) /2711.890962292 *( 40.9786262984012 * epsilon_20 + 2711.890962292 )
+            
+            #print(r_5) 
           
-            filament_length = self.pos_filament[6][1] - self.pos_filament[5][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            print("filament length is :", filament_length )
-            
-             ###########################  segments #########################
-            
-            filament_segment_1 = self.pos_filament[74][1] - self.pos_filament[5][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_1 is :",filament_segment_1 )
-                        
-            epislon_1= (filament_segment_1 -  5.196)/  5.196
-            print("epislon_1 :", epislon_1)
-            
-           
-            
-            
-                        
-            filament_segment_2 = self.pos_filament[78][1] - self.pos_filament[74][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_2 is :",filament_segment_2 )
-            epislon_2= (filament_segment_2 -  5.196)/  5.196
-            print("epislon_2 :", epislon_2)
-            
-            
-                        
-            filament_segment_3 = self.pos_filament[82][1] - self.pos_filament[78][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_3 is :",filament_segment_3 )
-            epislon_3= (filament_segment_3 -  5.196)/  5.196
-            print("epislon_3 :", epislon_3)
-            
-            filament_segment_4 = self.pos_filament[86][1] - self.pos_filament[82][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_3 is :",filament_segment_4 )
-            epislon_4= (filament_segment_4 -  5.196)/  5.196
-            print("epislon_4 :", epislon_4)
-            
-            
-            filament_segment_5 = self.pos_filament[6][1] - self.pos_filament[86][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_5 is :",filament_segment_5 )
-            epislon_5= (filament_segment_5 -  5.196)/  5.196
-            print("epislon_5 :", epislon_5)
             
             
             
-            
-            
-            ############# DMA  find the parameters ########################
+# #######***********************  matrix strain   ************************#
 
-            
+
             matrix_length = self.pos_matrix[1][1] - self.pos_matrix[6][1]
-            self.file_matrix = open(path + 'position_matrix.txt', 'w')  
-            #print(matrix_length, file= self.file_matrix)
-            print("matrix length is :", matrix_length )
+            #print(" matrix_length is :",   matrix_length)
             
-            
-        #print(self.pos_matrix, file= self.file_matrix)
-        #print(self.pos_matrix, file= self.file_matrix)
-                
 
+ #######***********************  part1  segments   ************************#
+            matrix_1 = self.pos_matrix[267][1] - self.pos_matrix[4][1]
+            
+            #print("matrix_1", matrix_1 )
+            
+            matrix_epsilon_1 = ((matrix_1 - 20.104896677387785)/20.104896677387785) * 100
+            #print("matrix_epsilon_1", matrix_epsilon_1)
+            
+
+            #######***********************  part2  segments   ************************#
+            matrix_2 = self.pos_matrix[215][1] - self.pos_matrix[267][1]
+            
+            #print("matrix_2", matrix_2 )
+            
+            matrix_epsilon_2 = ((matrix_2 - 20.441054740343915 )/20.441054740343915) * 100
+            
+            #print("matrix_epsilon_2", matrix_epsilon_2)
+            
+            #######***********************  part3  segments   ************************#
+            matrix_3 = self.pos_matrix[147][1] - self.pos_matrix[215][1]
+            
+            #print("matrix_3", matrix_3 )
+            
+            matrix_epsilon_3 = ((matrix_3 - 20.56515969337761 )/20.56515969337761) * 100
+            #print("matrix_epsilon_3", matrix_epsilon_3)
+            
+            #######***********************  part4  segments   ************************#
+            matrix_4 = self.pos_matrix[221][1] - self.pos_matrix[147][1]
+            
+            #print("matrix_4", matrix_4)
+            
+            matrix_epsilon_4 = ((matrix_4 - 20.901317756333697 )/20.901317756333697) * 100
+            #print("matrix_epsilon_4", matrix_epsilon_4)
+            
+            #######***********************  part5  segments   ************************#
+            matrix_5 = self.pos_matrix[0][1] - self.pos_matrix[286][1]
+
+            #print("matrix_5", matrix_5 )
+            
+            matrix_epsilon_5 = ((matrix_5 - 20.104896677387785 )/20.104896677387785) * 100
+            #print("matrix_epsilon_5", matrix_epsilon_5)
+            
+            matrix_ep = (((matrix_1 - 20.104896677387785) + (matrix_2 - 20.441054740343915 ) + (matrix_3 - 20.56515969337761 ) + (matrix_4 - 20.901317756333697 ) + (matrix_5 - 20.104896677387785 ))/ (20.104896677387785 + 20.441054740343915 + 20.56515969337761 + 20.901317756333697 + 20.104896677387785)) * 100
+            #print(matrix_ep)
+            
+
+            
+           	
         
             
             
