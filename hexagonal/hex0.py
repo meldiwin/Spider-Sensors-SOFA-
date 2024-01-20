@@ -5,11 +5,7 @@ import Sofa
 import SofaRuntime
 SofaRuntime.importPlugin("SofaComponentAll")
 
-################################ Paramters ##################################
-R_filament = 1665.318 # ohm
-filament_l = 25.980766296382015 # mm
-matrix_l = 100 ## mm
-
+R_radial = 3205
 
 
 # to add elements like Node or objects
@@ -51,75 +47,190 @@ class SpiderController(Sofa.Core.Controller):
             
             
             
-          ###########################  length changes #########################
-          
-            filament_length = self.pos_filament[6][1] - self.pos_filament[5][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            print("filament length is :", filament_length )
+   
+#***********************  hex5  ************************#
             
-             ###########################  segments #########################
-            
-            filament_segment_1 = self.pos_filament[74][1] - self.pos_filament[5][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_1 is :",filament_segment_1 )
-                        
-            epislon_1= (filament_segment_1 -  5.196)/  5.196
-            print("epislon_1 :", epislon_1)
-            
-           
-            
-            
-                        
-            filament_segment_2 = self.pos_filament[78][1] - self.pos_filament[74][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_2 is :",filament_segment_2 )
-            epislon_2= (filament_segment_2 -  5.196)/  5.196
-            print("epislon_2 :", epislon_2)
-            
-            
-                        
-            filament_segment_3 = self.pos_filament[82][1] - self.pos_filament[78][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_3 is :",filament_segment_3 )
-            epislon_3= (filament_segment_3 -  5.196)/  5.196
-            print("epislon_3 :", epislon_3)
-            
-            filament_segment_4 = self.pos_filament[86][1] - self.pos_filament[82][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_3 is :",filament_segment_4 )
-            epislon_4= (filament_segment_4 -  5.196)/  5.196
-            print("epislon_4 :", epislon_4)
-            
-            
-            filament_segment_5 = self.pos_filament[6][1] - self.pos_filament[86][1]
-            self.file_filament = open(path + 'position_filament.txt', 'w') 
-            #print(filament_length, file= self.file_filament)
-            #print("filament_segment_5 is :",filament_segment_5 )
-            epislon_5= (filament_segment_5 -  5.196)/  5.196
-            print("epislon_5 :", epislon_5)
-            
-            
-            
-            
-            
-            ############# DMA  find the parameters ########################
+   
+        
+            hex_5 = self.pos_filament[18][1] - self.pos_filament[16][1]
+            #print("hex_5 is :", hex_5)
 
+            epsilon_5 = ((hex_5 - 16.262718200680013)/16.262718200680013)*100
             
-            matrix_length = self.pos_matrix[1][1] - self.pos_matrix[6][1]
-            self.file_matrix = open(path + 'position_matrix.txt', 'w')  
-            #print(matrix_length, file= self.file_matrix)
-            print("matrix length is :", matrix_length )
+            r_5 = (R_radial*16.262718200680013/30) /2711.890962292 *( 40.9786262984012 * epsilon_5 + 2711.890962292 )
             
+            print(r_5)
+#***********************  hex6************************#
+        
+        
+            hex_6 = self.pos_filament[16][1] - self.pos_filament[17][1]
+            #print("hex_6 is :", hex_6)
+
+            epsilon_6 = ((hex_6 - 16.264190673824004)/16.264190673824004)*100
             
-        #print(self.pos_matrix, file= self.file_matrix)
-        #print(self.pos_matrix, file= self.file_matrix)
+            r_6 = (R_radial*16.264190673824004/30) /2711.890962292 *( 40.9786262984012 * epsilon_6 + 2711.890962292 )
+            print(r_6)
+    
+    #***********************  hex6************************#
+            
+   
+        
+            hex_7 = self.pos_filament[19][1] - self.pos_filament[17][1]
+            #print("hex_7 is :", hex_7)
+
+            epsilon_7 = ((hex_7 - 16.26271820068399)/16.26271820068399)*100
+            
+            r_7 = (R_radial*16.26271820068399/30) /2711.890962292 *( 40.9786262984012 * epsilon_7 + 2711.890962292 )
+            
+            print(r_7)
                 
+    #***********************  hex6************************#
+            
+   
+        
+            hex_8 = self.pos_filament[18][1] - self.pos_filament[19][1]
+            #print("hex_8 is :", hex_8)
 
+            epsilon_8 = ((hex_8 - 16.264190673820025)/16.264190673820025)*100
+            
+            r_8 = (R_radial*16.264190673820025/30)/2711.890962292 *( 40.9786262984012 * epsilon_8 + 2711.890962292 )
+            
+            print(r_8)
+            
+                            
+    #***********************  hex6************************#
+            
+   
+        
+            hex_9 = self.pos_filament[482][1] - self.pos_filament[478][1]
+            #print("hex_9 is :", hex_9)
+
+            epsilon_9 = ((hex_9 - 26.018939971921)/26.018939971921)*100
+            
+            r_9 = (R_radial*26.018939971921/30)/2711.890962292 *( 40.9786262984012 * epsilon_9 + 2711.890962292 )
+            
+            print(r_9)
+                                        
+    #***********************  hex6************************#
+            
+   
+        
+            hex_10 = self.pos_filament[474][0] - self.pos_filament[487][0]
+            #print("hex_10 is :", hex_10)
+
+            epsilon_10 = ((hex_10 - 26.005874633789006)/26.005874633789006)*100
+            
+            r_10 = (R_radial*26.005874633789006/30)/2711.890962292 *( 40.9786262984012 * epsilon_10 + 2711.890962292 )
+            
+            print(r_10)
+            
+            
+            
+            ######************ Kirchoff equations ****########
+            A = np.zeros((18,18))
+            I = np.zeros((18,1))
+            C = np.zeros((18,1))
+            I[0] = 1
+            
+            ### nodes first stage 
+            A[0][0]= 1;   A[0][6]= -1;     A[0][12] = -1;	A[0][11] = 1;
+            A[1][1]= 1;   A[1][7]= -1;	   A[1][13] = -1;	A[1][6] = 1;
+            A[2][2]= 1;   A[2][8]= -1;	   A[2][14] = -1;	A[2][7] = 1;
+            A[3][3]= 1;   A[3][9]= -1;	   A[3][15] = -1;	A[3][8] = 1;
+            A[4][4]= 1;   A[4][10]= -1;    A[4][16] = -1;	A[4][9] = 1;
+            A[5][5]= 1;	  A[5][11]= -1;    A[5][17] = -1;	A[5][10] = 1;
+
+
+            #### loop first stage 
+            A[6][6]=r7 ;    A[6][13]=r14;   A[6][12] = r13;
+            A[7][7]=r8 ;    A[7][13]=r14;   A[7][14] = r15;
+            A[8][8]=r9 ;    A[8][14]=r15;   A[8][15] = r16;
+            A[9][9]=r10;    A[9][15]=r16;   A[6][16] = r17;
+            A[10][10]=r11;  A[10][16]=r17;  A[10][17] = r18;
+            A[11][11]=r12 ; A[11][17]=r18;  A[11][12] = r13;
+
+
+########### Boundary Conditions 1 and 4 main radial ############## 
+
+            A[12][0] = 1 ;  C[12][0] = 1;  
+            A[13][1] = 1 ;  C[13][0] = 0;
+            A[14][2] = 1 ;  C[14][0] = 0;
+            A[15][3] = 1 ;  C[15][0] = -1;
+            A[16][4] = 1 ;  C[16][0] = 0;
+            A[17][5] = 1 ;  C[17][0] = 0;
+
+    ## Solve the matrix equation
+            I = solve(A, C)
+            
+################# Check whether the solution is correct ################
+            #print(np.allclose(np.dot(A,I),C))
+
+###### Access the solution######
+#####  I[7] is I_6 ########
+
+            V = r7 * I[6] + r8 * I[7] + r9 * I[8];
+            R_t14 = V;
+            print(R_t14)
+            
+            
+            
+            
+            
+# #######***********************  matrix strain   ************************#
+
+
+            matrix_length = self.pos_matrix[1][1] - self.pos_matrix[6][1]
+            #print(" matrix_length is :",   matrix_length)
+            
+
+ #######***********************  part1  segments   ************************#
+            matrix_1 = self.pos_matrix[267][1] - self.pos_matrix[4][1]
+            
+            #print("matrix_1", matrix_1 )
+            
+            matrix_epsilon_1 = ((matrix_1 - 20.104896677387785)/20.104896677387785) * 100
+            #print("matrix_epsilon_1", matrix_epsilon_1)
+            
+
+            #######***********************  part2  segments   ************************#
+            matrix_2 = self.pos_matrix[215][1] - self.pos_matrix[267][1]
+            
+            #print("matrix_2", matrix_2 )
+            
+            matrix_epsilon_2 = ((matrix_2 - 20.441054740343915 )/20.441054740343915) * 100
+            
+            #print("matrix_epsilon_2", matrix_epsilon_2)
+            
+            #######***********************  part3  segments   ************************#
+            matrix_3 = self.pos_matrix[147][1] - self.pos_matrix[215][1]
+            
+            #print("matrix_3", matrix_3 )
+            
+            matrix_epsilon_3 = ((matrix_3 - 20.56515969337761 )/20.56515969337761) * 100
+            #print("matrix_epsilon_3", matrix_epsilon_3)
+            
+            #######***********************  part4  segments   ************************#
+            matrix_4 = self.pos_matrix[221][1] - self.pos_matrix[147][1]
+            
+            #print("matrix_4", matrix_4)
+            
+            matrix_epsilon_4 = ((matrix_4 - 20.901317756333697 )/20.901317756333697) * 100
+            #print("matrix_epsilon_4", matrix_epsilon_4)
+            
+            #######***********************  part5  segments   ************************#
+            matrix_5 = self.pos_matrix[0][1] - self.pos_matrix[286][1]
+
+            #print("matrix_5", matrix_5 )
+            
+            matrix_epsilon_5 = ((matrix_5 - 20.104896677387785 )/20.104896677387785) * 100
+            #print("matrix_epsilon_5", matrix_epsilon_5)
+            
+            matrix_ep = (((matrix_1 - 20.104896677387785) + (matrix_2 - 20.441054740343915 ) + (matrix_3 - 20.56515969337761 ) + (matrix_4 - 20.901317756333697 ) + (matrix_5 - 20.104896677387785 ))/ (20.104896677387785 + 20.441054740343915 + 20.56515969337761 + 20.901317756333697 + 20.104896677387785)) * 100
+            #print(matrix_ep)
+            
+
+            
+           	
         
             
             
