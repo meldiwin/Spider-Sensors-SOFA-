@@ -239,7 +239,9 @@ class SpiderController(Sofa.Core.Controller):
             A[16][4] = 1 ;  C[16][0] = 0;
             A[17][5] = 1 ;  C[17][0] = 0;
             
-            
+            V = r12 * I[11] + r11 * I[10] + r10 * I[9] + r9 * I[8] + r8 * I[7];
+            R_t12 = V;
+            print(R_t12)
             
 ########## Boundary Conditions 2 and 5  ############## 
 
@@ -249,6 +251,10 @@ class SpiderController(Sofa.Core.Controller):
             A[15][3] = 1 ;  C[15][0] = 0;
             A[16][4] = 1 ;  C[16][0] = -1;
             A[17][5] = 1 ;  C[17][0] = 0;
+            
+            V = r7 * I[6] + r12 * I[11] + r11 * I[10];
+            R_t25 = V;
+            print(R_t25)
             
             
 ########## Boundary Conditions 3 and 6  ############## 
@@ -260,7 +266,9 @@ class SpiderController(Sofa.Core.Controller):
             A[16][4] = 1 ;  C[16][0] = 0;
             A[17][5] = 1 ;  C[17][0] = -1;
             
-            
+            V = r11 * I[10] + r10 * I[9] + r9 * I[8];
+            R_t36 = V;
+            print(R_t36)
                     
 ########## Boundary Conditions 3 and 4  ############## 
             A[12][0] = 1 ;  C[12][0] = 0;  
@@ -270,6 +278,9 @@ class SpiderController(Sofa.Core.Controller):
             A[16][4] = 1 ;  C[16][0] = 0;
             A[17][5] = 1 ;  C[17][0] = 0;
             
+            V = r10 * I[9] + r11 * I[10] + r12 * I[11] + r7 * I[6] + r8 * I[7];
+            R_t34 = V;
+            print(R_t34)
             
 ########## Boundary Conditions 2 and 3  ############## 
             A[12][0] = 1 ;  C[12][0] = 0;  
@@ -279,6 +290,9 @@ class SpiderController(Sofa.Core.Controller):
             A[16][4] = 1 ;  C[16][0] = 0;
             A[17][5] = 1 ;  C[17][0] = 0;
             
+            V = r7 * I[6] + r12 * I[11] + r11 * I[10] + r10 * I[9] + r9 * I[8];
+            R_t32 = V;
+            print(R_t32)
             
 ########## Boundary Conditions 1 and 6  ############## 
 
@@ -289,6 +303,9 @@ class SpiderController(Sofa.Core.Controller):
             A[16][4] = 1 ;  C[16][0] = 0;
             A[17][5] = 1 ;  C[17][0] = -1;
             
+            V = r7 * I[6] + r8 * I[7] + r9 * I[8] + r10 * I[9] + r11 * I[10];
+            R_t16 = V;
+            print(R_t16)
             
 ########## Boundary Conditions 5 and 6  ############## 
 
@@ -299,6 +316,11 @@ class SpiderController(Sofa.Core.Controller):
             A[16][4] = 1 ;  C[16][0] = 1;
             A[17][5] = 1 ;  C[17][0] = -1;
             
+                        
+            V = r12 * I[11] + r7 * I[6] + r8 * I[7] + r9 * I[8] + r10 * I[9];
+            R_t56 = V;
+            print(R_t56)
+            
 ########## Boundary Conditions 4 and 5  ##############
             
             A[12][0] = 1 ;  C[12][0] = 0;  
@@ -307,6 +329,10 @@ class SpiderController(Sofa.Core.Controller):
             A[15][3] = 1 ;  C[15][0] = 1;
             A[16][4] = 1 ;  C[16][0] = -1;
             A[17][5] = 1 ;  C[17][0] = 0;
+            
+            V = r11 * I[10] + r12 * I[11] + r7 * I[6] + r8 * I[7] + r9 * I[8];
+            R_t54 = V;
+            print(R_t54)
 
 #######***********************  matrix strain   ************************#
 
