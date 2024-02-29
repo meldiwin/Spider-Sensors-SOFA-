@@ -65,7 +65,7 @@ class SpiderController(Sofa.Core.Controller):
             
             ###print(" epsilon_11 is :", epsilon_11) 
             r13 = R_radial/2711.890962292 *( 40.9786262984012 * epsilon_13 + 2711.890962292 )
-            #print(r1)
+            #print(r13)
             
             ############################
             fourteen = self.pos_one_stage[508][0] - self.pos_one_stage[1952][0]
@@ -76,7 +76,7 @@ class SpiderController(Sofa.Core.Controller):
             
             ###print(" epsilon_11 is :", epsilon_11) 
             r14 = R_radial/2711.890962292 *( 40.9786262984012 * epsilon_14 + 2711.890962292 )
-            #print(r1)
+            #print(r14)
             
             
             ############################
@@ -88,7 +88,7 @@ class SpiderController(Sofa.Core.Controller):
             
             ###print(" epsilon_11 is :", epsilon_11) 
             r15 = R_radial /2711.890962292 *( 40.9786262984012 * epsilon_15 + 2711.890962292 )
-            #print(r1)
+            #print(r15)
             
             
             ############################
@@ -100,7 +100,7 @@ class SpiderController(Sofa.Core.Controller):
             
             ###print(" epsilon_11 is :", epsilon_11) 
             r16 = R_radial/2711.890962292 *( 40.9786262984012 * epsilon_16 + 2711.890962292 )
-            #print(r1)
+            #print(r16)
             
         
             ############################
@@ -112,7 +112,7 @@ class SpiderController(Sofa.Core.Controller):
             
             ###print(" epsilon_11 is :", epsilon_11) 
             r17 = R_radial/2711.890962292 *( 40.9786262984012 * epsilon_17 + 2711.890962292 )
-            #print(r1)
+            #print(r17)
             
             ############################
             eighteen = self.pos_one_stage[482][1] - self.pos_one_stage[1958][1]
@@ -123,7 +123,7 @@ class SpiderController(Sofa.Core.Controller):
             
             ###print(" epsilon_11 is :", epsilon_11) 
             r18 = R_radial/2711.890962292 *( 40.9786262984012 * epsilon_18 + 2711.890962292 )
-            #print(r1)
+            #print(r18)
             
             
   
@@ -138,7 +138,7 @@ class SpiderController(Sofa.Core.Controller):
     
             r7 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_7 + 2711.890962292 )
          
-         
+            #print(r7)
             ######### thirteen ###########
             eight = self.pos_one_stage[13][1] - self.pos_one_stage[79][1]
             #print("eight is :", eight)
@@ -146,7 +146,8 @@ class SpiderController(Sofa.Core.Controller):
             epsilon_8 = ((eight - 14.335998535155994 )/ 14.335998535155994)*100
     
             r8 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_8 + 2711.890962292 )
-         
+            
+            #print(r8)
          
             ######### thirteen ###########
             nine = self.pos_one_stage[78][0] - self.pos_one_stage[66][0]
@@ -155,7 +156,7 @@ class SpiderController(Sofa.Core.Controller):
             epsilon_9 = ((nine - 14.496002197266009 )/ 14.496002197266009)*100
     
             r9 =  R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_9 + 2711.890962292 )
-            
+            #print(r9)
                
             ######### thirteen ###########
             ten = self.pos_one_stage[53][1] - self.pos_one_stage[65][1] 
@@ -164,7 +165,7 @@ class SpiderController(Sofa.Core.Controller):
             epsilon_10 = ((ten - 14.335998535156023 )/ 14.335998535156023)*100
     
             r10 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_10 + 2711.890962292 )
-         
+            #print(r10)
             ######### thirteen ###########
             eleven = self.pos_one_stage[40][1] - self.pos_one_stage[52][1] 
             #print("eleven is :", eleven)
@@ -172,7 +173,7 @@ class SpiderController(Sofa.Core.Controller):
             epsilon_11 = ((eleven - 14.335998535159973 )/ 14.335998535159973)*100
     
             r11 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_11 + 2711.890962292 )
-         
+            #print(r11)
                   
             ######### thirteen ###########
             twelve = self.pos_one_stage[27][0] - self.pos_one_stage[39][0]
@@ -181,6 +182,8 @@ class SpiderController(Sofa.Core.Controller):
             epsilon_12 = ((twelve - 14.496002197266002)/14.496002197266002)*100
     
             r12 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_12 + 2711.890962292 )
+            #print(r12)
+         
          
            ######************ Kirchoff equations ****########
             A = np.zeros((18,18))
@@ -224,9 +227,9 @@ class SpiderController(Sofa.Core.Controller):
 ###### Access the solution######
 #####  I[7] is I_6 ########
 
-            V = r7 * I[6] + r8 * I[7] + r9 * I[8];
+            V = r12 * I[11] + r11 * I[10] + r10 * I[9];
             R_t14 = V;
-            print(R_t14)
+            #print(R_t14)
             
             
             
@@ -253,7 +256,7 @@ class SpiderController(Sofa.Core.Controller):
             A[17][5] = 1 ;  C[17][0] = 0;
             
             V = r7 * I[6] + r12 * I[11] + r11 * I[10];
-            R_t25 = V;
+            R_t25 = -1*V;
             #print(R_t25)
             
             
@@ -535,4 +538,3 @@ def createScene(rootNode):
 
 
     return rootNode
-
