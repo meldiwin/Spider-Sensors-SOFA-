@@ -10,8 +10,8 @@ import SofaRuntime
 SofaRuntime.importPlugin("SofaComponentAll")
 
 ################################ Paramters ##################################
-R_radial = 1602.5  #one 
-R_spiral  = 1500  # one 
+R_radial = 1602.5  
+R_spiral  = 1500   
 
 
 
@@ -65,7 +65,7 @@ class SpiderController(Sofa.Core.Controller):
             
             ###print(" epsilon_11 is :", epsilon_11) 
             r13 = R_radial/2711.890962292 *( 40.9786262984012 * epsilon_13 + 2711.890962292 )
-            #print(r13)
+            ##print(r13)
             
             ############################
             fourteen = self.pos_one_stage[508][0] - self.pos_one_stage[1952][0]
@@ -203,14 +203,14 @@ class SpiderController(Sofa.Core.Controller):
 
 
             #### loop first stage  ######### check 
-            A[6][6]=r7 ;    A[6][13]=r14;   A[6][12] = -r13;
-            A[7][7]=r8 ;    A[7][14]=-r15;   A[7][13] = -r14;
-            A[8][8]=r9 ;    A[8][15]=-r16;   A[8][14] = -r15;
-            A[9][9]=r10;    A[9][16]=-r17;   A[6][15] = -r16;
-            A[10][10]=r11;  A[10][17]=-r18;  A[10][16] = -r17;
-            A[11][11]=r12 ; A[11][12]=-r13;  A[11][17] = -r18;
-
-
+            A[6][6]=r7 ;    A[6][13]= r14;   A[6][12] = -r13;
+            A[7][7]=r8 ;    A[7][14]= r15;   A[7][13] = -r14;
+            A[8][8]=r9 ;    A[8][15]= r16;   A[8][14] = -r15;
+            A[9][9]=r10;    A[9][16]= r17;   A[6][15] = -r16;
+            A[10][10]=r11;  A[10][17]= r18;  A[10][16] = -r17;
+            A[11][11]=r12 ; A[11][12]= r13;  A[11][17] = -r18;
+            
+                                
 
 
 ########### Boundary Conditions 1 and 4 main radial ############## 
@@ -231,9 +231,9 @@ class SpiderController(Sofa.Core.Controller):
 ###### Access the solution######
 #####  I[7] is I_6 ########
 
-            V = r12 * I[11] + r11 * I[10] + r10 * I[9];
+            V = r7 * I[6] + r8 * I[7] + r9 * I[8];
             R_t14 = V;
-            #print(R_t14)
+            print(R_t14)
             
             
             
@@ -248,7 +248,7 @@ class SpiderController(Sofa.Core.Controller):
             
             V = r12 * I[11] + r11 * I[10] + r10 * I[9] + r9 * I[8] + r8 * I[7];
             R_t12 = V;
-            #print(R_t12)
+            ##print(R_t12)
             
 ########## Boundary Conditions 2 and 5  ############## 
 
@@ -285,7 +285,8 @@ class SpiderController(Sofa.Core.Controller):
             A[16][4] = 1 ;  C[16][0] = 0;
             A[17][5] = 1 ;  C[17][0] = 0;
             
-            V = -r10 * I[9] - r11 * I[10] - r12 * I[11] + r7 * I[6] + r8 * I[7];
+            #V = -r10 * I[9] - r11 * I[10] - r12 * I[11] + r7 * I[6] + r8 * I[7];
+            V = r9 * I[8]
             R_t34 = -V;
             #print(R_t34)
             
@@ -311,7 +312,8 @@ class SpiderController(Sofa.Core.Controller):
             A[16][4] = 1 ;  C[16][0] = 0;
             A[17][5] = 1 ;  C[17][0] = -1;
             
-            V = -r7 * I[6] - r8 * I[7] - r9 * I[8] + r10 * I[9] + r11 * I[10];
+            #V = r7 * I[6] + r8 * I[7] + r9 * I[8] + r10 * I[9] + r11 * I[10];
+            V = r12 * I[11]
             R_t16 = V;
             #print(R_t16)
             
