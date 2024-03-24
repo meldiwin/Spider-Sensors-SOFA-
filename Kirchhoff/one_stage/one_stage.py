@@ -189,7 +189,7 @@ class SpiderController(Sofa.Core.Controller):
             A = np.zeros((18,18))
             I = np.zeros((18,1))
             C = np.zeros((18,1))
-            I[0] = 1
+            #I[0] = 1
         
             
             ############# Nodes first stage ##############
@@ -231,14 +231,23 @@ class SpiderController(Sofa.Core.Controller):
 ###### Access the solution######
 #####  I[7] is I_6 ########
 
-            V = r7 * I[6] + r8 * I[7] + r9 * I[8];
-            R_t14 = V;
-            print(R_t14)
+
+          ############# Nodes first stage ##############
+            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = -1 ; A[0][11] = 1 ; 					
+            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = -1 ; A[1][6] = 1 ; 					
+            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = -1 ; A[2][7] = 1 ; 					
+            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = -1 ; A[3][8] = 1 ; 					
+            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = -1 ; A[4][9] = 1 ; 					
+            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = -1 ; A[5][10] = 1 ; 					
+
+            V = r12 * I[11] + r11 * I[10] + r10 * I[9];
+            R_t14 = -V;
+            #print(R_t14)
             
             
             
 ########### Boundary Conditions 1 and 2 main radial ############## 
-
+  
             A[12][0] = 1 ;  C[12][0] = 1;  
             A[13][1] = 1 ;  C[13][0] = -1;
             A[14][2] = 1 ;  C[14][0] = 0;
@@ -246,9 +255,9 @@ class SpiderController(Sofa.Core.Controller):
             A[16][4] = 1 ;  C[16][0] = 0;
             A[17][5] = 1 ;  C[17][0] = 0;
             
-            V = r12 * I[11] + r11 * I[10] + r10 * I[9] + r9 * I[8] + r8 * I[7];
+            V = r12 * I[11] - r11 * I[10] - r10 * I[9] - r9 * I[8] - r8 * I[7];
             R_t12 = V;
-            ##print(R_t12)
+            print(R_t12)
             
 ########## Boundary Conditions 2 and 5  ############## 
 
@@ -259,13 +268,16 @@ class SpiderController(Sofa.Core.Controller):
             A[16][4] = 1 ;  C[16][0] = -1;
             A[17][5] = 1 ;  C[17][0] = 0;
             
-            V = r7 * I[6] + r12 * I[11] + r11 * I[10];
+            V = r7 * I[6] + r12* I[11] + r11 * I[10];
             R_t25 = V;
             #print(R_t25)
             
             
 ########## Boundary Conditions 3 and 6  ############## 
 
+
+        
+    
             A[12][0] = 1 ;  C[12][0] = 0;  
             A[13][1] = 1 ;  C[13][0] = 0;
             A[14][2] = 1 ;  C[14][0] = 1;
@@ -273,7 +285,7 @@ class SpiderController(Sofa.Core.Controller):
             A[16][4] = 1 ;  C[16][0] = 0;
             A[17][5] = 1 ;  C[17][0] = -1;
             
-            V = r12 * I[11] + r7 * I[6] + r8 * I[7];
+            V = -r12 * I[11] + r7 * I[6] + r8 * I[7];
             R_t36 = V;
             #print(R_t36)
                     
@@ -284,9 +296,9 @@ class SpiderController(Sofa.Core.Controller):
             A[15][3] = 1 ;  C[15][0] = -1;
             A[16][4] = 1 ;  C[16][0] = 0;
             A[17][5] = 1 ;  C[17][0] = 0;
+        
+            V = r10 * I[9] + r11 * I[10] + r12 * I[11] + r7 * I[6] + r8 * I[7];
             
-            #V = -r10 * I[9] - r11 * I[10] - r12 * I[11] + r7 * I[6] + r8 * I[7];
-            V = r9 * I[8]
             R_t34 = -V;
             #print(R_t34)
             
@@ -299,8 +311,8 @@ class SpiderController(Sofa.Core.Controller):
             A[17][5] = 1 ;  C[17][0] = 0;
             
             #V = r7 * I[6] + r12 * I[11] + r11 * I[10] + r10 * I[9] + r9 * I[8];
-            V = r8 * I[7] + r9 * I[8] + r10 * I[9] + r11 * I[10] + r12 * I[11];
-            R_t32 = V;
+            V = r9 * I[8] + r10 * I[9] + r11 * I[10] + r12 * I[11] + r7 * I[6];
+            R_t32 = -V;
             #print(R_t32)
             
 ########## Boundary Conditions 1 and 6  ############## 
@@ -312,22 +324,23 @@ class SpiderController(Sofa.Core.Controller):
             A[16][4] = 1 ;  C[16][0] = 0;
             A[17][5] = 1 ;  C[17][0] = -1;
             
-            #V = r7 * I[6] + r8 * I[7] + r9 * I[8] + r10 * I[9] + r11 * I[10];
-            V = r12 * I[11]
+            V = r7 * I[6] + r8 * I[7] + r9 * I[8] + r10 * I[9] + r11 * I[10];
+           
             R_t16 = V;
             #print(R_t16)
             
 ########## Boundary Conditions 5 and 6  ############## 
-
+    ############# Nodes first stage ##############
+    
             A[12][0] = 1 ;  C[12][0] = 0;  
             A[13][1] = 1 ;  C[13][0] = 0;
             A[14][2] = 1 ;  C[14][0] = 0;
             A[15][3] = 1 ;  C[15][0] = 0;
-            A[16][4] = 1 ;  C[16][0] = 1;
-            A[17][5] = 1 ;  C[17][0] = -1;
+            A[16][4] = 1 ;  C[16][0] = -1;
+            A[17][5] = 1 ;  C[17][0] = 1;
             
                         
-            V = r12 * I[11] + r7 * I[6] + r8 * I[7] + r9 * I[8] + r10 * I[9];
+            V = -r12 * I[11] + r7 * I[6] + r8 * I[7] + r9 * I[8] + r10 * I[9];
             R_t56 = V;
             #print(R_t56)
             
