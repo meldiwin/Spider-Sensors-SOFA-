@@ -7,11 +7,18 @@ import numpy as np
 
 
 import SofaRuntime
+import matplotlib.pyplot as plt
+
 SofaRuntime.importPlugin("SofaComponentAll")
 
 ################################ Paramters ##################################
-R_radial = 1602.5  
-R_spiral  = 1500   
+
+R_spiral  = 1731
+a= 2
+b= 3
+ 
+spiral_l = 30 # mm
+matrix_l = 100 ## mm
 
 
 
@@ -30,19 +37,23 @@ path = os.path.dirname(os.path.abspath(__file__)) + '/mesh/'
 
 class SpiderController(Sofa.Core.Controller):
 
+
+    
 	def __init__(self, *args, **kwargs):
 		Sofa.Core.Controller.__init__(self,*args, **kwargs) #needed
 		self.time = 0.0
 		self.node = kwargs['node']
 		self.pos_matrix = kwargs['pos_matrix']
-		self.pos_one_stage = kwargs['pos_one_stage']
-		
+		self.pos_spiral = kwargs['pos_spiral']
+
+        
+		            
 
             	
 	def onAnimateBeginEvent(self,event):
             self.time = self.node.time.value
             self.pos_matrix= self.node.matrix.l_matrix.position.value
-            self.pos_one_stage= self.node.matrix.one_stage.l_one_stage.position.value
+            self.pos_spiral= self.node.matrix.spiral.l_spiral.position.value
 
 
 
@@ -52,140 +63,81 @@ class SpiderController(Sofa.Core.Controller):
 
             self.node.matrix.FF.force.value = [0,forces,0]
             
-                     
+            
 
-#*********************** Radials    ************************#
+#***********************  part1 in spiral  ************************#
 
-              ###### one ####
+
+            ##### full length part2 ######
             
-            thirteen = self.pos_one_stage[495][1] - self.pos_one_stage[1957][1]
-            #print("thirteen is :", thirteen)
+            spiral_1 = self.pos_spiral[305][1] - self.pos_spiral[280][1] 
+            #print("spiral_1 is :", spiral_1)
             
-            epsilon_13 = ((thirteen - 13.831996917724297)/13.831996917724297)*100
+            epsilon_1 = 100*((spiral_1 - 14.260002136222013)/ 14.260002136222013)
+           
+            r7 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_1 + 2711.890962292 )
             
-            ###print(" epsilon_11 is :", epsilon_11) 
-            r13 = R_radial/2711.890962292 *( 40.9786262984012 * epsilon_13 + 2711.890962292 )
-            ##print(r13)
+#***********************  part2 in spiral  ************************#
             
-            ############################
-            fourteen = self.pos_one_stage[508][0] - self.pos_one_stage[1952][0]
-            #print("fourteen is :", fourteen)
+            ##### full length part3 ######
             
-            epsilon_14 = ((fourteen - 13.985000610351008)/13.985000610351008)*100
-            #print(epsilon_1 * 100)
+            spiral_2 = self.pos_spiral[175][1] - self.pos_spiral[303][1] 
+            #print("spiral_2 is :", spiral_2)
             
-            ###print(" epsilon_11 is :", epsilon_11) 
-            r14 = R_radial/2711.890962292 *( 40.9786262984012 * epsilon_14 + 2711.890962292 )
-            #print(r14)
+            epsilon_2 = 100*((spiral_2 - 14.351997375489987)/14.351997375489987)
+                   
+            r8 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_2 + 2711.890962292 )
+            
+                
+#***********************  part3 in spiral  ************************#
+            
+            ##### full length part3 ######
+            
+            spiral_3 = self.pos_spiral[97][0] - self.pos_spiral[47][0] 
+            #print("spiral_3 is :", spiral_3)
+            
+            epsilon_3 = 100*((spiral_3 - 14.506996154785)/14.506996154785)
+                   
+            r9 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_3 + 2711.890962292 )
+            
+                            
+#***********************  part4 in spiral  ************************#
+            
+            ##### full length part3 ######
+            
+            spiral_4 = self.pos_spiral[93][1] - self.pos_spiral[41][1]
+            #print("spiral_4  is :", spiral_4 )
+            
+            epsilon_4 = 100*((spiral_4 - 14.338005065909996 )/14.338005065909996)
+                   
+            r10 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_4 + 2711.890962292 )
+            
+                                        
+#***********************  part5 in spiral  ************************#
+            
+            ##### full length part3 ######
+            
+            spiral_5 = self.pos_spiral[40][1] - self.pos_spiral[220][1]
+            #print("spiral_5 is :", spiral_5)
+            
+            epsilon_5 = 100*((spiral_5 - 14.285003662106988 )/14.285003662106988)
+                   
+            r11 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_5 + 2711.890962292 )
             
             
-            ############################
-            fifteen = self.pos_one_stage[343][1] - self.pos_one_stage[2][1]
-            #print("fifteen is :", fifteen)
-            
-            epsilon_15 = ((fifteen - 13.795997619627997)/13.795997619627997)*100
-            #print(epsilon_1 * 100)
-            
-            ###print(" epsilon_11 is :", epsilon_11) 
-            r15 = R_radial /2711.890962292 *( 40.9786262984012 * epsilon_15 + 2711.890962292 )
-            #print(r15)
-            
-            
-            ############################
-            sixteen = self.pos_one_stage[1941][1] - self.pos_one_stage[456][1] 
-            #print("sixteen is :", sixteen)
-            
-            epsilon_16 = ((sixteen - 13.83149719237882)/13.83149719237882)*100
-            #print(epsilon_1 * 100)
-            
-            ###print(" epsilon_11 is :", epsilon_11) 
-            r16 = R_radial/2711.890962292 *( 40.9786262984012 * epsilon_16 + 2711.890962292 )
-            #print(r16)
+#***********************  part6 in spiral  ************************#
             
         
-            ############################
-            seventeen = self.pos_one_stage[1960][0] - self.pos_one_stage[469][0]
-            #print("seventeen is :", seventeen)
+            spiral_6 = self.pos_spiral[219][0] - self.pos_spiral[252][0]
+            #print("spiral_6 is :", spiral_6)
+
+            epsilon_6 = ((spiral_6 - 14.461002349853004)/14.461002349853004)*100
             
-            epsilon_17 = ((seventeen - 13.985000610351996)/13.985000610351996)*100
-            #print(epsilon_1 * 100)
-            
-            ###print(" epsilon_11 is :", epsilon_11) 
-            r17 = R_radial/2711.890962292 *( 40.9786262984012 * epsilon_17 + 2711.890962292 )
-            #print(r17)
-            
-            ############################
-            eighteen = self.pos_one_stage[482][1] - self.pos_one_stage[1958][1]
-            #print("eighteen is :", eighteen)
-            
-            epsilon_18 = ((eighteen - 13.831996917725505)/13.831996917725505)*100
-            #print(epsilon_1 * 100)
-            
-            ###print(" epsilon_11 is :", epsilon_11) 
-            r18 = R_radial/2711.890962292 *( 40.9786262984012 * epsilon_18 + 2711.890962292 )
-            #print(r18)
+            r12 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_6 + 2711.890962292 )
             
             
-  
             
-    ################################# Spirals ##############################################
-            
-               ######### thirteen ###########
-            seven = self.pos_one_stage[26][1] - self.pos_one_stage[14][1]
-            #print("seven is :", seven)
-            
-            epsilon_7 = ((seven - 14.335998535159987 )/ 14.335998535159987)*100
-    
-            r7 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_7 + 2711.890962292 )
-         
-            #print(r7)
-            ######### thirteen ###########
-            eight = self.pos_one_stage[13][1] - self.pos_one_stage[79][1]
-            #print("eight is :", eight)
-            
-            epsilon_8 = ((eight - 14.335998535155994 )/ 14.335998535155994)*100
-    
-            r8 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_8 + 2711.890962292 )
-            
-            #print(r8)
-         
-            ######### thirteen ###########
-            nine = self.pos_one_stage[78][0] - self.pos_one_stage[66][0]
-            #print("nine is :", nine)
-            
-            epsilon_9 = ((nine - 14.496002197266009 )/ 14.496002197266009)*100
-    
-            r9 =  R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_9 + 2711.890962292 )
-            #print(r9)
-               
-            ######### thirteen ###########
-            ten = self.pos_one_stage[53][1] - self.pos_one_stage[65][1] 
-            #print("ten is :", ten)
-            
-            epsilon_10 = ((ten - 14.335998535156023 )/ 14.335998535156023)*100
-    
-            r10 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_10 + 2711.890962292 )
-            #print(r10)
-            ######### thirteen ###########
-            eleven = self.pos_one_stage[40][1] - self.pos_one_stage[52][1] 
-            #print("eleven is :", eleven)
-            
-            epsilon_11 = ((eleven - 14.335998535159973 )/ 14.335998535159973)*100
-    
-            r11 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_11 + 2711.890962292 )
-            #print(r11)
-                  
-            ######### thirteen ###########
-            twelve = self.pos_one_stage[27][0] - self.pos_one_stage[39][0]
-            #print("twelve is :", twelve)
-            
-            epsilon_12 = ((twelve - 14.496002197266002)/14.496002197266002)*100
-    
-            r12 = R_spiral/2711.890962292 *( 40.9786262984012 * epsilon_12 + 2711.890962292 )
-            #print(r12)
-         
-         
-           ######************ Kirchoff equations ****########
+  ######************ Kirchoff equations ****########
             A = np.zeros((18,18))
             I = np.zeros((18,1))
             C = np.zeros((18,1))
@@ -193,22 +145,22 @@ class SpiderController(Sofa.Core.Controller):
         
             
             ############# Nodes first stage ##############
-            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = -1 ; A[0][11] = 1 ; 					
-            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = -1 ; A[1][6] = 1 ; 					
-            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = -1 ; A[2][7] = 1 ; 					
-            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = -1 ; A[3][8] = 1 ; 					
-            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = -1 ; A[4][9] = 1 ; 					
-            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = -1 ; A[5][10] = 1 ; 					
+            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = 0.000001 ; A[0][11] = 1 ; 					
+            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = 0.000001 ; A[1][6] = 1 ; 					
+            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = 0.000001 ; A[2][7] = 1 ; 					
+            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = 0.000001 ; A[3][8] = 1 ; 					
+            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = 0.000001 ; A[4][9] = 1 ; 					
+            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = 0.000001 ; A[5][10] = 1 ; 					
 
 
 
             #### loop first stage  ######### check 
-            A[6][6]=r7 ;    A[6][13]= r14;   A[6][12] = -r13;
-            A[7][7]=r8 ;    A[7][14]= r15;   A[7][13] = -r14;
-            A[8][8]=r9 ;    A[8][15]= r16;   A[8][14] = -r15;
-            A[9][9]=r10;    A[9][16]= r17;   A[6][15] = -r16;
-            A[10][10]=r11;  A[10][17]= r18;  A[10][16] = -r17;
-            A[11][11]=r12 ; A[11][12]= r13;  A[11][17] = -r18;
+            A[6][6]=r7 ;    A[6][13]= 1e6;   A[6][12] = 1e6;
+            A[7][7]=r8 ;    A[7][14]= 1e6;   A[7][13] = 1e6;
+            A[8][8]=r9 ;    A[8][15]= 1e6;   A[8][14] = 1e6;
+            A[9][9]=r10;    A[9][16]= 1e6;   A[6][15] = 1e6;
+            A[10][10]=r11;  A[10][17]= 1e6;  A[10][16] = 1e6;
+            A[11][11]=r12 ; A[11][12]= 1e6;  A[11][17] = 1e6;
             
                                 
 
@@ -227,34 +179,18 @@ class SpiderController(Sofa.Core.Controller):
             
 ################# Check whether the solution is correct ################
             #print(np.allclose(np.dot(A,I),C))
-
-###### Access the solution######
-#####  I[7] is I_6 ########
-
-
-          ############# Nodes first stage ##############
-            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = -1 ; A[0][11] = 1 ; 					
-            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = -1 ; A[1][6] = 1 ; 					
-            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = -1 ; A[2][7] = 1 ; 					
-            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = -1 ; A[3][8] = 1 ; 					
-            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = -1 ; A[4][9] = 1 ; 					
-            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = -1 ; A[5][10] = 1 ; 					
-
-            V = r12 * I[11] + r11 * I[10] + r10 * I[9];
-            R_t14 = -V;
-            print('R14', R_t14)
-            
-            
+              
             
 ########### Boundary Conditions 1 and 2 main radial ############## 
-            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = -1 ; A[0][11] = 1 ; 					
-            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = -1 ; A[1][6] = 1 ; 					
-            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = -1 ; A[2][7] = 1 ; 					
-            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = -1 ; A[3][8] = 1 ; 					
-            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = -1 ; A[4][9] = 1 ; 					
-            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = -1 ; A[5][10] = 1 ; 					
 
-  
+            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = 0.000001 ; A[0][11] = 1 ; 					
+            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = 0.000001 ; A[1][6] = 1 ; 					
+            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = 0.000001 ; A[2][7] = 1 ; 					
+            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = 0.000001 ; A[3][8] = 1 ; 					
+            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = 0.000001 ; A[4][9] = 1 ; 					
+            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = 0.000001 ; A[5][10] = 1 ; 					
+
+
             A[12][0] = 1 ;  C[12][0] = 1;  
             A[13][1] = 1 ;  C[13][0] = -1;
             A[14][2] = 1 ;  C[14][0] = 0;
@@ -262,62 +198,41 @@ class SpiderController(Sofa.Core.Controller):
             A[16][4] = 1 ;  C[16][0] = 0;
             A[17][5] = 1 ;  C[17][0] = 0;
             
-            V = r12 * I[11] + r11 * I[10] + r10 * I[9] + r9 * I[8] - r8 * I[7];
+            V = r12 * I[11] + r11 * I[10] + r10 * I[9] + r9 * I[8] + r8 * I[7];
             R_t12 = -V;
-            print('R12', R_t12)
+            #print('R12', R_t12)
+
             
-########## Boundary Conditions 2 and 5  ############## 
-            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = -1 ; A[0][11] = 1 ; 					
-            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = -1 ; A[1][6] = 1 ; 					
-            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = -1 ; A[2][7] = 1 ; 					
-            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = -1 ; A[3][8] = 1 ; 					
-            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = -1 ; A[4][9] = 1 ; 					
-            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = -1 ; A[5][10] = 1 ; 					
+         ########## Boundary Conditions 2 and 3  ############## 
 
-
+            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = 0.000001 ; A[0][11] = 1 ; 					
+            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = 0.000001 ; A[1][6] = 1 ; 					
+            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = 0.000001 ; A[2][7] = 1 ; 					
+            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = 0.000001 ; A[3][8] = 1 ; 					
+            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = 0.000001 ; A[4][9] = 1 ; 					
+            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = 0.000001 ; A[5][10] = 1 ; 
+         
             A[12][0] = 1 ;  C[12][0] = 0;  
             A[13][1] = 1 ;  C[13][0] = 1;
-            A[14][2] = 1 ;  C[14][0] = 0;
-            A[15][3] = 1 ;  C[15][0] = 0;
-            A[16][4] = 1 ;  C[16][0] = -1;
-            A[17][5] = 1 ;  C[17][0] = 0;
-            
-            V = r7 * I[6] - r12* I[11] - r11 * I[10];
-            R_t25 = V;
-            print('R25', R_t25)
-            
-            
-########## Boundary Conditions 3 and 6  ############## 
-
-
-            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = -1 ; A[0][11] = 1 ; 					
-            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = -1 ; A[1][6] = 1 ; 					
-            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = -1 ; A[2][7] = 1 ; 					
-            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = -1 ; A[3][8] = 1 ; 					
-            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = -1 ; A[4][9] = 1 ; 					
-            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = -1 ; A[5][10] = 1 ; 
-    
-            A[12][0] = 1 ;  C[12][0] = 0;  
-            A[13][1] = 1 ;  C[13][0] = 0;
-            A[14][2] = 1 ;  C[14][0] = 1;
+            A[14][2] = 1 ;  C[14][0] = -1;
             A[15][3] = 1 ;  C[15][0] = 0;
             A[16][4] = 1 ;  C[16][0] = 0;
-            A[17][5] = 1 ;  C[17][0] = -1;
+            A[17][5] = 1 ;  C[17][0] = 0;
             
-            V = -r12 * I[11] + r7 * I[6] + r8 * I[7];
-            R_t36 = V;
-            print('R36', R_t36)
-                    
-########## Boundary Conditions 3 and 4  ##############
+            #V = r7 * I[6] + r12 * I[11] + r11 * I[10] + r10 * I[9] + r9 * I[8];
+            V = r9 * I[8] + r10 * I[9] + r11 * I[10] + r12 * I[11] + r7 * I[6];
+            R_t32 = -V;
+            #print('R32', R_t32)
+        
+            ########## Boundary Conditions 3 and 4  ##############
+    
+            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = 0.000001 ; A[0][11] = 1 ; 					
+            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = 0.000001 ; A[1][6] = 1 ; 					
+            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = 0.000001 ; A[2][7] = 1 ; 					
+            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = 0.000001 ; A[3][8] = 1 ; 					
+            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = 0.000001 ; A[4][9] = 1 ; 					
+            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = 0.000001 ; A[5][10] = 1 ; 					
 
-            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = -1 ; A[0][11] = 1 ; 					
-            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = -1 ; A[1][6] = 1 ; 					
-            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = -1 ; A[2][7] = 1 ; 					
-            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = -1 ; A[3][8] = 1 ; 					
-            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = -1 ; A[4][9] = 1 ; 					
-            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = -1 ; A[5][10] = 1 ; 					
-
-  
             A[12][0] = 1 ;  C[12][0] = 0;  
             A[13][1] = 1 ;  C[13][0] = 0;
             A[14][2] = 1 ;  C[14][0] = 1;
@@ -328,43 +243,61 @@ class SpiderController(Sofa.Core.Controller):
             V = r10 * I[9] + r11 * I[10] + r12 * I[11] + r7 * I[6] + r8 * I[7];
             
             R_t34 = -V;
-            print('R34', R_t34)
+            #print('R34', R_t34)
             
-########## Boundary Conditions 2 and 3  ############## 
+            ########## Boundary Conditions 4 and 5  ##############
+    
+            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = 0.000001 ; A[0][11] = 1 ; 					
+            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = 0.000001 ; A[1][6] = 1 ; 					
+            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = 0.000001 ; A[2][7] = 1 ; 					
+            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = 0.000001 ; A[3][8] = 1 ; 					
+            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = 0.000001 ; A[4][9] = 1 ; 					
+            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = 0.000001 ; A[5][10] = 1 ; 					
 
-
-            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = -1 ; A[0][11] = 1 ; 					
-            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = -1 ; A[1][6] = 1 ; 					
-            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = -1 ; A[2][7] = 1 ; 					
-            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = -1 ; A[3][8] = 1 ; 					
-            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = -1 ; A[4][9] = 1 ; 					
-            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = -1 ; A[5][10] = 1 ; 					
-
-  
+                      
             A[12][0] = 1 ;  C[12][0] = 0;  
-            A[13][1] = 1 ;  C[13][0] = 1;
-            A[14][2] = 1 ;  C[14][0] = -1;
-            A[15][3] = 1 ;  C[15][0] = 0;
-            A[16][4] = 1 ;  C[16][0] = 0;
+            A[13][1] = 1 ;  C[13][0] = 0;
+            A[14][2] = 1 ;  C[14][0] = 0;
+            A[15][3] = 1 ;  C[15][0] = 1;
+            A[16][4] = 1 ;  C[16][0] = -1;
             A[17][5] = 1 ;  C[17][0] = 0;
             
-            #V = r7 * I[6] + r12 * I[11] + r11 * I[10] + r10 * I[9] + r9 * I[8];
-            V = -r9 * I[8] - r10 * I[9] - r11 * I[10] - r12 * I[11] + r7 * I[6];
-            R_t32 = V;
-            print('R32', R_t32)
+          
+            V = r11 * I[10] + r12 * I[11] + r7 * I[6] + r8 * I[7] + r9 * I[8];
+            R_t54 = V;
+            #print('R54', R_t54)
             
-########## Boundary Conditions 1 and 6  ############## 
-
-
-            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = -1 ; A[0][11] = 1 ; 					
-            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = -1 ; A[1][6] = 1 ; 					
-            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = -1 ; A[2][7] = 1 ; 					
-            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = -1 ; A[3][8] = 1 ; 					
-            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = -1 ; A[4][9] = 1 ; 					
-            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = -1 ; A[5][10] = 1 ; 					
-
-  
-
+                 
+            ########## Boundary Conditions 5 and 6  ##############
+            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = 0.000001 ; A[0][11] = 1 ; 					
+            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = 0.000001 ; A[1][6] = 1 ; 					
+            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = 0.000001 ; A[2][7] = 1 ; 					
+            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = 0.000001 ; A[3][8] = 1 ; 					
+            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = 0.000001 ; A[4][9] = 1 ; 					
+            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = 0.000001 ; A[5][10] = 1 ; 
+            
+            
+            A[12][0] = 1 ;  C[12][0] = 0;  
+            A[13][1] = 1 ;  C[13][0] = 0;
+            A[14][2] = 1 ;  C[14][0] = 0;
+            A[15][3] = 1 ;  C[15][0] = 0;
+            A[16][4] = 1 ;  C[16][0] = 1;
+            A[17][5] = 1 ;  C[17][0] = -1;
+            
+                        
+            V = +r12 * I[11] + r7 * I[6] + r8 * I[7] + r9 * I[8] + r10 * I[9];
+            R_t56 = V;
+            #print('R56', R_t56)
+            
+            ########## Boundary Conditions 1 and 6  ############## 
+            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = 0.000001 ; A[0][11] = 1 ; 					
+            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = 0.000001 ; A[1][6] = 1 ; 					
+            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = 0.000001 ; A[2][7] = 1 ; 					
+            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = 0.000001 ; A[3][8] = 1 ; 					
+            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = 0.000001 ; A[4][9] = 1 ; 					
+            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = 0.000001 ; A[5][10] = 1 ; 
+            
+            
             A[12][0] = 1 ;  C[12][0] = 1;  
             A[13][1] = 1 ;  C[13][0] = 0;
             A[14][2] = 1 ;  C[14][0] = 0;
@@ -375,56 +308,9 @@ class SpiderController(Sofa.Core.Controller):
             V = r7 * I[6] + r8 * I[7] + r9 * I[8] + r10 * I[9] + r11 * I[10];
            
             R_t16 = V;
-            print('R16', R_t16)
-            
-########## Boundary Conditions 5 and 6  ############## 
-    ############# Nodes first stage ##############
-    
-
-            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = -1 ; A[0][11] = 1 ; 					
-            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = -1 ; A[1][6] = 1 ; 					
-            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = -1 ; A[2][7] = 1 ; 					
-            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = -1 ; A[3][8] = 1 ; 					
-            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = -1 ; A[4][9] = 1 ; 					
-            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = -1 ; A[5][10] = 1 ; 					
-
-  
-            A[12][0] = 1 ;  C[12][0] = 0;  
-            A[13][1] = 1 ;  C[13][0] = 0;
-            A[14][2] = 1 ;  C[14][0] = 0;
-            A[15][3] = 1 ;  C[15][0] = 0;
-            A[16][4] = 1 ;  C[16][0] = 1;
-            A[17][5] = 1 ;  C[17][0] = -1;
-            
-                        
-            V = -r12 * I[11] - r7 * I[6] - r8 * I[7] - r9 * I[8] + r10 * I[9];
-            R_t56 = -V;
-            print('R56', R_t56)
-            
-########## Boundary Conditions 4 and 5  ##############
-
-
-            A[0][0] = 1 ; A[0][6] = -1 ; A[0][12] = -1 ; A[0][11] = 1 ; 					
-            A[1][1] = 1 ; A[1][7] = -1 ; A[1][13] = -1 ; A[1][6] = 1 ; 					
-            A[2][2] = 1 ; A[2][8] = -1 ; A[2][14] = -1 ; A[2][7] = 1 ; 					
-            A[3][3] = 1 ; A[3][9] = -1 ; A[3][15] = -1 ; A[3][8] = 1 ; 					
-            A[4][4] = 1 ; A[4][10] = -1 ; A[4][16] = -1 ; A[4][9] = 1 ; 					
-            A[5][5] = 1 ; A[5][11] = -1 ; A[5][17] = -1 ; A[5][10] = 1 ; 					
-
-            
-            A[12][0] = 1 ;  C[12][0] = 0;  
-            A[13][1] = 1 ;  C[13][0] = 0;
-            A[14][2] = 1 ;  C[14][0] = 0;
-            A[15][3] = 1 ;  C[15][0] = 1;
-            A[16][4] = 1 ;  C[16][0] = -1;
-            A[17][5] = 1 ;  C[17][0] = 0;
-            
-          
-            V = -r11 * I[10] + r12 * I[11] + r7 * I[6] + r8 * I[7] + r9 * I[8];
-            R_t54 = V;
-            print('R54', R_t54)
-
-#######***********************  matrix strain   ************************#
+            #print('R16', R_t16)
+       
+# #######***********************  matrix strain   ************************#
 
 
             matrix_length = self.pos_matrix[1][1] - self.pos_matrix[6][1]
@@ -475,6 +361,11 @@ class SpiderController(Sofa.Core.Controller):
             
             matrix_ep = (((matrix_1 - 20.104896677387785) + (matrix_2 - 20.441054740343915 ) + (matrix_3 - 20.56515969337761 ) + (matrix_4 - 20.901317756333697 ) + (matrix_5 - 20.104896677387785 ))/ (20.104896677387785 + 20.441054740343915 + 20.56515969337761 + 20.901317756333697 + 20.104896677387785)) * 100
             #print(matrix_ep)
+            
+
+            
+           	
+		
 
 
 def createScene(rootNode):
@@ -587,41 +478,44 @@ def createScene(rootNode):
     
 
      ##########################################
-    # one_stage                           #
+    # spiral                           #
     ##########################################
     #  This add a new node in the scene. This node is appended to the matrix's node.
-    one_stage = matrix.addChild('one_stage')
-    one_stage.addObject('EulerImplicitSolver', firstOrder=False, rayleighStiffness=0.2, rayleighMass=0.2)
-    one_stage.addObject('SparseLDLSolver')
+    spiral = matrix.addChild('spiral')
+    spiral.addObject('EulerImplicitSolver', firstOrder=False, rayleighStiffness=0.2, rayleighMass=0.2)
+    spiral.addObject('SparseLDLSolver')
     #  This adds a MechanicalObject, a component holding the degree of freedom of our
     # mechanical modelling. In the case of a pneumatic actuation it is a set of positions describing the spider wall.
-    one_stage.addObject('MeshVTKLoader', name='loader', filename=path + '1_rect_trim_0.vtk', rotation=[0, 0, 0])
-    one_stage.addObject('MeshTopology', src='@loader', name='topo')
-    one_stage.addObject('MechanicalObject', name='l_one_stage')
-    one_stage.addObject('TetrahedronFEMForceField', template='Vec3', name='FEM', method='large', poissonRatio=0.4,
+    spiral.addObject('MeshVTKLoader', name='loader', filename=path + 'spiral_rect.vtk', rotation=[0, 0, 0])
+    spiral.addObject('MeshTopology', src='@loader', name='topo')
+    spiral.addObject('MechanicalObject', name='l_spiral')
+    spiral.addObject('TetrahedronFEMForceField', template='Vec3', name='FEM', method='large', poissonRatio=0.4,
                         youngModulus=9e6)
-    one_stage.addObject('UniformMass', totalMass=0.003)
-    #one_stage.addObject('LinearSolverConstraintCorrection')
+    spiral.addObject('UniformMass', totalMass=0.003)
+    #spiral.addObject('LinearSolverConstraintCorrection')
 
 
     # This adds a BarycentricMapping. A BarycentricMapping is a key element as it will add a bi-directional link
     #  between the spider wall (surfacic mesh) and the matrix (volumetric mesh) so that movements of the spider's DoFs will be mapped
     #  to the matrix and vice-versa;
-    one_stage.addObject('BarycentricMapping', name='mapping', mapForces=False, mapMasses=False)
-    one_stage.addObject(SpiderController(node=rootNode, pos_matrix = rootNode.matrix.l_matrix.position.value,  pos_one_stage = rootNode.matrix.one_stage.l_one_stage.position.value))
+    spiral.addObject('BarycentricMapping', name='mapping', mapForces=False, mapMasses=False)
+    spiral.addObject(SpiderController(node=rootNode, pos_matrix = rootNode.matrix.l_matrix.position.value,  pos_spiral = rootNode.matrix.spiral.l_spiral.position.value))
 
     ##########################################
-    # one_stage Visualization                          
+    # spiral Visualization                          
     ##########################################
-    one_stageVisu = one_stage.addChild('visu1')
-    one_stageVisu.addObject('MeshSTLLoader', filename=path + "1_rect_trim_0.stl", name="loader")
-    one_stageVisu.addObject('OglModel', src="@loader", color=[0.1, 0.1, 0.1, 0.9])
+    spiralVisu = spiral.addChild('visu1')
+    spiralVisu.addObject('MeshSTLLoader', filename=path + "spiral_rect.stl", name="loader")
+    spiralVisu.addObject('OglModel', src="@loader", color=[0.1, 0.1, 0.1, 0.9])
         
-    one_stageVisu.addObject('TriangleCollisionModel')
-    one_stageVisu.addObject('LineCollisionModel')
-    one_stageVisu.addObject('PointCollisionModel')
+    spiralVisu.addObject('TriangleCollisionModel')
+    spiralVisu.addObject('LineCollisionModel')
+    spiralVisu.addObject('PointCollisionModel')
 
-    one_stageVisu.addObject('BarycentricMapping')
-
-
+    spiralVisu.addObject('BarycentricMapping')
+     
+    
+    
     return rootNode
+    
+
