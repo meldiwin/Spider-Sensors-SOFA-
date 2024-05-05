@@ -4,6 +4,8 @@ In this project, we simulated a strain sensor inspired by a spider's orb web usi
 
 <img width="1096" alt="image" src="https://github.com/meldiwin/Spider-Sensors-SOFA-/assets/29895931/2d8cc4d8-27d8-4b42-8dec-cc7746dd13cd">
 
+<img width="927" alt="image" src="https://github.com/meldiwin/Spider-Sensors-SOFA-/assets/29895931/1cf4f654-08d9-4705-86aa-73817778b26c">
+
 
 <img width="1092" alt="image" src="https://github.com/meldiwin/Spider-Sensors-SOFA-/assets/29895931/c27c9fc5-6891-4576-a92e-b9b14aabcea8">
 
