@@ -1,4 +1,4 @@
-# SOFA-SPIDER
+# Design and Simulation of Strain Sensor Inspired by Spider Orbweb
 
 In this project, we simulated a strain sensor inspired by a spider's orb web using the SOFA physics engine, which is based on the finite element method. The sensor, resembling a spider web, is composed of conductive materials—specifically, Ninjatek EEL with a Young's Modulus of 9e6 Pa for the web structure and DragonSkin30 with a Young's Modulus of 0.6e6 Pa for the matrix. Through a uni-axial tensile test physics simulation, we can calculate the local strains of the sensor in both radial and spiral segments using a SOFA Python script controller.
 
